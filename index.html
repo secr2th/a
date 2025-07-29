@@ -3655,8 +3655,9 @@ input[type="checkbox"] {
       
     </style>
 </head>
+
 <body>
-        <div id="phone-screen">
+<div id="phone-screen">
             <div id="status-bar">
                 <span id="status-bar-time">12:00</span>
                 <div id="status-bar-battery" class="battery-container">
@@ -3666,29 +3667,29 @@ input[type="checkbox"] {
                     </div>
                 </div>
             </div>
-            <div id="notification-bar"><img id="notification-avatar" src=""><div id="notification-content"><div class="name"></div><div class="message"></div></div></div>
-            
+            <div id="notification-bar"><img id="notification-avatar" src=""><div id="notification-content"></img><div class="name"></div><div class="message"></div></div></div>
+
             <div id="home-screen" class="screen active">
                 <div id="clock-container"><div id="main-time">12:00</div><div id="main-date">월요일, 1月1日</div></div>
                                                 <div id="app-grid">
-                    <!-- 第一行：放2个图标 -->
+                    <!-- 第一行：放2个图标 --></!-->
                     <div class="app-row">
-                        <div class="app-icon" onclick="showScreen('world-book-screen')"><div class="icon-bg"><img src="https://i.postimg.cc/yNyV1CDT/IMG-7346.jpg" alt="월드인포"></div><span class="label">월드인포</span></div>
-                        <div class="app-icon" onclick="showScreen('chat-list-screen')"><div class="icon-bg"><img src="https://i.postimg.cc/cC479Wnk/IMG-7345.jpg" alt="QQ"></div><span class="label">QQ</span></div>
+                        <div class="app-icon" onclick="showScreen('world-book-screen')"><div class="icon-bg"><img src="https://i.postimg.cc/yNyV1CDT/IMG-7346.jpg" alt="월드인포"></div></img><span class="label">월드인포</span></div>
+                        <div class="app-icon" onclick="showScreen('chat-list-screen')"><div class="icon-bg"><img src="https://i.postimg.cc/cC479Wnk/IMG-7345.jpg" alt="QQ"></div></img><span class="label">QQ</span></div>
           </div>
-                    <!-- 第二行：放3个图标 -->
+                    <!-- 第二行：放3个图标 --></!-->
                     <div class="app-row">
-                        <div class="app-icon" onclick="showScreen('api-settings-screen')"><div class="icon-bg"><img src="https://i.postimg.cc/G37vLZYr/IMG-7352.jpg" alt="API 설정"></div><span class="label">API 설정</span></div>
-                        <div class="app-icon" onclick="showScreen('wallpaper-screen')"><div class="icon-bg"><img src="https://i.postimg.cc/1RJrg8kk/IMG-7348.jpg" alt="배경"></div><span class="label">배경</span></div>
+                        <div class="app-icon" onclick="showScreen('api-settings-screen')"><div class="icon-bg"><img src="https://i.postimg.cc/G37vLZYr/IMG-7352.jpg" alt="API 설정"></div></img><span class="label">API 설정</span></div>
+                        <div class="app-icon" onclick="showScreen('wallpaper-screen')"><div class="icon-bg"><img src="https://i.postimg.cc/1RJrg8kk/IMG-7348.jpg" alt="배경"></div></img><span class="label">배경</span></div>
                         <div class="app-icon" onclick="showScreen('font-settings-screen')">
-                            <div class="icon-bg"><img src="https://i.postimg.cc/sDbSS7wN/IMG-7349.jpg" alt="폰트"></div>
+                            <div class="icon-bg"><img src="https://i.postimg.cc/sDbSS7wN/IMG-7349.jpg" alt="폰트"></div></img>
                             <span class="label">폰트</span>
                         </div>
                     </div>                     </div>
             </div>
 
 
-          
+
             <div id="world-book-screen" class="screen"><div class="header"><span class="back-btn" onclick="showScreen('home-screen')">‹</span><span>월드인포</span><span class="action-btn" id="add-world-book-btn">+</span></div><div id="world-book-list"></div></div>
             <div id="world-book-editor-screen" class="screen">
                 <div class="header">
@@ -3699,7 +3700,7 @@ input[type="checkbox"] {
                 <div class="form-container">
                     <div class="form-group">
                         <label for="world-book-name-input">책 제목</label>
-                        <input type="text" id="world-book-name-input" placeholder="월드인포의 이름을 입력하십시오...">
+                        <input type="text" id="world-book-name-input" placeholder="월드인포의 이름을 입력하십시오..."></input>
                     </div>
                     <div class="form-group" style="height: 100%;">
                         <label for="world-book-content-input">내용</label>
@@ -3708,318 +3709,318 @@ input[type="checkbox"] {
                 </div>
             </div>
 
-            <div id="api-settings-screen" class="screen"><div class="header"><span class="back-btn" onclick="showScreen('home-screen')">‹</span><span>API 설치</span><span style="width: 30px;"></span></div><div class="form-container"><p style="font-size: 14px; color: #666; background-color: #f0f0f0; padding: 10px; border-radius: 8px;">提示: 若要使用“发送图片”功能, 请务必选择支持Vision(视觉)的模型, 如<code style="background-color: #e0e0e0; padding: 2px 4px; border-radius: 4px;">gpt-4o</code>或<code style="background-color: #e0e0e0; padding: 2px 4px; border-radius: 4px;">gpt-4-vision-preview</code>。</p><div class="form-group"><label for="proxy-url">反代地址 (不需要添加/v1噢~)</label><input type="text" id="proxy-url" placeholder="例如: https://api.openai.com"></div><div class="form-group"><label for="api-key">密钥 (API Key)</label><input type="password" id="api-key" placeholder="sk-..."></div><div class="form-group"><label for="model-select">模型</label><select id="model-select"></select></div><button class="form-button" id="fetch-models-btn">拉取模型</button>
+            <div id="api-settings-screen" class="screen"><div class="header"><span class="back-btn" onclick="showScreen('home-screen')">‹</span><span>API 설정</span><span style="width: 30px;"></span></div><div class="form-container"><p style="font-size: 14px; color: #666; background-color: #f0f0f0; padding: 10px; border-radius: 8px;">팁: '이미지 전송' 기능을 사용하려면 반드시 Vision(시각)을 지원하는 모델(예: <code style="background-color: #e0e0e0; padding: 2px 4px; border-radius: 4px;">gpt-4o</code> 또는 <code style="background-color: #e0e0e0; padding: 2px 4px; border-radius: 4px;">gpt-4-vision-preview</code>)을 선택하십시오.</p><div class="form-group"><label for="proxy-url">프록시 주소 (/v1을 추가할 필요 없습니다~)</label><input type="text" id="proxy-url" placeholder="예: https://api.openai.com"></div></input><div class="form-group"><label for="api-key">API 키</label><input type="password" id="api-key" placeholder="sk-..."></div></input><div class="form-group"><label for="model-select">모델</label><select id="model-select"></select></div><button class="form-button" id="fetch-models-btn">모델 불러오기</button>
 
-<!-- ▼▼▼ 将这段代码粘贴到 API 设置页面的“保存设置”按钮上方 ▼▼▼ -->
-<hr style="margin:20px 0; opacity:.3">
+<!-- ▼▼▼ 이 코드를 API 설정 페이지의 "설정 저장" 버튼 위에 붙여넣으세요 ▼▼▼ --></!-->
+<hr style="margin:20px 0; opacity:.3"></hr>
 <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
     <label for="background-activity-switch" style="margin-bottom: 0;">
-        启用后台角色活动
+        백그라운드 캐릭터 활동 활성화
         <p style="font-size: 12px; font-weight: normal; color: #ff6b6b; margin-top: 5px;">
-            警告：此功能会显著增加API调用和费用！
+            경고: 이 기능은 API 호출 및 비용을 크게 증가시킵니다!
         </p>
     </label>
-    <input type="checkbox" id="background-activity-switch" style="width: auto; height: 20px;">
+    <input type="checkbox" id="background-activity-switch" style="width: auto; height: 20px;"></input>
 </div>
-<!-- ▲▲▲ 粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 将这段代码粘贴到“启用后台角色活动”开关的下方 ▼▼▼ -->
+<!-- ▲▲▲ 붙여넣기 끝 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 이 코드를 "백그라운드 캐릭터 활동 활성화" 스위치 아래에 붙여넣으세요 ▼▼▼ --></!-->
 <div class="form-group" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
     <label for="background-interval-input" style="margin-bottom: 0;">
-        后台活动检测间隔 (秒)
+        백그라운드 활동 감지 간격 (초)
         <p style="font-size: 12px; font-weight: normal; color: #999; margin-top: 5px;">
-            建议值 60-300。值越大，费用越低，但角色反应越慢。
+            권장값 60-300. 값이 클수록 비용은 낮아지지만 캐릭터 반응은 느려집니다.
         </p>
     </label>
-    <input type="number" id="background-interval-input" min="30" value="60" style="width: 80px; text-align: center;">
+    <input type="number" id="background-interval-input" min="30" value="60" style="width: 80px; text-align: center;"></input>
 </div>
-<!-- ▲▲▲ 粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 在这里新增 ▼▼▼ -->
+<!-- ▲▲▲ 붙여넣기 끝 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 여기에 새로 추가 ▼▼▼ --></!-->
 <div class="form-group" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
     <label for="block-cooldown-input" style="margin-bottom: 0;">
-        AI被拉黑后冷静期 (小时)
+        AI 차단 후 대기 시간 (시간)
         <p style="font-size: 12px; font-weight: normal; color: #999; margin-top: 5px;">
-            被拉黑超过这个时间后，AI才有几率重新申请好友。
+            이 시간이 지나야 AI가 다시 친구 신청을 할 확률이 생깁니다.
         </p>
     </label>
-    <input type="number" id="block-cooldown-input" min="0.1" step="0.1" value="1" style="width: 80px; text-align: center;">
+    <input type="number" id="block-cooldown-input" min="0.1" step="0.1" value="1" style="width: 80px; text-align: center;"></input>
 </div>
-<!-- ▲▲▲ 新增结束 ▲▲▲ -->
-
-<button class="form-button" id="save-api-settings-btn">保存设置</button>
+<!-- ▲▲▲ 추가 끝 ▲▲▲ -->
+</!-->
+<button class="form-button" id="save-api-settings-btn">설정 저장</button>
 			<hr style="margin:20px 0; opacity:.3">
+</hr>
+			<button class="form-button" id="export-data-btn">데이터 내보내기</button>
 
-			<button class="form-button" id="export-data-btn">导出数据</button>
+<!-- ① 일반 버튼, "내보내기"와 같은 클래스 --></!-->
+<button class="form-button" id="import-btn">백업 파일 가져오기</button>
 
-<!-- ① 普通按钮，和“导出”一个 class -->
-<button class="form-button" id="import-btn">导入备份文件</button>
-
-<!-- ② 真正的文件选择器，完全隐藏 -->
-<input id="import-data-input" type="file" accept="application/json" hidden>
+<!-- ② 실제 파일 선택기, 완전히 숨김 --></!-->
+<input id="import-data-input" type="file" accept="application/json" hidden></input>
 </div></div>
-<!-- ▼▼▼ 用下面这段代码，完整替换掉你原来的 chat-list-screen ▼▼▼ -->
+<!-- ▼▼▼ 아래 코드로 기존의 chat-list-screen을 완전히 교체하세요 ▼▼▼ --></!-->
 <div id="chat-list-screen" class="screen">
-    
-    <!-- 主头部 (只在消息列表显示) -->
+
+    <!-- 주 헤더 (메시지 목록에만 표시) --></!-->
     <div class="header" id="main-chat-list-header">
         <span class="back-btn" onclick="showScreen('home-screen')">‹</span>
-        <span>消息</span>
+        <span>메시지</span>
         <div class="header-actions">
-            <span class="action-btn" id="add-group-chat-btn" title="创建群聊"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.5 17.5C19.1569 17.5 20.5 16.1569 20.5 14.5C20.5 12.8431 19.1569 11.5 17.5 11.5C15.8431 11.5 14.5 12.8431 14.5 14.5C14.5 16.1569 15.8431 17.5 17.5 17.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 11.5C10.1569 11.5 11.5 10.1569 11.5 8.5C11.5 6.84315 10.1569 5.5 8.5 5.5C6.84315 5.5 5.5 6.84315 5.5 8.5C5.5 10.1569 6.84315 11.5 8.5 11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.5 14.5H4.5C3.39543 14.5 2.5 15.3954 2.5 16.5V18.5H12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="action-btn" id="add-group-chat-btn" title="그룹 채팅 만들기"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.5 17.5C19.1569 17.5 20.5 16.1569 20.5 14.5C20.5 12.8431 19.1569 11.5 17.5 11.5C15.8431 11.5 14.5 12.8431 14.5 14.5C14.5 16.1569 15.8431 17.5 17.5 17.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></path><path d="M8.5 11.5C10.1569 11.5 11.5 10.1569 11.5 8.5C11.5 6.84315 10.1569 5.5 8.5 5.5C6.84315 5.5 5.5 6.84315 5.5 8.5C5.5 10.1569 6.84315 11.5 8.5 11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></path><path d="M12.5 14.5H4.5C3.39543 14.5 2.5 15.3954 2.5 16.5V18.5H12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></path></svg></path></span>
             <span class="action-btn" id="add-chat-btn">+</span>
         </div>
     </div>
 
-    <!-- 消息列表视图 -->
+    <!-- 메시지 목록 뷰 --></!-->
     <div id="messages-view" class="chat-list-view active">
         <div id="chat-list">
-            <!-- JS会在这里生成聊天列表 -->
+            <!-- JS가 여기에 채팅 목록을 생성합니다 --></!-->
         </div>
     </div>
 
-    <!-- 动态界面视图 -->
+    <!-- 소식 인터페이스 뷰 --></!-->
     <div id="qzone-screen" class="chat-list-view">
         <div class="qzone-header">
-            <span class="back-btn" id="qzone-back-btn">‹</span> <!-- 这个按钮现在只负责从动态返回 -->
-            <span>好友动态</span>
+            <span class="back-btn" id="qzone-back-btn">‹</span> <!-- 이 버튼은 이제 소식에서 돌아가는 기능만 담당합니다 --></!-->
+            <span>친구 소식</span>
         </div>
         <div class="qzone-content">
             <div class="qzone-profile-header">
                 <div id="qzone-banner-container" class="qzone-banner-container">
-                    <img id="qzone-banner-img" src="https://files.catbox.moe/r5heyt.gif" alt="背景">
-                    <input type="file" id="qzone-banner-input" accept="image/*" hidden>
+                    <img id="qzone-banner-img" src="https://files.catbox.moe/r5heyt.gif" alt="배경"></img>
+                    <input type="file" id="qzone-banner-input" accept="image/*" hidden></input>
                 </div>
                 <div class="qzone-user-info">
                     <div id="qzone-avatar-container" class="qzone-avatar-container">
-                        <img id="qzone-avatar-img" src="https://files.catbox.moe/q6z5fc.jpeg" alt="头像">
-                        <input type="file" id="qzone-avatar-input" accept="image/*" hidden>
+                        <img id="qzone-avatar-img" src="https://files.catbox.moe/q6z5fc.jpeg" alt="프로필 사진"></img>
+                        <input type="file" id="qzone-avatar-input" accept="image/*" hidden></input>
                     </div>
                     <span id="qzone-nickname">{{user}}</span>
                 </div>
             </div>
             <div class="qzone-actions-bar">
-                <div class="action-item" id="create-shuoshuo-btn"><span>说说</span></div>
-                <div class="action-item" id="create-post-btn"><span>动态</span></div>
-                <div class="action-item" id="open-album-btn"><span>相册</span></div>
+                <div class="action-item" id="create-shuoshuo-btn"><span>글쓰기</span></div>
+                <div class="action-item" id="create-post-btn"><span>피드</span></div>
+                <div class="action-item" id="open-album-btn"><span>앨범</span></div>
             </div>
             <div id="qzone-posts-list"></div>
         </div>
     </div>
 
-    <!-- 收藏界面视图 -->
+    <!-- 즐겨찾기 인터페이스 뷰 --></!-->
     <div id="favorites-view" class="chat-list-view">
-    <div class="header"> 
+    <div class="header">
         <span class="back-btn" id="favorites-back-btn">‹</span>
-        <span>我的收藏</span>
-        <!-- 新增的编辑按钮 -->
-        <span class="action-btn" id="favorites-edit-btn">编辑</span>
+        <span>내 즐겨찾기</span>
+        <!-- 새로 추가된 편집 버튼 --></!-->
+        <span class="action-btn" id="favorites-edit-btn">편집</span>
     </div>
 
-        <!-- 【新增】搜索栏容器 -->
+        <!-- 【추가】 검색창 컨테이너 --></!-->
         <div class="search-bar-container">
-            <input type="search" id="favorites-search-input" placeholder="搜索收藏的标题、内容或作者...">
+            <input type="search" id="favorites-search-input" placeholder="즐겨찾기 제목, 내용 또는 작성자 검색..."></input>
             <button id="favorites-search-clear-btn" class="search-clear-btn" style="display: none;">×</button>
         </div>
 
         <div id="favorites-list" class="list-container">
-            <!-- 收藏内容将由JS动态生成在这里 -->
+            <!-- 즐겨찾기 내용은 JS에 의해 동적으로 여기에 생성됩니다 --></!-->
         </div>
 
-<!-- 新增：收藏页底部操作栏 -->
+<!-- 추가: 즐겨찾기 페이지 하단 액션 바 --></!-->
 <div id="favorites-action-bar" style="display: none;">
-    <button id="favorites-delete-selected-btn" class="action-bar-btn">删除 (0)</button>
+    <button id="favorites-delete-selected-btn" class="action-bar-btn">삭제 (0)</button>
 </div>
 
     </div>
 
-<!-- ▼▼▼ 【全新】回忆录界面视图 ▼▼▼ -->
+<!-- ▼▼▼ 【신규】 추억 인터페이스 뷰 ▼▼▼ --></!-->
 <div id="memories-view" class="chat-list-view">
-    <div class="header"> 
+    <div class="header">
         <span class="back-btn" id="memories-back-btn">‹</span>
-        <span>我们的回忆</span>
+        <span>우리의 추억</span>
             <span class="action-btn" id="add-countdown-btn">+</span>
         </div>
     <div id="memories-list" class="list-container" style="padding: 15px; display: flex; flex-direction: column; gap: 15px;">
-        <!-- 回忆卡片将由JS动态生成在这里 -->
+        <!-- 추억 카드는 JS에 의해 동적으로 여기에 생성됩니다 --></!-->
     </div>
 </div>
-<!-- ▲▲▲ 新增HTML结束 ▲▲▲ -->
-    
-    <!-- 底部导航栏 -->
+<!-- ▲▲▲ 신규 HTML 끝 ▲▲▲ -->
+</!-->
+    <!-- 하단 네비게이션 바 --></!-->
 <div id="chat-list-bottom-nav">
     <div class="nav-item active" data-view="messages-view">
-        <span>消息</span>
+        <span>메시지</span>
     </div>
     <div class="nav-item" data-view="qzone-screen">
-        <span>动态</span>
+        <span>소식</span>
     </div>
-    <!-- ▼▼▼ 在“动态”和“收藏”之间，加入这个新页签 ▼▼▼ -->
+    <!-- ▼▼▼ "소식"과 "즐겨찾기" 사이에 이 새 탭을 추가하세요 ▼▼▼ --></!-->
     <div class="nav-item" data-view="memories-view">
-        <span>回忆</span>
+        <span>추억</span>
     </div>
-    <!-- ▲▲▲ 添加结束 ▲▲▲ -->
+    <!-- ▲▲▲ 추가 끝 ▲▲▲ --></!-->
     <div class="nav-item" data-view="favorites-view">
-        <span>收藏</span>
+        <span>즐겨찾기</span>
     </div>
 </div>
 </div>
-<!-- ▲▲▲ 替换区域结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 请将这段新的 HTML 粘贴到 id="chat-list-screen" 的 div 之后 ▼▼▼ -->
+<!-- ▲▲▲ 교체 영역 끝 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 이 새로운 HTML을 id="chat-list-screen"의 div 다음에 붙여넣으세요 ▼▼▼ --></!-->
 <div id="album-screen" class="screen">
-    <!-- 1. 页面头部，包含返回按钮和标题 -->
+    <!-- 1. 페이지 헤더, 뒤로가기 버튼과 제목 포함 --></!-->
     <div class="header">
         <span class="back-btn" id="album-back-btn">‹</span>
-        <span>我的相册</span>
+        <span>내 앨범</span>
         <span class="action-btn" id="create-album-btn-page">+</span>
     </div>
-    
-    <!-- 2. 页面内容容器 -->
+
+    <!-- 2. 페이지 내용 컨테이너 --></!-->
     <div class="list-container">
         <div id="album-grid-page">
-            <!-- 相册列表将由 JS 动态生成在这里 -->
+            <!-- 앨범 목록은 JS에 의해 동적으로 여기에 생성됩니다 --></!-->
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 新的 HTML 粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 请将这段新的 HTML 粘贴到 id="album-screen" 的 div 之后 ▼▼▼ -->
+<!-- ▲▲▲ 새로운 HTML 붙여넣기 끝 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 이 새로운 HTML을 id="album-screen"의 div 다음에 붙여넣으세요 ▼▼▼ --></!-->
 <div id="album-photos-screen" class="screen">
-    <!-- 1. 页面头部 -->
+    <!-- 1. 페이지 헤더 --></!-->
     <div class="header">
         <span class="back-btn" id="album-photos-back-btn">‹</span>
-        <span id="album-photos-title">相册名称</span>
-        <span class="action-btn" id="album-upload-photo-btn">上传</span>
+        <span id="album-photos-title">앨범 이름</span>
+        <span class="action-btn" id="album-upload-photo-btn">업로드</span>
     </div>
-    
-    <!-- 2. 页面内容容器 -->
+
+    <!-- 2. 페이지 내용 컨테이너 --></!-->
     <div class="list-container">
         <div id="photos-grid-page">
-            <!-- 照片列表将由 JS 动态生成在这里 -->
+            <!-- 사진 목록은 JS에 의해 동적으로 여기에 생성됩니다 --></!-->
         </div>
 
 
 <div id="photo-viewer-modal" class="modal">
-    <!-- 1. 关闭按钮 -->
+    <!-- 1. 닫기 버튼 --></!-->
     <button id="photo-viewer-close-btn">×</button>
-    
-    <!-- 2. 上一张照片按钮 -->
+
+    <!-- 2. 이전 사진 버튼 --></!-->
     <button id="photo-viewer-prev-btn" class="nav-arrow">‹</button>
-    
-    <!-- 3. 图片容器 -->
+
+    <!-- 3. 이미지 컨테이너 --></!-->
     <div class="photo-viewer-content">
-        <img id="photo-viewer-image" src="" alt="全屏照片预览">
+        <img id="photo-viewer-image" src="" alt="전체 화면 사진 미리보기"></img>
     </div>
-    
-    <!-- 4. 下一张照片按钮 -->
+
+    <!-- 4. 다음 사진 버튼 --></!-->
     <button id="photo-viewer-next-btn" class="nav-arrow">›</button>
 </div>
-<!-- ▲▲▲ 新的 HTML 粘贴结束 ▲▲▲ -->
-
+<!-- ▲▲▲ 새로운 HTML 붙여넣기 끝 ▲▲▲ -->
+</!-->
     </div>
 </div>
-<!-- ▲▲▲ 新的 HTML 粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 粘贴到 #album-photos-screen 的 div 之后 ▼▼▼ -->
+<!-- ▲▲▲ 새로운 HTML 붙여넣기 끝 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ #album-photos-screen의 div 다음에 붙여넣으세요 ▼▼▼ --></!-->
 <input type="file" id="album-photo-input" accept="image/*" multiple hidden>
-            
-<!-- ▼▼▼ 请用这【一整块】全新的代码，完整替换掉您文件中旧的 #chat-interface-screen 及其所有内容 ▼▼▼ -->
+</input>
+<!-- ▼▼▼ 이【전체】새로운 코드로 파일의 기존 #chat-interface-screen 및 모든 내용을 완전히 교체하세요 ▼▼▼ --></!-->
 <div id="chat-interface-screen" class="screen">
 
-    <!-- 【最终修正版】Header，已将状态栏和搜索功能正确整合 -->
+    <!-- 【최종 수정판】 헤더, 상태 표시줄과 검색 기능이 올바르게 통합됨 --></!-->
     <div class="header">
-        <!-- 默认控件：包含标题、状态栏和常规按钮 -->
+        <!-- 기본 컨트롤: 제목, 상태 표시줄 및 일반 버튼 포함 --></!-->
         <div class="default-controls">
             <span class="back-btn" id="back-to-list-btn">‹</span>
-            
-            <!-- ▼▼▼ 【核心新增】标题和状态的容器 ▼▼▼ -->
+
+            <!-- ▼▼▼ 【핵심 추가】 제목과 상태 컨테이너 ▼▼▼ --></!-->
             <div id="chat-header-title-wrapper">
-                <span id="chat-header-title">聊天对象</span>
+                <span id="chat-header-title">채팅 상대</span>
                 <div id="chat-header-status">
                     <span class="status-dot"></span>
-                    <span class="status-text">在线</span>
+                    <span class="status-text">온라인</span>
                 </div>
             </div>
-            <!-- ▲▲▲ 新增结束 ▲▲▲ -->
-
+            <!-- ▲▲▲ 추가 끝 ▲▲▲ -->
+</!-->
             <div class="header-actions">
-                <span class="action-btn" id="listen-together-btn" title="一起听"><img src="https://i.postimg.cc/dV8sdNcx/210-20250618115221.png" alt="一起听"></span>
-                <span class="action-btn" id="chat-settings-btn" title="聊天设置"><img src="https://i.postimg.cc/R04MT1MV/210-20250618115233.png" alt="设置"></span>
+                <span class="action-btn" id="listen-together-btn" title="함께 듣기"><img src="https://i.postimg.cc/dV8sdNcx/210-20250618115221.png" alt="함께 듣기"></span></img>
+                <span class="action-btn" id="chat-settings-btn" title="채팅 설정"><img src="https://i.postimg.cc/R04MT1MV/210-20250618115233.png" alt="설정"></span></img>
             </div>
         </div>
 
-        <!-- 多选模式控件 (保持不变) -->
+        <!-- 다중 선택 모드 컨트롤 (변경 없음) --></!-->
         <div class="selection-controls">
-            <span id="selection-cancel-btn">取消</span>
+            <span id="selection-cancel-btn">취소</span>
             <span id="selection-count"></span>
             <div class="header-actions">
-               <span id="selection-favorite-btn" class="action-btn">收藏</span>
-               <span id="selection-delete-btn" class="action-btn" style="color: #ff3b30;">删除</span>
+               <span id="selection-favorite-btn" class="action-btn">즐겨찾기</span>
+               <span id="selection-delete-btn" class="action-btn" style="color: #ff3b30;">삭제</span>
             </div>
         </div>
     </div>
-    
-    <!-- 聊天消息区域 (保持不变) -->
-    <div id="chat-messages"><div id="typing-indicator">对方正在输入...</div></div>
 
-    <!-- 输入区域 (保持不变) -->
+    <!-- 채팅 메시지 영역 (변경 없음) --></!-->
+    <div id="chat-messages"><div id="typing-indicator">상대방이 입력 중...</div></div>
+
+    <!-- 입력 영역 (변경 없음) --></!-->
     <div id="chat-input-area">
         <div id="chat-input-actions-top">
-            <button id="open-sticker-panel-btn" class="chat-action-icon-btn action-button" title="表情面板">+</button>
-            <button id="send-photo-btn" class="chat-action-icon-btn action-button" title="发送照片"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></button>
-            <button id="upload-image-btn" class="chat-action-icon-btn action-button" title="上传图片"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--text-primary);"><path d="M21 3.5H3C2.44772 3.5 2 3.94772 2 4.5V19.5C2 20.0523 2.44772 20.5 3 20.5H21C21.5523 20.5 22 20.0523 22 19.5V4.5C22 3.94772 21.5523 3.5 21 3.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 13.5C17.6046 13.5 18.5 12.6046 18.5 11.5C18.5 10.3954 17.6046 9.5 16.5 9.5C15.3954 9.5 14.5 10.3954 14.5 11.5C14.5 12.6046 15.3954 13.5 16.5 13.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 14.5L18 10.5L10.3333 18.5M12.5 16L9 12.5L2 19.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button id="transfer-btn" class="chat-action-icon-btn action-button" title="转账">￥</button>
-            <button id="voice-message-btn" class="chat-action-icon-btn action-button" title="发送语音"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v4"/><path d="M8 23h8"/></svg></button>
-<!-- ▼▼▼ 将这行新代码粘贴到“发送语音”按钮的后面 ▼▼▼ -->
-<button id="send-waimai-request-btn" class="chat-action-icon-btn action-button" title="发起外卖请求"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></button>
-<!-- ▲▲▲ 新代码粘贴结束 ▲▲▲ -->
-<!-- ▼▼▼ 【新增】视频通话按钮 ▼▼▼ -->
-<button id="video-call-btn" class="chat-action-icon-btn action-button" title="视频通话"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></button>
-<!-- ▲▲▲ 新增结束 ▲▲▲
-<!-- ▼▼▼群视频通话按钮 ▼▼▼ -->
-<button id="group-video-call-btn" class="chat-action-icon-btn action-button" title="群视频通话"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></button>
-<!-- ▲▲▲ 全新添加结束 ▲▲▲ -->
-<!-- ▼▼▼发起投票按钮▼▼▼ -->
-<button id="send-poll-btn" class="chat-action-icon-btn action-button" title="发起投票"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h10"/><path d="M6 6h.01"/><path d="M8 12h10"/><path d="M6 12h.01"/><path d="M8 18h10"/><path d="M6 18h.01"/></svg></button>
-<!-- ▲▲▲ 替换结束 ▲▲▲ -->
+            <button id="open-sticker-panel-btn" class="chat-action-icon-btn action-button" title="이모티콘 패널">+</button>
+            <button id="send-photo-btn" class="chat-action-icon-btn action-button" title="사진 전송"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></path></svg></circle></button>
+            <button id="upload-image-btn" class="chat-action-icon-btn action-button" title="이미지 업로드"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--text-primary);"><path d="M21 3.5H3C2.44772 3.5 2 3.94772 2 4.5V19.5C2 20.0523 2.44772 20.5 3 20.5H21C21.5523 20.5 22 20.0523 22 19.5V4.5C22 3.94772 21.5523 3.5 21 3.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 13.5C17.6046 13.5 18.5 12.6046 18.5 11.5C18.5 10.3954 17.6046 9.5 16.5 9.5C15.3954 9.5 14.5 10.3954 14.5 11.5C14.5 12.6046 15.3954 13.5 16.5 13.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></path><path d="M22 14.5L18 10.5L10.3333 18.5M12.5 16L9 12.5L2 19.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></path></svg></path></button>
+            <button id="transfer-btn" class="chat-action-icon-btn action-button" title="송금">￥</button>
+            <button id="voice-message-btn" class="chat-action-icon-btn action-button" title="음성 메시지 보내기"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></path><path d="M12 19v4"/></path><path d="M8 23h8"/></path></svg></path></button>
+<!-- ▼▼▼ 이 새 코드를 "음성 메시지 보내기" 버튼 뒤에 붙여넣으세요 ▼▼▼ --></!-->
+<button id="send-waimai-request-btn" class="chat-action-icon-btn action-button" title="배달 음식 요청"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></path><path d="M16 10a4 4 0 0 1-8 0"/></line></svg></path></button>
+<!-- ▲▲▲ 새 코드 붙여넣기 끝 ▲▲▲ --></!-->
+<!-- ▼▼▼ 【신규】 영상 통화 버튼 ▼▼▼ --></!-->
+<button id="video-call-btn" class="chat-action-icon-btn action-button" title="영상 통화"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></button>
+<!-- ▲▲▲ 신규 끝 ▲▲▲
+<!-- ▼▼▼ 그룹 영상 통화 버튼 ▼▼▼ --></!-->
+<button id="group-video-call-btn" class="chat-action-icon-btn action-button" title="그룹 영상 통화"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></path></svg></button>
+<!-- ▲▲▲ 신규 추가 끝 ▲▲▲ --></!-->
+<!-- ▼▼▼ 투표 시작하기 버튼 ▼▼▼ --></!-->
+<button id="send-poll-btn" class="chat-action-icon-btn action-button" title="투표 시작하기"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h10"/><path d="M6 6h.01"/></path><path d="M8 12h10"/></path><path d="M6 12h.01"/></path><path d="M8 18h10"/><path d="M6 18h.01"/></svg></button>
+<!-- ▲▲▲ 교체 끝 ▲▲▲ --></!-->
         </div>
         <div id="chat-input-main-row">
-            <textarea id="chat-input" rows="1" placeholder="输入消息..."></textarea>
+            <textarea id="chat-input" rows="1" placeholder="메시지 입력..."></textarea>
             <div id="input-actions-wrapper">
-                <button id="wait-reply-btn" title="等待回复"><img src="https://i.postimg.cc/2SwjsfZQ/IMG-6913.gif" alt="等待回复"></button>
-                <button id="send-btn" class="action-button">发送</button>
+                <button id="wait-reply-btn" title="답장 대기"><img src="https://i.postimg.cc/2SwjsfZQ/IMG-6913.gif" alt="답장 대기"></button></img>
+                <button id="send-btn" class="action-button">전송</button>
             </div>
         </div>
     </div>
 
-<!-- ▼▼▼ 在这里新增 ▼▼▼ -->
+<!-- ▼▼▼ 여기에 새로 추가 ▼▼▼ --></!-->
 <div id="chat-lock-overlay">
     <div id="chat-lock-content"></div>
 </div>
-<!-- ▲▲▲ 新增结束 ▲▲▲ -->
-
-    <!-- 表情面板 (保持不变) -->
+<!-- ▲▲▲ 추가 끝 ▲▲▲ -->
+</!-->
+    <!-- 이모티콘 패널 (변경 없음) --></!-->
     <div id="sticker-panel">
         <div id="sticker-panel-header">
-            <span class="panel-btn" id="close-sticker-panel-btn">取消</span>
-            <span class="title">我的表情</span>
+            <span class="panel-btn" id="close-sticker-panel-btn">취소</span>
+            <span class="title">내 이모티콘</span>
             <div style="display: flex; gap: 10px;">
-              <span class="panel-btn" id="add-sticker-btn">添加</span>
-              <span class="panel-btn" id="upload-sticker-btn">上传</span>
+              <span class="panel-btn" id="add-sticker-btn">추가</span>
+              <span class="panel-btn" id="upload-sticker-btn">업로드</span>
             </div>
         </div>
         <div id="sticker-grid"></div>
     </div>
-    <input type="file" id="sticker-upload-input" accept="image/*" style="display: none;">
+    <input type="file" id="sticker-upload-input" accept="image/*" style="display: none;"></input>
     <input type="file" id="image-upload-input" accept="image/*" style="display: none;">
-    
 
-<!-- ▼▼▼ 用这块完整的代码，替换掉你旧的整个 music-player-overlay ▼▼▼ -->
+</input>
+<!-- ▼▼▼ 이 전체 코드로 기존의 music-player-overlay를 완전히 교체하세요 ▼▼▼ --></!-->
 <div id="music-player-overlay">
     <div class="music-player-window">
-        
-        <!-- 1. 顶部操作栏 (保持不变) -->
+
+        <!-- 1. 상단 액션 바 (변경 없음) --></!-->
         <div class="music-player-top-actions">
             <div class="top-left-cluster">
                 <button id="music-return-btn">‹</button>
@@ -4027,23 +4028,23 @@ input[type="checkbox"] {
             </div>
             <span id="music-playlist-btn">☰</span>
         </div>
-        
-        <!-- 2. 歌曲信息 (保持不变) -->
-        <div id="music-time-counter">已经一起听了0.0小时</div>
-        <div id="music-player-song-title">请添加歌曲</div>
+
+        <!-- 2. 노래 정보 (변경 없음) --></!-->
+        <div id="music-time-counter">함께 들은 지 0.0시간</div>
+        <div id="music-player-song-title">노래를 추가해주세요</div>
         <div id="music-player-artist">...</div>
-        
-        <!-- 3. 【全新】歌词显示区域 -->
+
+        <!-- 3. 【신규】 가사 표시 영역 --></!-->
         <div id="music-lyrics-container">
             <div id="music-lyrics-list">
-                <!-- 歌词将由JS动态生成在这里 -->
-                <div class="lyric-line">♪ 暂无歌词 ♪</div>
+                <!-- 가사는 JS에 의해 동적으로 여기에 생성됩니다 --></!-->
+                <div class="lyric-line">♪ 가사 없음 ♪</div>
             </div>
         </div>
-        
-        <!-- 4. 【位置调整后】的播放控制部分 -->
+
+        <!-- 4. 【위치 조정 후】 재생 제어 부분 --></!-->
         <div class="music-player-controls-wrapper">
-            <!-- a. iOS风格进度条 -->
+            <!-- a. iOS 스타일 진행률 표시줄 --></!-->
             <div class="music-progress-bar-container">
                 <div id="music-current-time" class="time-display">0:00</div>
                 <div class="progress-bar">
@@ -4051,562 +4052,565 @@ input[type="checkbox"] {
                 </div>
                 <div id="music-total-time" class="time-display">0:00</div>
             </div>
-            
-            <!-- b. 播放控制按钮 -->
+
+            <!-- b. 재생 제어 버튼 --></!-->
             <div class="music-controls">
                 <button id="music-prev-btn">◀</button>
                 <button id="music-play-pause-btn" class="play-pause-btn">▶</button>
                 <button id="music-next-btn">▶</button>
-                <button id="music-mode-btn">顺序</button>
+                <button id="music-mode-btn">순차 재생</button>
             </div>
         </div>
 
     </div>
 </div>
-    
+
     <div id="music-playlist-panel">
         <div class="playlist-header">
-            <span class="panel-btn" id="close-playlist-btn">返回</span>
-            <span>播放列表</span>
+            <span class="panel-btn" id="close-playlist-btn">돌아가기</span>
+            <span>재생 목록</span>
             <div>
-                <span class="panel-btn" id="add-song-local-btn">本地</span>
+                <span class="panel-btn" id="add-song-local-btn">로컬 파일</span>
                 <span class="panel-btn" id="add-song-url-btn">URL</span>
             </div>
         </div>
         <div class="playlist-body" id="playlist-body"></div>
     </div>
-    <input type="file" id="local-song-upload-input" accept="audio/*" multiple style="display: none;">
-  <input type="file" id="lrc-upload-input" accept=".lrc" style="display: none;">
+    <input type="file" id="local-song-upload-input" accept="audio/*" multiple style="display: none;"></input>
+  <input type="file" id="lrc-upload-input" accept=".lrc" style="display: none;"></input>
 </div>
 
 
-            <div id="wallpaper-screen" class="screen"><div class="header"><span class="back-btn" onclick="showScreen('home-screen')">‹</span><span>壁纸设置</span><span style="width: 30px;"></span></div><div class="form-container"><div id="wallpaper-preview">点击下方上传</div><button class="form-button" onclick="document.getElementById('wallpaper-upload-input').click();">上传壁纸</button><input type="file" id="wallpaper-upload-input" accept="image/*"><button class="form-button" id="save-wallpaper-btn">保存并应用</button></div></div>
+            <div id="wallpaper-screen" class="screen"><div class="header"><span class="back-btn" onclick="showScreen('home-screen')">‹</span><span>배경화면 설정</span><span style="width: 30px;"></span></div><div class="form-container"><div id="wallpaper-preview">아래를 클릭하여 업로드</div><button class="form-button" onclick="document.getElementById('wallpaper-upload-input').click();">배경화면 업로드</button><input type="file" id="wallpaper-upload-input" accept="image/*"><button class="form-button" id="save-wallpaper-btn">저장 및 적용</input></button></div></div>
 
 <div id="font-settings-screen" class="screen">
     <div class="header">
         <span class="back-btn" onclick="showScreen('home-screen')">‹</span>
-        <span>字体设置</span>
+        <span>글꼴 설정</span>
         <span style="width: 30px;"></span>
     </div>
     <div class="form-container">
         <div class="form-group">
-            <label for="font-url-input">字体文件URL (.ttf, .otf, .woff等)</label>
-            <input type="text" id="font-url-input" placeholder="https://..../font.ttf">
+            <label for="font-url-input">글꼴 파일 URL (.ttf, .otf, .woff 등)</label>
+            <input type="text" id="font-url-input" placeholder="https://..../font.ttf"></input>
         </div>
 
         <div class="form-group">
-            <label>实时预览</label>
+            <label>실시간 미리보기</label>
             <div id="font-preview" style="padding: 20px; border: 1px solid var(--border-color); border-radius: 8px; background-color: #f9f9f9;">
-                <p style="font-size: 20px; margin: 0 0 10px 0;">你好世界 Hello World</p>
-                <p style="margin: 0;">这是字体预览效果，12345。</p>
+                <p style="font-size: 20px; margin: 0 0 10px 0;">안녕하세요 Hello World</p>
+                <p style="margin: 0;">이것은 글꼴 미리보기 효과입니다. 12345.</p>
             </div>
         </div>
 
-        <button class="form-button" id="save-font-btn">保存并应用</button>
-        <button class="form-button form-button-secondary" id="reset-font-btn">恢复默认字体</button>
+        <button class="form-button" id="save-font-btn">저장 및 적용</button>
+        <button class="form-button form-button-secondary" id="reset-font-btn">기본 글꼴로 복원</button>
     </div>
 </div>
 
-<!-- ▼▼▼ 【全新】选择联系人以创建群聊的屏幕 ▼▼▼ -->
+<!-- ▼▼▼ 【신규】 그룹 채팅 생성을 위해 연락처를 선택하는 화면 ▼▼▼ --></!-->
 <div id="contact-picker-screen" class="screen">
     <div class="header">
-        <span class="back-btn" id="cancel-contact-picker-btn">取消</span>
-        <span>选择联系人</span>
-        <span class="save-btn" id="confirm-contact-picker-btn">完成(0)</span>
+        <span class="back-btn" id="cancel-contact-picker-btn">취소</span>
+        <span>연락처 선택</span>
+        <span class="save-btn" id="confirm-contact-picker-btn">완료(0)</span>
     </div>
     <div class="list-container" id="contact-picker-list">
-        <!-- 联系人列表将由JS动态生成 -->
+        <!-- 연락처 목록은 JS에 의해 동적으로 생성됩니다 --></!-->
     </div>
 </div>
-<!-- ▲▲▲ 新HTML粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 【全新】群成员管理屏幕 ▼▼▼ -->
+<!-- ▲▲▲ 신규 HTML 붙여넣기 끝 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 【신규】 그룹 멤버 관리 화면 ▼▼▼ --></!-->
 <div id="member-management-screen" class="screen">
     <div class="header">
         <span class="back-btn" id="back-from-member-management">‹</span>
-        <span>群成员管理</span>
+        <span>그룹 멤버 관리</span>
         <span style="width: 30px;"></span>
     </div>
     <div class="list-container" id="member-management-list">
-        <!-- 现有成员列表会在这里动态生成 -->
+        <!-- 기존 멤버 목록이 여기에 동적으로 생성됩니다 --></!-->
     </div>
     <div id="member-management-actions">
-        <button id="add-existing-contact-btn">从好友列表添加</button>
-        <button id="create-new-member-btn">创建群内新成员</button>
+        <button id="add-existing-contact-btn">친구 목록에서 추가</button>
+        <button id="create-new-member-btn">그룹 내 새 멤버 만들기</button>
     </div>
 </div>
-<!-- ▲▲▲ 新HTML粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 【全新】来电请求模态框 ▼▼▼ -->
+<!-- ▲▲▲ 신규 HTML 붙여넣기 끝 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 【신규】 전화 수신 요청 모달창 ▼▼▼ --></!-->
 <div id="incoming-call-modal" class="modal">
     <div class="incoming-call-content">
-        <img id="caller-avatar" class="caller-avatar" src="">
+        <img id="caller-avatar" class="caller-avatar" src=""></img>
         <div id="caller-name" class="caller-name"></div>
-        <div class="caller-text">邀请你视频通话</div>
+        <div class="caller-text">님이 영상 통화를 요청했습니다</div>
         <div class="incoming-call-actions">
             <div class="action-button-wrapper">
                 <button id="decline-call-btn" class="call-action-btn decline"></button>
-                <span>拒绝</span>
+                <span>거절</span>
             </div>
             <div class="action-button-wrapper">
                 <button id="accept-call-btn" class="call-action-btn accept"></button>
-                <span>接听</span>
+                <span>수락</span>
             </div>
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 新增结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 请用这段【全新群聊兼容结构】的代码，完整替换你旧的 #video-call-screen ▼▼▼ -->
+<!-- ▲▲▲ 추가 끝 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 이【신규 그룹 채팅 호환 구조】코드로 기존 #video-call-screen을 완전히 교체하세요 ▼▼▼ --></!-->
 <div id="video-call-screen" class="screen">
-    <!-- 1. 顶部栏 (保持不变) -->
+    <!-- 1. 상단 바 (변경 없음) --></!-->
     <div class="video-call-top-bar">
         <span id="call-timer">00:00</span>
     </div>
-    
-    <!-- 2. 【升级】参与者头像网格区域 -->
+
+    <!-- 2. 【업그레이드】 참가자 프로필 사진 그리드 영역 --></!-->
     <div class="video-call-avatar-area">
         <div id="participant-avatars-grid">
-            <!-- JS会在这里动态生成头像 -->
+            <!-- JS가 여기에 프로필 사진을 동적으로 생성합니다 --></!-->
         </div>
     </div>
 
-    <!-- 3. 对话框区域 (保持不变) -->
+    <!-- 3. 대화창 영역 (변경 없음) --></!-->
     <div id="video-call-main" class="video-call-main">
-        <!-- 对话内容会动态生成在这里 -->
+        <!-- 대화 내용은 동적으로 여기에 생성됩니다 --></!-->
     </div>
-    
-    <!-- 4. 【升级】底部控制栏，现在包含一个“加入”按钮 -->
+
+    <!-- 4. 【업그레이드】 하단 제어 바, 이제 "참가" 버튼 포함 --></!-->
     <div class="video-call-controls">
         <button id="user-speak-btn" class="control-btn speak-btn"></button>
         <button id="hang-up-btn" class="control-btn hangup-btn"></button>
-        <!-- 这个按钮默认隐藏，只在用户“旁观”时显示 -->
+        <!-- 이 버튼은 기본적으로 숨겨져 있으며, 사용자가 "관전"할 때만 표시됩니다 --></!-->
         <button id="join-call-btn" class="control-btn join-btn" style="display: none;"></button>
     </div>
 </div>
-<!-- ▲▲▲ 替换结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 【全新添加】正在呼叫界面 ▼▼▼ -->
+<!-- ▲▲▲ 교체 끝 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 【신규 추가】 전화 거는 중 화면 ▼▼▼ --></!-->
 <div id="outgoing-call-screen" class="screen">
     <div class="outgoing-call-content">
-        <img id="outgoing-call-avatar" class="caller-avatar" src="">
+        <img id="outgoing-call-avatar" class="caller-avatar" src=""></img>
         <div id="outgoing-call-name" class="caller-name"></div>
-        <div class="caller-text">正在呼叫...</div>
+        <div class="caller-text">연결 중...</div>
         <div class="outgoing-call-actions">
             <button id="cancel-call-btn" class="call-action-btn decline"></button>
-            <span>取消</span>
+            <span>취소</span>
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 添加结束 ▲▲▲ -->
-
+<!-- ▲▲▲ 추가 끝 ▲▲▲ --></!-->
         </div>
     </div>
-  
-    <div id="chat-settings-modal" class="modal"><div class="modal-content"><div class="modal-header"><span>聊天设置</span></div><div class="modal-body"><div class="form-group" id="chat-name-group"><label for="chat-name-input">备注名 / 群名</label><input type="text" id="chat-name-input"></div>
 
-    <!-- ▼▼▼ 请将这段新代码粘贴到“备注名”输入框的 form-group 之后 ▼▼▼ -->
-    <div class="form-group" id="assign-group-section" style="display: none;"> <!-- 默认隐藏，只对单聊显示 -->
-        <label for="assign-group-select">好友分组</label>
+    <div id="chat-settings-modal" class="modal"><div class="modal-content"><div class="modal-header"><span>채팅 설정</span></div><div class="modal-body"><div class="form-group" id="chat-name-group"><label for="chat-name-input">별명 / 그룹 이름</label><input type="text" id="chat-name-input"></div>
+</input>
+    <!-- ▼▼▼ 이 새 코드를 "별명" 입력창의 form-group 다음에 붙여넣으세요 ▼▼▼ --></!-->
+    <div class="form-group" id="assign-group-section" style="display: none;"> <!-- 기본 숨김, 단독 채팅에만 표시 --></!-->
+        <label for="assign-group-select">친구 그룹</label>
         <div style="display: flex; align-items: center; gap: 10px;">
             <select id="assign-group-select" style="flex-grow: 1;">
-                <!-- 分组选项将由JS动态生成 -->
+                <!-- 그룹 옵션은 JS에 의해 동적으로 생성됩니다 --></!-->
             </select>
-            <button id="manage-groups-btn" class="form-button-secondary" style="margin-top: 0; padding: 12px;">管理分组</button>
+            <button id="manage-groups-btn" class="form-button-secondary" style="margin-top: 0; padding: 12px;">그룹 관리</button>
         </div>
     </div>
-    <!-- ▲▲▲ 新代码粘贴结束 ▲▲▲ -->
-
-<div class="form-group" id="my-group-nickname-group"><label for="my-group-nickname-input">我的群昵称</label><input type="text" id="my-group-nickname-input"></div><div class="form-group" id="group-avatar-group"><label>群头像</label><div class="avatar-upload"><img id="group-avatar-preview"><button onclick="document.getElementById('group-avatar-input').click()">上传群头像</button><input type="file" id="group-avatar-input" accept="image/*"></div></div>
+    <!-- ▲▲▲ 새 코드 붙여넣기 끝 ▲▲▲ -->
+</!-->
+<div class="form-group" id="my-group-nickname-group"><label for="my-group-nickname-input">내 그룹 닉네임</label><input type="text" id="my-group-nickname-input"></div></input><div class="form-group" id="group-avatar-group"><label>그룹 프로필 사진</label><div class="avatar-upload"><img id="group-avatar-preview"><button onclick="document.getElementById('group-avatar-input').click()">그룹 프로필 사진 업로드</img></button><input type="file" id="group-avatar-input" accept="image/*"></div></input></div>
             <div class="form-group" id="world-book-link-group">
-                <label>关联世界书 (可多选)</label>
+                <label>월드북 연결 (다중 선택 가능)</label>
                 <div class="custom-multiselect">
                     <div class="select-box">
-                        <span class="selected-options-text">-- 点击选择 --</span>
+                        <span class="selected-options-text">-- 클릭하여 선택 --</span>
                         <span class="arrow-down">▼</span>
                     </div>
                     <div id="world-book-checkboxes-container" class="checkboxes-container">
                     </div>
                 </div>
             </div>
-            <div class="form-group" id="ai-persona-group"><label for="ai-persona">对方人设 (AI Persona)</label><textarea id="ai-persona" rows="3"></textarea></div><div class="form-group" id="ai-avatar-group"><label>对方头像</label><div class="avatar-upload"><img id="ai-avatar-preview"><button onclick="document.getElementById('ai-avatar-input').click()">上传对方头像</button><button id="manage-ai-avatar-library-btn" class="form-button-secondary" style="margin-top:0; padding: 8px 12px; font-size: 14px;">管理头像库</button>
-<button class="change-frame-btn" data-type="ai">更换头像框</button><input type="file" id="ai-avatar-input" accept="image/*"></div></div><div class="form-group" id="my-persona-group"><label for="my-persona">我的人设 (My Persona)</label><textarea id="my-persona" rows="3"></textarea></div><div class="form-group" id="my-avatar-group"><label>我的头像</label><div class="avatar-upload"><img id="my-avatar-preview"><button onclick="document.getElementById('my-avatar-input').click()">上传我的头像</button><button class="change-frame-btn" data-type="my">更换头像框</button><button id="open-persona-library-btn">预设</button><input type="file" id="my-avatar-input" accept="image/*"></div></div><div class="form-group" id="group-members-group"><label>群成员人设</label><div id="group-members-settings"></div>
+            <div class="form-group" id="ai-persona-group"><label for="ai-persona">상대방 설정 (AI Persona)</label><textarea id="ai-persona" rows="3"></textarea></div><div class="form-group" id="ai-avatar-group"><label>상대방 프로필 사진</label><div class="avatar-upload"><img id="ai-avatar-preview"><button onclick="document.getElementById('ai-avatar-input').click()">상대 프로필 사진 업로드</img></button><button id="manage-ai-avatar-library-btn" class="form-button-secondary" style="margin-top:0; padding: 8px 12px; font-size: 14px;">프로필 사진 라이브러리 관리</button>
+<button class="change-frame-btn" data-type="ai">프로필 테두리 변경</button><input type="file" id="ai-avatar-input" accept="image/*"></div></input></div><div class="form-group" id="my-persona-group"><label for="my-persona">나의 설정 (My Persona)</label><textarea id="my-persona" rows="3"></textarea></div><div class="form-group" id="my-avatar-group"><label>내 프로필 사진</label><div class="avatar-upload"><img id="my-avatar-preview"><button onclick="document.getElementById('my-avatar-input').click()">내 프로필 사진 업로드</img></button><button class="change-frame-btn" data-type="my">프로필 테두리 변경</button><button id="open-persona-library-btn">프리셋</button><input type="file" id="my-avatar-input" accept="image/*"></div></input></div><div class="form-group" id="group-members-group"><label>그룹 멤버 설정</label><div id="group-members-settings"></div>
 
-    <!-- 【新增】管理成员按钮 -->
-    <button id="manage-members-btn" class="form-button form-button-secondary" style="margin-top: 15px;">管理群成员</button></div>
-<div class="form-group"><label for="max-memory">上下文记忆条数</label><input type="number" id="max-memory" value="10"></div><div class="form-group"><label>聊天气泡主题 <button id="reset-theme-btn" type="button">重置</button></label><div class="theme-selector"><label><input type="radio" name="theme-select" value="default" id="theme-default"> 默认</label>
-<label><input type="radio" name="theme-select" value="black_gray"> 黑灰</label>
-<label><input type="radio" name="theme-select" value="black_blue"> 黑蓝</label>
-<label><input type="radio" name="theme-select" value="black_pink"> 黑粉</label>
-<label><input type="radio" name="theme-select" value="black_red"> 黑红</label>
-<label><input type="radio" name="theme-select" value="black_purple"> 黑紫</label>
-<label><input type="radio" name="theme-select" value="black_light_blue"> 黑浅蓝</label>
-<label><input type="radio" name="theme-select" value="black_light_green"> 黑淡绿</label></div></div>
+    <!-- 【신규】 멤버 관리 버튼 --></!-->
+    <button id="manage-members-btn" class="form-button form-button-secondary" style="margin-top: 15px;">그룹 멤버 관리</button></div>
+<div class="form-group"><label for="max-memory">대화 기억 개수</label><input type="number" id="max-memory" value="10"></div></input><div class="form-group"><label>채팅 말풍선 테마 <button id="reset-theme-btn" type="button">초기화</button></label><div class="theme-selector"><label><input type="radio" name="theme-select" value="default" id="theme-default"> 기본</input></label>
+<label><input type="radio" name="theme-select" value="black_gray"> 블랙그레이</input></label>
+<label><input type="radio" name="theme-select" value="black_blue"> 블랙블루</input></label>
+<label><input type="radio" name="theme-select" value="black_pink"> 블랙핑크</input></label>
+<label><input type="radio" name="theme-select" value="black_red"> 블랙레드</input></label>
+<label><input type="radio" name="theme-select" value="black_purple"> 블랙퍼플</input></label>
+<label><input type="radio" name="theme-select" value="black_light_blue"> 블랙라이트블루</input></label>
+<label><input type="radio" name="theme-select" value="black_light_green"> 블랙라이트그린</input></label></div></div>
 
 <div class="form-group">
-    <label for="font-size-slider">聊天字体大小 <span id="font-size-value">13px</span></label>
-    <input type="range" id="font-size-slider" min="12" max="20" step="1" value="13" style="width: 100%; margin-top: 8px;">
+    <label for="font-size-slider">채팅 글자 크기 <span id="font-size-value">13px</span></label>
+    <input type="range" id="font-size-slider" min="12" max="20" step="1" value="13" style="width: 100%; margin-top: 8px;"></input>
 </div>
 
 <div class="form-group">
     <label for="custom-css-input">
-        自定义气泡样式 (CSS)
-        <button id="reset-custom-css-btn" type="button" style="background: none; border: 1px solid #ccc; color: #555; font-size: 12px; padding: 2px 8px; border-radius: 5px; cursor: pointer; margin-left: 10px;">重置</button>
+        사용자 정의 말풍선 스타일 (CSS)
+        <button id="reset-custom-css-btn" type="button" style="background: none; border: 1px solid #ccc; color: #555; font-size: 12px; padding: 2px 8px; border-radius: 5px; cursor: pointer; margin-left: 10px;">초기화</button>
     </label>
-    <textarea id="custom-css-input" rows="5" style="width: 100%; margin-top: 8px; font-family: monospace; font-size: 12px; resize: vertical;" placeholder="/* 示例：为“我”的气泡添加渐变背景和阴影 */
+    <textarea id="custom-css-input" rows="5" style="width: 100%; margin-top: 8px; font-family: monospace; font-size: 12px; resize: vertical;" placeholder="/* 예시: '나'의 말풍선에 그라데이션 배경과 그림자 추가 */
 .message-bubble.user .content {
   background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   border-radius: 15px 4px 15px 15px;
 }"></textarea>
 </div>
-<!-- ▲▲▲ 新代码粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 请将这段新代码粘贴到自定义CSS输入框的 form-group 之后 ▼▼▼ -->
+<!-- ▲▲▲ 새 코드 붙여넣기 끝 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 이 새 코드를 사용자 정의 CSS 입력창의 form-group 다음에 붙여넣으세요 ▼▼▼ --></!-->
 <div class="form-group">
-    <label>实时预览</label>
+    <label>실시간 미리보기</label>
     <div id="settings-preview-area">
-        <!-- JS会在这里生成预览内容 -->
+        <!-- JS가 여기에 미리보기 내용을 생성합니다 --></!-->
     </div>
 </div>
-<!-- ▲▲▲ 新代码粘贴结束 ▲▲▲ -->
-
+<!-- ▲▲▲ 새 코드 붙여넣기 끝 ▲▲▲ -->
+</!-->
             <div class="form-group">
-                <label>聊天背景</label>
+                <label>채팅 배경</label>
                 <div class="bg-upload-container">
-                    <button type="button" class="form-button-secondary" style="width: auto; padding: 8px 12px; margin-top: 0;" onclick="document.getElementById('bg-input').click()">上传背景图</button>
-                    <button type="button" id="remove-bg-btn">移除背景</button>
+                    <button type="button" class="form-button-secondary" style="width: auto; padding: 8px 12px; margin-top: 0;" onclick="document.getElementById('bg-input').click()">배경 이미지 업로드</button>
+                    <button type="button" id="remove-bg-btn">배경 제거</button>
                 </div>
-                <img id="bg-preview" class="bg-preview-img">
-                <input type="file" id="bg-input" accept="image/*" style="display: none;">
+                <img id="bg-preview" class="bg-preview-img"></img>
+                <input type="file" id="bg-input" accept="image/*" style="display: none;"></input>
             </div>
-<hr style="margin: 25px 0; border: none; border-top: 1px solid #eee;">
-<button class="form-button form-button-secondary" id="block-chat-btn" style="background-color: #ff3b30; color: white; border-color: #ff3b30;">拉黑对方</button>
-<button class="form-button form-button-secondary" id="clear-chat-btn">清空聊天记录</button></div><div class="modal-footer"><button class="cancel" id="cancel-chat-settings-btn">取消</button><button class="save" id="save-chat-settings-btn">保存</button></div></div></div>
-    
-    <div id="persona-library-modal" class="modal"><div class="modal-content"><div class="modal-header"><span>我的人设库</span><button id="add-persona-preset-btn" class="action-button">添加</button></div><div class="modal-body"><div id="persona-library-grid"></div></div><div class="modal-footer"><button class="cancel" id="close-persona-library-btn">关闭</button></div></div></div>
-    
-    <div id="persona-editor-modal" class="modal"><div class="modal-content"><div class="modal-header"><span id="persona-editor-title">添加人设预设</span></div><div class="modal-body"><div class="form-group"><label>预设头像</label><div class="avatar-upload"><img id="preset-avatar-preview"><button onclick="document.getElementById('preset-avatar-input').click()">上传头像</button><input type="file" id="preset-avatar-input" accept="image/*"></div></div><div class="form-group"><label for="preset-persona-input">预设人设</label><textarea id="preset-persona-input" rows="4" placeholder="在此输入这个人设的详细设定..."></textarea></div></div><div class="modal-footer"><button class="cancel" id="cancel-persona-editor-btn">取消</button><button class="save" id="save-persona-preset-btn">保存</button></div></div></div>
+<hr style="margin: 25px 0; border: none; border-top: 1px solid #eee;"></hr>
+<button class="form-button form-button-secondary" id="block-chat-btn" style="background-color: #ff3b30; color: white; border-color: #ff3b30;">상대방 차단</button>
+<button class="form-button form-button-secondary" id="clear-chat-btn">채팅 기록 삭제</button></div><div class="modal-footer"><button class="cancel" id="cancel-chat-settings-btn">취소</button><button class="save" id="save-chat-settings-btn">저장</button></div></div></div>
 
-    <div id="member-settings-modal" class="modal"><div class="modal-content"><div class="modal-header"><span>编辑群成员</span></div><div class="modal-body">
-    <div class="form-group"><label for="member-name-input">名字</label><input type="text" id="member-name-input"></div>
-    <div class="form-group"><label for="member-persona-input">人设</label><textarea id="member-persona-input" rows="4"></textarea></div>
-    <div class="form-group"><label>头像</label><div class="avatar-upload"><img id="member-avatar-preview"><button onclick="document.getElementById('member-avatar-input').click()">上传头像</button><button class="change-frame-btn" data-type="member">更换头像框</button><input type="file" id="member-avatar-input" accept="image/*"></div></div>
-    </div><div class="modal-footer"><button class="cancel" id="cancel-member-settings-btn">取消</button><button class="save" id="save-member-settings-btn">保存</button></div></div></div>
-    
-    <div id="custom-modal-overlay">
+    <div id="persona-library-modal" class="modal"><div class="modal-content"><div class="modal-header"><span>내 페르소나 라이브러리</span><button id="add-persona-preset-btn" class="action-button">추가</button></div><div class="modal-body"><div id="persona-library-grid"></div></div><div class="modal-footer"><button class="cancel" id="close-persona-library-btn">닫기</button></div></div></div>
+
+    <div id="persona-editor-modal" class="modal"><div class="modal-content"><div class="modal-header"><span id="persona-editor-title">페르소나 프리셋 추가</span></div><div class="modal-body"><div class="form-group"><label>프리셋 프로필 사진</label><div class="avatar-upload"><img id="preset-avatar-preview"><button onclick="document.getElementById('preset-avatar-input').click()">프로필 사진 업로드</img></button><input type="file" id="preset-avatar-input" accept="image/*"></div></input></div><div class="form-group"><label for="preset-persona-input">프리셋 페르소나</label><textarea id="preset-persona-input" rows="4" placeholder="여기에 이 페르소나의 상세 설정을 입력하세요..."></textarea></div></div><div class="modal-footer"><button class="cancel" id="cancel-persona-editor-btn">취소</button><button class="save" id="save-persona-preset-btn">저장</button></div></div></div>
+
+    <div id="member-settings-modal" class="modal"><div class="modal-content"><div class="modal-header"><span>그룹 멤버 편집</span></div><div class="modal-body">
+    <div class="form-group"><label for="member-name-input">이름</label><input type="text" id="member-name-input"></div></input>
+    <div class="form-group"><label for="member-persona-input">설정</label><textarea id="member-persona-input" rows="4"></textarea></div>
+    <div class="form-group"><label>프로필 사진</label><div class="avatar-upload"><img id="member-avatar-preview"><button onclick="document.getElementById('member-avatar-input').click()">프로필 사진 업로드</img></button><button class="change-frame-btn" data-type="member">프로필 테두리 변경</button><input type="file" id="member-avatar-input" accept="image/*"></div></input></div>
+    </div><div class="modal-footer"><button class="cancel" id="cancel-member-settings-btn">취소</button><button class="save" id="save-member-settings-btn">저장</button></div></div></div>
+
+- 이름: 테스트 페르소나
+
+[새 채팅 시작]
+
+<div id="custom-modal-overlay">
         <div id="custom-modal">
             <div class="custom-modal-header" id="custom-modal-title"></div>
             <div class="custom-modal-body" id="custom-modal-body"></div>
             <div class="custom-modal-footer">
-                <button id="custom-modal-cancel">取消</button>
-                <button id="custom-modal-confirm" class="confirm-btn">确定</button>
+                <button id="custom-modal-cancel">취소</button>
+                <button id="custom-modal-confirm" class="confirm-btn">확인</button>
             </div>
         </div>
     </div>
-    
+
     <div id="preset-actions-modal" class="modal">
         <div id="custom-modal" style="width: 250px;">
             <div class="custom-modal-footer">
-                <button id="preset-action-edit">编辑预设</button>
-                <button id="preset-action-delete" class="btn-danger">删除预设</button>
-                <button id="preset-action-cancel" style="margin-top: 8px; border-radius: 8px; background-color: #f0f0f0;">取消</button>
+                <button id="preset-action-edit">프리셋 편집</button>
+                <button id="preset-action-delete" class="btn-danger">프리셋 삭제</button>
+                <button id="preset-action-cancel" style="margin-top: 8px; border-radius: 8px; background-color: #f0f0f0;">취소</button>
             </div>
         </div>
     </div>
 
     <div id="transfer-modal">
         <div class="transfer-content">
-            <div class="transfer-header">给Ta一个惊喜！</div>
+            <div class="transfer-header">그에게 서프라이즈를!</div>
             <div class="transfer-input-group">
-                <label for="transfer-amount">转账金额</label>
-                <input type="number" id="transfer-amount" placeholder="0.00" min="0" max="9999" step="0.01">
+                <label for="transfer-amount">이체 금액</label>
+                <input type="number" id="transfer-amount" placeholder="0.00" min="0" max="9999" step="0.01"></input>
             </div>
             <div class="transfer-input-group">
-                <label for="transfer-note">备注 (可选)</label>
-                <input type="text" id="transfer-note" placeholder="留下你的小心思~" maxlength="20">
+                <label for="transfer-note">메모 (선택 사항)</label>
+                <input type="text" id="transfer-note" placeholder="당신의 마음을 남겨보세요~" maxlength="20"></input>
             </div>
             <div class="transfer-actions">
-                <button id="transfer-cancel-btn">取消</button>
-                <button id="transfer-confirm-btn">确认转账</button>
+                <button id="transfer-cancel-btn">취소</button>
+                <button id="transfer-confirm-btn">이체 확인</button>
             </div>
         </div>
     </div>
 
  <div id="battery-alert-modal">
     <div class="battery-alert-content">
-        <img id="battery-alert-image" src="">
+        <img id="battery-alert-image" src=""></img>
         <p id="battery-alert-text"></p>
     </div>
 </div>
 
-<!-- 头像框选择模态框 (这是新添加的) -->
+<!-- 프로필 테두리 선택 모달 (새로 추가됨) --></!-->
     <div id="avatar-frame-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span>选择头像框</span>
+                <span>프로필 테두리 선택</span>
             </div>
             <div class="modal-body">
                 <div class="frame-tabs">
-                    <div id="ai-frame-tab" class="frame-tab active">对方的</div>
-                    <div id="my-frame-tab" class="frame-tab">我的</div>
+                    <div id="ai-frame-tab" class="frame-tab active">상대방</div>
+                    <div id="my-frame-tab" class="frame-tab">나의</div>
                 </div>
                 <div id="ai-frame-content" class="frame-content">
                     <div id="ai-frame-grid" class="frame-grid">
-                        <!-- AI头像框会动态生成在这里 -->
+                        <!-- AI 프로필 테두리가 여기에 동적으로 생성됩니다 --></!-->
                     </div>
                 </div>
                 <div id="my-frame-content" class="frame-content" style="display: none;">
                      <div id="my-frame-grid" class="frame-grid">
-                        <!-- 我的头像框会动态生成在这里 -->
+                        <!-- 나의 프로필 테두리가 여기에 동적으로 생성됩니다 --></!-->
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="cancel" id="cancel-frame-settings-btn">取消</button>
-                <button class="save" id="save-frame-settings-btn">保存</button>
+                <button class="cancel" id="cancel-frame-settings-btn">취소</button>
+                <button class="save" id="save-frame-settings-btn">저장</button>
             </div>
         </div>
     </div>
 
     <audio id="audio-player" style="display:none;"></audio>
 
-<!-- ▼▼▼ 用下面这段【完整】的模态框代码，替换掉你现有的 id="create-post-modal" 的整个 div ▼▼▼ -->
+<!-- ▼▼▼ 아래의 【전체】 모달 코드로 기존의 id="create-post-modal" 전체 div를 교체하세요 ▼▼▼ --></!-->
 <div id="create-post-modal" class="modal">
     <div class="modal-content" style="height: auto; max-height: 90%;">
         <div class="modal-header">
-            <span>发布动态</span>
+            <span>포스트 게시</span>
         </div>
         <div class="modal-body">
-            <!-- 公开文字输入区 -->
+            <!-- 공개 텍스트 입력 영역 --></!-->
             <div class="form-group">
-                <textarea id="post-public-text" rows="3" placeholder="分享新鲜事...（非必填的公开文字）"></textarea>
+                <textarea id="post-public-text" rows="3" placeholder="새로운 소식을 공유하세요... (선택 사항인 공개 텍스트)"></textarea>
             </div>
 
-            <!-- === 模式切换开关 (新增) === -->
+            <!-- === 모드 전환 스위치 (신규) === --></!-->
             <div class="post-mode-switcher">
-                <button id="switch-to-image-mode" class="mode-btn active">上传图片</button>
-                <button id="switch-to-text-image-mode" class="mode-btn">使用文字图</button>
+                <button id="switch-to-image-mode" class="mode-btn active">이미지 업로드</button>
+                <button id="switch-to-text-image-mode" class="mode-btn">텍스트 이미지 사용</button>
             </div>
 
-<!-- ▼▼▼ 【修正后】的可见范围设置 ▼▼▼ -->
+<!-- ▼▼▼ 【수정 후】 공개 범위 설정 ▼▼▼ --></!-->
 <div class="form-group">
-    <label>可见范围</label>
+    <label>공개 범위</label>
     <div id="post-visibility-options" style="display: flex; gap: 15px; margin-bottom: 10px;">
-        <label><input type="radio" name="visibility" value="public" checked> 公开</label>
+        <label><input type="radio" name="visibility" value="public" checked> 공개</input></label>
 
-        <label><input type="radio" name="visibility" value="include"> 指定分组可见</label>
+        <label><input type="radio" name="visibility" value="include"> 지정 그룹에게만 공개</input></label>
     </div>
     <div id="post-visibility-groups" style="display: none; max-height: 120px; overflow-y: auto; background: #f9f9f9; padding: 10px; border-radius: 8px;">
-        <!-- 分组多选框将由JS动态生成 -->
+        <!-- 그룹 선택란은 JS에 의해 동적으로 생성됩니다 --></!-->
     </div>
 </div>
-<!-- ▲▲▲ 修正结束 ▲▲▲ -->
-
-            <!-- === 图片模式区域 === -->
+<!-- ▲▲▲ 수정 종료 ▲▲▲ -->
+</!-->
+            <!-- === 이미지 모드 영역 === --></!-->
             <div id="image-mode-content" class="post-mode-content active">
                 <div class="form-group">
 <div id="post-image-preview-container" class="post-image-preview-container">
-                        <img id="post-image-preview" src="" alt="图片预览">
+                        <img id="post-image-preview" src="" alt="이미지 미리보기"></img>
                         <button id="post-remove-image-btn">×</button>
                     </div>
                     <div class="post-image-upload-options">
-                        <button id="post-upload-local-btn" class="form-button-secondary">本地上传</button>
-                        <button id="post-use-url-btn" class="form-button-secondary">网络URL</button>
-                        <input type="file" id="post-local-image-input" accept="image/*" hidden>
+                        <button id="post-upload-local-btn" class="form-button-secondary">로컬 업로드</button>
+                        <button id="post-use-url-btn" class="form-button-secondary">웹 URL</button>
+                        <input type="file" id="post-local-image-input" accept="image/*" hidden></input>
                     </div>
                 </div>
                 <div id="post-image-desc-group" class="form-group" style="display: none;">
-                    <label>图片描述 (必填，给AI看)</label>
-                    <input type="text" id="post-image-description" placeholder="简单描述图片内容，帮助AI理解">
+                    <label>이미지 설명 (필수, AI용)</label>
+                    <input type="text" id="post-image-description" placeholder="이미지 내용을 간단히 설명하여 AI가 이해하도록 돕습니다"></input>
                 </div>
             </div>
 
-            <!-- === 文字图模式区域 (新增) === -->
+            <!-- === 텍스트 이미지 모드 영역 (신규) === --></!-->
             <div id="text-image-mode-content" class="post-mode-content">
                 <div class="form-group">
-                    <label>文字图 (给AI理解用的描述，点击图片后可见)</label>
-                    <textarea id="post-hidden-text" rows="4" placeholder="在这里写下图片描述..."></textarea>
+                    <label>텍스트 이미지 (AI 이해를 돕는 설명, 이미지 클릭 후 표시됨)</label>
+                    <textarea id="post-hidden-text" rows="4" placeholder="여기에 이미지 설명을 작성하세요..."></textarea>
                 </div>
             </div>
 
         </div>
         <div class="modal-footer">
-            <button class="cancel" id="cancel-create-post-btn">取消</button>
-            <button class="save" id="confirm-create-post-btn">发布</button>
+            <button class="cancel" id="cancel-create-post-btn">취소</button>
+            <button class="save" id="confirm-create-post-btn">게시</button>
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 替换结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 请将这个新的模态框HTML粘贴到所有其他模态框之后 ▼▼▼ -->
+<!-- ▲▲▲ 교체 종료 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 이 새로운 모달 HTML을 다른 모든 모달 뒤에 붙여넣으세요 ▼▼▼ --></!-->
 <div id="group-management-modal" class="modal">
     <div class="modal-content" style="height: 60%;">
         <div class="modal-header">
-            <span>管理好友分组</span>
+            <span>친구 그룹 관리</span>
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <label>新建分组</label>
+                <label>새 그룹 만들기</label>
                 <div style="display: flex; gap: 10px;">
-                    <input type="text" id="new-group-name-input" placeholder="输入分组名..." style="flex-grow: 1;">
-                    <button id="add-new-group-btn" class="form-button" style="width: auto; margin-top: 0; padding: 0 15px;">添加</button>
+                    <input type="text" id="new-group-name-input" placeholder="그룹 이름 입력..." style="flex-grow: 1;"></input>
+                    <button id="add-new-group-btn" class="form-button" style="width: auto; margin-top: 0; padding: 0 15px;">추가</button>
                 </div>
             </div>
-            <hr style="opacity: 0.2;">
+            <hr style="opacity: 0.2;"></hr>
             <div id="existing-groups-list" style="display: flex; flex-direction: column; gap: 10px;">
-                <!-- 分组列表将由JS动态生成 -->
+                <!-- 그룹 목록은 JS에 의해 동적으로 생성됩니다 --></!-->
             </div>
         </div>
         <div class="modal-footer">
-            <button class="save" id="close-group-manager-btn" style="width: 100%;">完成</button>
+            <button class="save" id="close-group-manager-btn" style="width: 100%;">완료</button>
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 新代码粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 请将这段新HTML粘贴到所有模态框的末尾 ▼▼▼ -->
+<!-- ▲▲▲ 새 코드 붙여넣기 종료 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 이 새로운 HTML을 모든 모달의 끝에 붙여넣으세요 ▼▼▼ --></!-->
 <div id="message-actions-modal" class="modal">
     <div id="custom-modal" style="width: 250px;">
         <div class="custom-modal-footer">
-            <!-- 新的操作按钮 -->
-            <button id="edit-message-btn">编辑消息</button>
-            <button id="copy-message-btn">复制文本</button>
-            <button id="select-message-btn">进入多选</button>
-            <!-- 取消按钮 -->
-            <button id="cancel-message-action-btn" style="margin-top: 8px; border-radius: 8px; background-color: #f0f0f0;">取消</button>
+            <!-- 새로운 작업 버튼 --></!-->
+            <button id="edit-message-btn">메시지 편집</button>
+            <button id="copy-message-btn">텍스트 복사</button>
+            <button id="select-message-btn">다중 선택 모드</button>
+            <!-- 취소 버튼 --></!-->
+            <button id="cancel-message-action-btn" style="margin-top: 8px; border-radius: 8px; background-color: #f0f0f0;">취소</button>
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 新HTML粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 请将这段新HTML粘贴到所有模态框的末尾 ▼▼▼ -->
+<!-- ▲▲▲ 새 HTML 붙여넣기 종료 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 이 새로운 HTML을 모든 모달의 끝에 붙여넣으세요 ▼▼▼ --></!-->
 <div id="post-actions-modal" class="modal">
     <div id="custom-modal" style="width: 250px;">
         <div class="custom-modal-footer">
-            <button id="edit-post-btn">编辑动态</button>
-            <button id="copy-post-btn">复制内容</button>           
-            <button id="cancel-post-action-btn">取消</button>
+            <button id="edit-post-btn">포스트 편집</button>
+            <button id="copy-post-btn">내용 복사</button>
+            <button id="cancel-post-action-btn">취소</button>
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 新HTML粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 【全新】可视化消息编辑器模态框 ▼▼▼ -->
+<!-- ▲▲▲ 새 HTML 붙여넣기 종료 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 【신규】 시각적 메시지 편집기 모달 ▼▼▼ --></!-->
 <div id="message-editor-modal" class="modal">
     <div class="modal-content" style="height: 75%;">
         <div class="modal-header">
-            <span>编辑与拆分消息</span>
+            <span>메시지 편집 및 분할</span>
         </div>
         <div class="modal-body" id="message-editor-body">
-            <!-- 编辑器容器，JS会在这里动态生成文本框 -->
+            <!-- 편집기 컨테이너, JS가 여기에 텍스트 상자를 동적으로 생성합니다 --></!-->
             <div id="message-editor-container"></div>
-            <!-- 添加新消息的按钮 -->
+            <!-- 새 메시지 추가 버튼 --></!-->
             <button id="add-message-editor-block-btn" class="form-button form-button-secondary" style="margin-top: 15px;">
-                [+] 添加下一条消息
+                [+] 다음 메시지 추가
             </button>
         </div>
         <div class="modal-footer">
-            <button class="cancel" id="cancel-advanced-editor-btn">取消</button>
-            <button class="save" id="save-advanced-editor-btn">保存更改</button>
+            <button class="cancel" id="cancel-advanced-editor-btn">취소</button>
+            <button class="save" id="save-advanced-editor-btn">변경 사항 저장</button>
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 新HTML粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 【全新】外卖请求模态框 ▼▼▼ -->
+<!-- ▲▲▲ 새 HTML 붙여넣기 종료 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 【신규】 배달 음식 요청 모달 ▼▼▼ --></!-->
 <div id="waimai-request-modal" class="modal">
     <div class="modal-content" style="width: 290px;">
         <div class="modal-header">
-            <span>发起外卖代付</span>
+            <span>배달음식 결제 요청</span>
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <label for="waimai-product-info">商品信息</label>
-                <input type="text" id="waimai-product-info" placeholder="例如：一杯杨枝甘露">
+                <label for="waimai-product-info">상품 정보</label>
+                <input type="text" id="waimai-product-info" placeholder="예: 망고 자몽 사고 한 잔"></input>
             </div>
             <div class="form-group">
-                <label for="waimai-amount">代付金额 (元)</label>
-                <input type="number" id="waimai-amount" placeholder="例如：21" min="0" step="0.01">
+                <label for="waimai-amount">결제 요청 금액 (원)</label>
+                <input type="number" id="waimai-amount" placeholder="예: 21000" min="0" step="0.01"></input>
             </div>
         </div>
         <div class="modal-footer">
-            <button class="cancel" id="waimai-cancel-btn">取消</button>
-            <button class="save" id="waimai-confirm-btn">发起请求</button>
+            <button class="cancel" id="waimai-cancel-btn">취소</button>
+            <button class="save" id="waimai-confirm-btn">요청 보내기</button>
         </div>
     </div>
 </div>
 
-<!-- ▼▼▼ 【全新】新建约定/倒计时模态框 ▼▼▼ -->
+<!-- ▼▼▼ 【신규】 새 약속/카운트다운 모달 ▼▼▼ --></!-->
 <div id="create-countdown-modal" class="modal">
     <div class="modal-content" style="height: auto;">
         <div class="modal-header">
-            <span>新建约定</span>
+            <span>새 약속 만들기</span>
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <label for="countdown-title-input">约定标题</label>
-                <input type="text" id="countdown-title-input" placeholder="例如：我的生日">
+                <label for="countdown-title-input">약속 제목</label>
+                <input type="text" id="countdown-title-input" placeholder="예: 내 생일"></input>
             </div>
             <div class="form-group">
-                <label for="countdown-date-input">约定日期与时间</label>
-                <input type="datetime-local" id="countdown-date-input">
+                <label for="countdown-date-input">약속 날짜와 시간</label>
+                <input type="datetime-local" id="countdown-date-input"></input>
             </div>
         </div>
         <div class="modal-footer">
-            <button class="cancel" id="cancel-create-countdown-btn">取消</button>
-            <button class="save" id="confirm-create-countdown-btn">保存约定</button>
+            <button class="cancel" id="cancel-create-countdown-btn">취소</button>
+            <button class="save" id="confirm-create-countdown-btn">약속 저장</button>
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 新HTML粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 【全新】发红包模态框 ▼▼▼ -->
+<!-- ▲▲▲ 새 HTML 붙여넣기 종료 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 【신규】 용돈 보내기 모달 ▼▼▼ --></!-->
 <div id="red-packet-modal" class="modal">
     <div class="modal-content" style="width: 300px; height: auto;">
         <div class="modal-header">
-            <span>发红包</span>
+            <span>용돈 보내기</span>
         </div>
         <div class="modal-body" style="padding: 0;">
-            <!-- 1. 页签切换 -->
+            <!-- 1. 탭 전환 --></!-->
             <div class="frame-tabs">
-                <div id="rp-tab-group" class="frame-tab active">拼手气红包</div>
-                <div id="rp-tab-direct" class="frame-tab">专属红包</div>
+                <div id="rp-tab-group" class="frame-tab active">랜덤 용돈</div>
+                <div id="rp-tab-direct" class="frame-tab">지정 용돈</div>
             </div>
 
-            <!-- 2. 拼手气红包内容区 -->
+            <!-- 2. 랜덤 용돈 내용 영역 --></!-->
             <div id="rp-content-group" class="frame-content" style="padding: 20px 15px;">
                 <div class="form-group">
-                    <label>总金额 (元)</label>
-                    <input type="number" id="rp-group-amount" placeholder="0.00">
+                    <label>총 금액 (원)</label>
+                    <input type="number" id="rp-group-amount" placeholder="0.00"></input>
                 </div>
                 <div class="form-group">
-                    <label>红包个数</label>
-                    <input type="number" id="rp-group-count" placeholder="填写红包个数">
+                    <label>용돈 액수</label>
+                    <input type="number" id="rp-group-count" placeholder="용돈 액수를 입력하세요"></input>
                 </div>
                 <div class="form-group">
-                    <label>祝福语</label>
-                    <input type="text" id="rp-group-greeting" placeholder="恭喜发财，大吉大利！">
+                    <label>축하 메시지</label>
+                    <input type="text" id="rp-group-greeting" placeholder="복 많이 받으세요!"></input>
                 </div>
-                <p id="rp-group-total" style="text-align: center; font-size: 24px; font-weight: bold; margin: 10px 0;">¥ 0.00</p>
-                <button id="send-group-packet-btn" class="form-button">塞钱进红包</button>
+                <p id="rp-group-total" style="text-align: center; font-size: 24px; font-weight: bold; margin: 10px 0;">₩ 0</p>
+                <button id="send-group-packet-btn" class="form-button">용돈 봉투에 넣기</button>
             </div>
 
-            <!-- 3. 专属红包内容区 -->
+            <!-- 3. 지정 용돈 내용 영역 --></!-->
             <div id="rp-content-direct" class="frame-content" style="display: none; padding: 20px 15px;">
                 <div class="form-group">
-                    <label>发送给</label>
+                    <label>받는 사람</label>
                     <select id="rp-direct-receiver"></select>
                 </div>
                 <div class="form-group">
-                    <label>金额 (元)</label>
-                    <input type="number" id="rp-direct-amount" placeholder="0.00">
+                    <label>금액 (원)</label>
+                    <input type="number" id="rp-direct-amount" placeholder="0.00"></input>
                 </div>
                 <div class="form-group">
-                    <label>祝福语</label>
-                    <input type="text" id="rp-direct-greeting" placeholder="恭喜发财，大吉大利！">
+                    <label>축하 메시지</label>
+                    <input type="text" id="rp-direct-greeting" placeholder="복 많이 받으세요!"></input>
                 </div>
-                 <p id="rp-direct-total" style="text-align: center; font-size: 24px; font-weight: bold; margin: 10px 0;">¥ 0.00</p>
+                 <p id="rp-direct-total" style="text-align: center; font-size: 24px; font-weight: bold; margin: 10px 0;">₩ 0</p>
                 <button id="send-direct-packet-btn" class="form-button">송금하기</button>
             </div>
         </div>
@@ -4615,9 +4619,9 @@ input[type="checkbox"] {
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 新HTML粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 【全新】红包详情模态框 ▼▼▼ -->
+<!-- ▲▲▲ 새 HTML 붙여넣기 종료 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 【신규】 용돈 상세 정보 모달 ▼▼▼ --></!-->
 <div id="red-packet-details-modal" class="modal">
     <div class="modal-content" style="width: 280px; height: auto; background-color: #f7f7f7;">
         <div class="modal-header" style="background-color: #F96259; color: white; border-bottom: none; padding-bottom: 5px;">
@@ -4630,11 +4634,11 @@ input[type="checkbox"] {
             <p id="rp-details-greeting" style="text-align: center; font-size: 20px; color: #333; margin: 0 0 20px 0;"></p>
             <div id="rp-details-my-amount" style="text-align: center; display: none; margin-bottom: 20px;">
                 <span style="font-size: 40px; font-weight: bold; color: #E44D44;">0.00</span>
-                <span style="font-size: 18px; color: #E44D44;">¥</span>
+                <span style="font-size: 18px; color: #E44D44;">₩</span>
             </div>
             <div id="rp-details-summary" style="font-size: 13px; color: #8a8a8a; border-top: 1px solid #e0e0e0; padding-top: 10px;"></div>
             <div id="rp-details-list" style="max-height: 150px; overflow-y: auto; margin-top: 10px;">
-                <!-- 领取详情将由JS动态生成在这里 -->
+                <!-- 받은 내역이 여기에 동적으로 생성됩니다 --></!-->
             </div>
         </div>
         <div class="modal-footer">
@@ -4642,22 +4646,22 @@ input[type="checkbox"] {
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 新HTML粘贴结束 ▲▲▲ -->
-<!-- ▼▼▼ 【全新】创建投票模态框 ▼▼▼ -->
+<!-- ▲▲▲ 새 HTML 붙여넣기 종료 ▲▲▲ --></!-->
+<!-- ▼▼▼ 【신규】 투표 만들기 모달 ▼▼▼ --></!-->
 <div id="create-poll-modal" class="modal">
     <div class="modal-content" style="width: 300px; height: auto;">
         <div class="modal-header">
-            <span>투표를 개시하다.</span>
+            <span>투표 개시</span>
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <label for="poll-question-input">투표 문제</label>
-                <textarea id="poll-question-input" rows="2" placeholder="오늘 밤 우리는 어떤 영화를 보나요?"></textarea>
+                <label for="poll-question-input">투표 주제</label>
+                <textarea id="poll-question-input" rows="2" placeholder="오늘 밤 어떤 영화를 볼까요?"></textarea>
             </div>
             <div class="form-group">
                 <label>투표 옵션 (최소 2개)</label>
                 <div id="poll-options-container" style="display: flex; flex-direction: column; gap: 8px;">
-                    <!-- 投票选项将由JS动态生成在这里 -->
+                    <!-- 투표 옵션이 여기에 동적으로 생성됩니다 --></!-->
                 </div>
                 <button id="add-poll-option-btn" class="form-button form-button-secondary" style="margin-top: 12px;">+ 옵션 추가</button>
             </div>
@@ -4668,9 +4672,9 @@ input[type="checkbox"] {
         </div>
     </div>
 </div>
-<!-- ▲▲▲ 新HTML粘贴结束 ▲▲▲ -->
-
-<!-- ▼▼▼ 【全新】AI头像库管理模态框 ▼▼▼ -->
+<!-- ▲▲▲ 새 HTML 붙여넣기 종료 ▲▲▲ -->
+</!-->
+<!-- ▼▼▼ 【신규】 AI 프로필 사진 라이브러리 관리 모달 ▼▼▼ --></!-->
 <div id="ai-avatar-library-modal" class="modal">
     <div class="modal-content" style="height: 70%;">
         <div class="modal-header">
@@ -4679,7 +4683,7 @@ input[type="checkbox"] {
         </div>
         <div class="modal-body" style="padding: 15px;">
             <div id="ai-avatar-library-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 15px;">
-                <!-- 头像库内容将由JS动态生成 -->
+                <!-- 라이브러리 내용은 JS에 의해 동적으로 생성됩니다 --></!-->
             </div>
         </div>
         <div class="modal-footer">
@@ -4687,6 +4691,8 @@ input[type="checkbox"] {
         </div>
     </div>
 </div>
+
+
 
 <!-- ▲▲▲ 新HTML粘贴结束 ▲▲▲ -->
 

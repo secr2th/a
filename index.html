@@ -5694,7 +5694,7 @@ async function importBackup(file) {
             await db.globalSettings.put(state.globalSettings);
             document.getElementById('font-url-input').value = '';
             document.getElementById('font-preview').style.fontFamily = '';
-            alert('기본 글꼴이 복원되었습니다.');
+            alert('已恢复默认字体。');
         }
 
 async function loadAllDataFromDB() {
@@ -7351,7 +7351,7 @@ case 'change_avatar':
             } else {
                 videoCallState = { ...videoCallState, isAwaitingResponse: false, participants: [] };
                 showScreen('chat-interface-screen');
-                alert('단체 채팅방 초대를 받는 사람이 없다.');
+                alert('无人接听群聊邀请。');
             }
         }
         
@@ -7361,7 +7361,7 @@ case 'change_avatar':
         chat.history = chat.history.filter(msg => !msg.isTemporary);
         if (!chat.isGroup && chat.relationship?.status === 'pending_ai_approval') {
             chat.relationship.status = 'blocked_by_ai';
-            await showCustomAlert('신청 실패', `AI가 친구 신청을 처리하는 동안 오류가 발생했습니다. 나중에 다시 시도하십시오: ${error.message}`);
+            await showCustomAlert('申请失败', `AI在处理你的好友申请时出错了，请稍后重试。\n错误信息: ${error.message}`);
         } else {
             const errorContent = `[出错了: ${error.message}]`;
             const errorMessage = { role: 'assistant', content: errorContent, timestamp: Date.now() };
@@ -7539,7 +7539,7 @@ function playSong(index) {
 
         function changePlayMode() { const modes = ['order', 'random', 'single']; const currentModeIndex = modes.indexOf(musicState.playMode); musicState.playMode = modes[(currentModeIndex + 1) % modes.length]; document.getElementById('music-mode-btn').textContent = {'order': '顺序', 'random': '随机', 'single': '单曲'}[musicState.playMode]; }
 
-        async function addSongFromURL() { const url = await showCustomPrompt("웹송 추가", "노래의 URL을 입력하십시오.", "", "url"); if (!url) return; const name = await showCustomPrompt("노래 정보", "노래 제목을 입력해 주세요."); if (!name) return; const artist = await showCustomPrompt("노래 정보", "가수 이름을 입력해 주세요."); if (!artist) return; musicState.playlist.push({ name, artist, src: url, isLocal: false }); await saveGlobalPlaylist(); updatePlaylistUI(); if(musicState.currentIndex === -1) { musicState.currentIndex = musicState.playlist.length - 1; updatePlayerUI(); } }
+        async function addSongFromURL() { const url = await showCustomPrompt("添加网络歌曲", "请输入歌曲的URL", "", "url"); if (!url) return; const name = await showCustomPrompt("歌曲信息", "请输入歌名"); if (!name) return; const artist = await showCustomPrompt("歌曲信息", "请输入歌手名"); if (!artist) return; musicState.playlist.push({ name, artist, src: url, isLocal: false }); await saveGlobalPlaylist(); updatePlaylistUI(); if(musicState.currentIndex === -1) { musicState.currentIndex = musicState.playlist.length - 1; updatePlayerUI(); } }
 
         // ▼▼▼ 用这个【支持LRC导入】的全新版本替换旧的 addSongFromLocal 函数 ▼▼▼
 async function addSongFromLocal(event) {
@@ -7549,15 +7549,15 @@ async function addSongFromLocal(event) {
     for (const file of files) {
         // 先获取歌名和歌手
         let name = file.name.replace(/\.[^/.]+$/, ""); // 默认使用文件名
-        name = await showCustomPrompt("노래 정보", "노래 제목을 입력하세요", name);
+        name = await showCustomPrompt("歌曲信息", "请输入歌名", name);
         if (name === null) continue;
         
-        const artist = await showCustomPrompt("노래 정보", "가수 이름을 입력하십시오", "미지의 가수");
+        const artist = await showCustomPrompt("歌曲信息", "请输入歌手名", "未知歌手");
         if (artist === null) continue;
 
         // 【核心新增】询问并获取LRC文件
         let lrcContent = "";
-        const wantLrc = await showCustomConfirm("가사를 가져오다", `노래《${name}》의 가사 파일 (. lrc) 을 가져오시나요?`);
+        const wantLrc = await showCustomConfirm("导入歌词", `要为《${name}》导入歌词文件 (.lrc) 吗？`);
         if (wantLrc) {
             lrcContent = await new Promise(resolve => {
                 const lrcInput = document.getElementById('lrc-upload-input');
@@ -7622,11 +7622,11 @@ async function addSongFromLocal(event) {
 
         function openPersonaEditorForEdit() { const preset = state.personaPresets.find(p => p.id === editingPersonaPresetId); if (!preset) return; document.getElementById('persona-editor-title').textContent = '编辑人设预设'; document.getElementById('preset-avatar-preview').src = preset.avatar; document.getElementById('preset-persona-input').value = preset.persona; presetActionsModal.classList.remove('visible'); personaEditorModal.classList.add('visible'); }
 
-        async function deletePersonaPreset() { const confirmed = await showCustomConfirm('사전 설정 삭제', '이 사람의 사전 설정을 삭제하시겠습니까? 이 작업은 복구할 수 없습니다.', { confirmButtonClass: 'btn-danger' }); if (confirmed && editingPersonaPresetId) { await db.personaPresets.delete(editingPersonaPresetId); state.personaPresets = state.personaPresets.filter(p => p.id !== editingPersonaPresetId); hidePresetActions(); renderPersonaLibrary(); } }
+        async function deletePersonaPreset() { const confirmed = await showCustomConfirm('删除预设', '确定要删除这个人设预设吗？此操作不可恢复。', { confirmButtonClass: 'btn-danger' }); if (confirmed && editingPersonaPresetId) { await db.personaPresets.delete(editingPersonaPresetId); state.personaPresets = state.personaPresets.filter(p => p.id !== editingPersonaPresetId); hidePresetActions(); renderPersonaLibrary(); } }
 
         function closePersonaEditor() { personaEditorModal.classList.remove('visible'); editingPersonaPresetId = null; }
 
-        async function savePersonaPreset() { const avatar = document.getElementById('preset-avatar-preview').src; const persona = document.getElementById('preset-persona-input').value.trim(); if (avatar === defaultAvatar && !persona) { alert("프로필 사진과 캐릭터가 모두 비어 있으면 안 돼요!"); return; } if (editingPersonaPresetId) { const preset = state.personaPresets.find(p => p.id === editingPersonaPresetId); if (preset) { preset.avatar = avatar; preset.persona = persona; await db.personaPresets.put(preset); } } else { const newPreset = { id: 'preset_' + Date.now(), avatar: avatar, persona: persona }; await db.personaPresets.add(newPreset); state.personaPresets.push(newPreset); } renderPersonaLibrary(); closePersonaEditor(); }
+        async function savePersonaPreset() { const avatar = document.getElementById('preset-avatar-preview').src; const persona = document.getElementById('preset-persona-input').value.trim(); if (avatar === defaultAvatar && !persona) { alert("头像和人设不能都为空哦！"); return; } if (editingPersonaPresetId) { const preset = state.personaPresets.find(p => p.id === editingPersonaPresetId); if (preset) { preset.avatar = avatar; preset.persona = persona; await db.personaPresets.put(preset); } } else { const newPreset = { id: 'preset_' + Date.now(), avatar: avatar, persona: persona }; await db.personaPresets.add(newPreset); state.personaPresets.push(newPreset); } renderPersonaLibrary(); closePersonaEditor(); }
 
         const batteryAlertModal = document.getElementById('battery-alert-modal');
 
@@ -7634,9 +7634,9 @@ async function addSongFromLocal(event) {
 
         function updateBatteryDisplay(battery) { const batteryContainer = document.getElementById('status-bar-battery'); const batteryLevelEl = batteryContainer.querySelector('.battery-level'); const batteryTextEl = batteryContainer.querySelector('.battery-text'); const level = Math.floor(battery.level * 100); batteryLevelEl.style.width = `${level}%`; batteryTextEl.textContent = `${level}%`; if (battery.charging) { batteryContainer.classList.add('charging'); } else { batteryContainer.classList.remove('charging'); } }
 
-        function handleBatteryChange(battery) { updateBatteryDisplay(battery); const level = battery.level; if (!battery.charging) { if (level <= 0.4 && lastKnownBatteryLevel > 0.4 && !alertFlags.hasShown40) { showBatteryAlert('https://i.postimg.cc/T2yKJ0DV/40.jpg', '배가 좀 고프니 충전기에 가서 건드려도 된다.'); alertFlags.hasShown40 = true; } if (level <= 0.2 && lastKnownBatteryLevel > 0.2 && !alertFlags.hasShown20) { showBatteryAlert('https://i.postimg.cc/qB9zbKs9/20.jpg', '빨리 충전해, 배고파 죽겠다.'); alertFlags.hasShown20 = true; } if (level <= 0.1 && lastKnownBatteryLevel > 0.1 && !alertFlags.hasShown10) { showBatteryAlert('https://i.postimg.cc/ThMMVfW4/10.jpg', '전사했고 폭발 30초 남았어'); alertFlags.hasShown10 = true; } } if (level > 0.4) alertFlags.hasShown40 = false; if (level > 0.2) alertFlags.hasShown20 = false; if (level > 0.1) alertFlags.hasShown10 = false; lastKnownBatteryLevel = level; }
+        function handleBatteryChange(battery) { updateBatteryDisplay(battery); const level = battery.level; if (!battery.charging) { if (level <= 0.4 && lastKnownBatteryLevel > 0.4 && !alertFlags.hasShown40) { showBatteryAlert('https://i.postimg.cc/T2yKJ0DV/40.jpg', '有点饿了，可以去找充电器惹'); alertFlags.hasShown40 = true; } if (level <= 0.2 && lastKnownBatteryLevel > 0.2 && !alertFlags.hasShown20) { showBatteryAlert('https://i.postimg.cc/qB9zbKs9/20.jpg', '赶紧的充电，要饿死了'); alertFlags.hasShown20 = true; } if (level <= 0.1 && lastKnownBatteryLevel > 0.1 && !alertFlags.hasShown10) { showBatteryAlert('https://i.postimg.cc/ThMMVfW4/10.jpg', '已阵亡，还有30秒爆炸'); alertFlags.hasShown10 = true; } } if (level > 0.4) alertFlags.hasShown40 = false; if (level > 0.2) alertFlags.hasShown20 = false; if (level > 0.1) alertFlags.hasShown10 = false; lastKnownBatteryLevel = level; }
 
-        async function initBatteryManager() { if ('getBattery' in navigator) { try { const battery = await navigator.getBattery(); lastKnownBatteryLevel = battery.level; handleBatteryChange(battery); battery.addEventListener('levelchange', () => handleBatteryChange(battery)); battery.addEventListener('chargingchange', () => { handleBatteryChange(battery); if (battery.charging) { showBatteryAlert('https://i.postimg.cc/3NDQ0dWG/image.jpg', '진흙을 좋아하면, 전기가 배불리 먹을 수 있다.'); } }); } catch (err) { console.error("无法获取电池信息:", err); document.querySelector('.battery-text').textContent = 'ᗜωᗜ'; } } else { console.log("浏览器不支持电池状态API。"); document.querySelector('.battery-text').textContent = 'ᗜωᗜ'; } }
+        async function initBatteryManager() { if ('getBattery' in navigator) { try { const battery = await navigator.getBattery(); lastKnownBatteryLevel = battery.level; handleBatteryChange(battery); battery.addEventListener('levelchange', () => handleBatteryChange(battery)); battery.addEventListener('chargingchange', () => { handleBatteryChange(battery); if (battery.charging) { showBatteryAlert('https://i.postimg.cc/3NDQ0dWG/image.jpg', '窝爱泥，电量吃饱饱'); } }); } catch (err) { console.error("无法获取电池信息:", err); document.querySelector('.battery-text').textContent = 'ᗜωᗜ'; } } else { console.log("浏览器不支持电池状态API。"); document.querySelector('.battery-text').textContent = 'ᗜωᗜ'; } }
 
         function openFrameSelectorModal(type = 'chat') {
             if (!state.activeChatId) return;
@@ -7721,7 +7721,7 @@ async function addSongFromLocal(event) {
             await db.chats.put(chat);
             frameModal.classList.remove('visible');
             renderChatInterface(state.activeChatId);
-            alert('프로필 사진 상자가 저장되었습니다!');
+            alert('头像框已保存！');
             editingFrameForMember = false;
         }
 
@@ -7751,8 +7751,8 @@ async function addSongFromLocal(event) {
                 // ▼▼▼ 新增的核心代码就是这里 ▼▼▼
                 addLongPressListener(albumItem, async () => {
                     const confirmed = await showCustomConfirm(
-                        '앨범 삭제',
-                        `앨범 《${album.name}》을 삭제하시겠습니까? 이 작업은 앨범 내의 모든 사진을 동시에 삭제하고 복구할 수 없습니다.`,
+                        '删除相册',
+                        `确定要删除相册《${album.name}》吗？此操作将同时删除相册内的所有照片，且无法恢复。`,
                         { confirmButtonClass: 'btn-danger' }
                     );
 
@@ -7766,7 +7766,7 @@ async function addSongFromLocal(event) {
                         // 3. 重新渲染相册列表
                         await renderAlbumList();
                         
-                        alert('앨범이 성공적으로 삭제되었습니다.');
+                        alert('相册已成功删除。');
                     }
                 });
                 // ▲▲▲ 新增代码结束 ▲▲▲
@@ -7795,13 +7795,13 @@ async function addSongFromLocal(event) {
             const photos = await db.qzonePhotos.where('albumId').equals(state.activeAlbumId).toArray();
             photosGrid.innerHTML = '';
             if (photos.length === 0) {
-                photosGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); margin-top: 50px;">이 앨범은 아직 비어 있으니 빨리 첫 번째 사진을 올려주세요!</p>';
+                photosGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); margin-top: 50px;">这个相册还是空的，快上传第一张照片吧！</p>';
             } else {
                 photos.forEach(photo => {
                     const photoItem = document.createElement('div');
                     photoItem.className = 'photo-item';
                     photoItem.innerHTML = `
-                        <img src="${photo.url}" class="photo-thumb" alt="앨범 사진">
+                        <img src="${photo.url}" class="photo-thumb" alt="相册照片">
                         <button class="photo-delete-btn" data-photo-id="${photo.id}">×</button>
                     `;
                     photosGrid.appendChild(photoItem);
@@ -8272,14 +8272,14 @@ async function addNewGroup() {
     const input = document.getElementById('new-group-name-input');
     const name = input.value.trim();
     if (!name) {
-        alert('그룹 이름은 비워둘 수 없습니다!');
+        alert('分组名不能为空！');
         return;
     }
 
     // 【核心修正】在添加前，先检查分组名是否已存在
     const existingGroup = await db.qzoneGroups.where('name').equals(name).first();
     if (existingGroup) {
-        alert(`그룹 "${name}" 는 이미 존재합니다. 이름을 바꾸세요!`);
+        alert(`分组 "${name}" 已经存在了，换个名字吧！`);
         return;
     }
     // 【修正结束】
@@ -8291,7 +8291,7 @@ async function addNewGroup() {
 // ▲▲▲ 替换结束 ▲▲▲
 
 async function deleteGroup(groupId) {
-    const confirmed = await showCustomConfirm('삭제확인', '그룹을 삭제하면 그룹 내의 친구가 그룹화되지 않음이 됩니다. 삭제하시겠습니까?', { confirmButtonClass: 'btn-danger' });
+    const confirmed = await showCustomConfirm('确认删除', '删除分组后，该组内的好友将变为“未分组”。确定要删除吗？', { confirmButtonClass: 'btn-danger' });
     if (confirmed) {
         await db.qzoneGroups.delete(groupId);
         // 将属于该分组的好友的 groupId 设为 null
@@ -8360,17 +8360,17 @@ async function openMessageEditor() {
 
     // --- 【核心修改】在这里构建“格式助手”按钮的HTML ---
     const templates = {
-        voice: { type: 'voice_message', content: '여기에 음성 내용을 입력합니다.' },
-        image: { type: 'ai_image', description: '여기에 그림 설명을 입력합니다.' },
-        transfer: { type: 'transfer', amount: 5.20, note: '작은 성의.' }
+        voice: { type: 'voice_message', content: '在这里输入语音内容' },
+        image: { type: 'ai_image', description: '在这里输入图片描述' },
+        transfer: { type: 'transfer', amount: 5.20, note: '一点心意' }
     };
 
     // 使用 data-template 属性存储JSON模板字符串，注意要用单引号包裹
     const helpersHtml = `
         <div class="format-helpers">
-            <button class="format-btn" data-template='${JSON.stringify(templates.voice)}'>음성</button>
-            <button class="format-btn" data-template='${JSON.stringify(templates.image)}'>이미지</button>
-            <button class="format-btn" data-template='${JSON.stringify(templates.transfer)}'>계좌이체</button>
+            <button class="format-btn" data-template='${JSON.stringify(templates.voice)}'>语音</button>
+            <button class="format-btn" data-template='${JSON.stringify(templates.image)}'>图片</button>
+            <button class="format-btn" data-template='${JSON.stringify(templates.transfer)}'>转账</button>
         </div>
     `;
     // --- 【核心修改结束】---
@@ -8407,9 +8407,9 @@ async function copyMessageContent() {
 
     try {
         await navigator.clipboard.writeText(textToCopy);
-        await showCustomAlert('복사 성공', '메시지 내용이 클립보드에 복사되었습니다.');
+        await showCustomAlert('复制成功', '消息内容已复制到剪贴板。');
     } catch (err) {
-        await showCustomAlert('복사 실패', '클립보드에 접근할 수 없습니다.');
+        await showCustomAlert('复制失败', '无法访问剪贴板。');
     }
     
     hideMessageActions();
@@ -8427,18 +8427,18 @@ function createMessageEditorBlock(initialContent = '') {
     block.className = 'message-editor-block';
 
     const templates = {
-        voice: { type: 'voice_message', content: '여기에 음성 내용을 입력합니다.' },
-        image: { type: 'ai_image', description: '여기에 그림 설명을 입력합니다.' },
-        transfer: { type: 'transfer', amount: 5.20, note: '작은 성의.' }
+        voice: { type: 'voice_message', content: '在这里输入语音内容' },
+        image: { type: 'ai_image', description: '在这里输入图片描述' },
+        transfer: { type: 'transfer', amount: 5.20, note: '一点心意' }
     };
 
     block.innerHTML = `
-        <button class="delete-block-btn" title="이 막대를 삭제합니다.">×</button>
+        <button class="delete-block-btn" title="删除此条">×</button>
         <textarea>${initialContent}</textarea>
         <div class="format-helpers">
-            <button class="format-btn" data-template='${JSON.stringify(templates.voice)}'>음성</button>
-            <button class="format-btn" data-template='${JSON.stringify(templates.image)}'>이미지</button>
-            <button class="format-btn" data-template='${JSON.stringify(templates.transfer)}'>계좌이체</button>
+            <button class="format-btn" data-template='${JSON.stringify(templates.voice)}'>语音</button>
+            <button class="format-btn" data-template='${JSON.stringify(templates.image)}'>图片</button>
+            <button class="format-btn" data-template='${JSON.stringify(templates.transfer)}'>转账</button>
         </div>
     `;
 
@@ -8448,7 +8448,7 @@ function createMessageEditorBlock(initialContent = '') {
         if (document.querySelectorAll('.message-editor-block').length > 1) {
             block.remove();
         } else {
-            alert('적어도 한 개의 메시지를 유지해야 합니다.');
+            alert('至少需要保留一条消息。');
         }
     });
 
@@ -8616,7 +8616,7 @@ async function saveEditedMessage(timestamp) {
     }
 
     if (newMessages.length === 0) {
-        alert("빈 메시지를 저장할 수 없습니다. 적어도 하나의 내용을 입력하십시오.");
+        alert("不能保存空消息，请至少输入一条内容。");
         return;
     }
 
@@ -8629,7 +8629,7 @@ async function saveEditedMessage(timestamp) {
     // 关闭模态框并刷新UI
     document.getElementById('message-editor-modal').classList.remove('visible');
     renderChatInterface(state.activeChatId);
-    await showCustomAlert('성공', '메시지가 업데이트되었습니다!');
+    await showCustomAlert('成功', '消息已更新！');
 }
 // ▲▲▲ 替换结束 ▲▲▲
 
@@ -8758,7 +8758,7 @@ async function saveEditedPost(postId, newRawContent) {
     
     await db.qzonePosts.put(post);
     await renderQzonePosts(); // 重新渲染列表
-    await showCustomAlert('성공', '동적 업데이트됨！');
+    await showCustomAlert('成功', '动态已更新！');
 }
 
 /**
@@ -8773,9 +8773,9 @@ async function copyPostContent() {
     
     try {
         await navigator.clipboard.writeText(textToCopy);
-        await showCustomAlert('복사 성공', '동적 콘텐츠가 클립보드에 복사되었습니다.');
+        await showCustomAlert('复制成功', '动态内容已复制到剪贴板。');
     } catch (err) {
-        await showCustomAlert('복사 실패', '클립보드에 접근할 수 없습니다.');
+        await showCustomAlert('复制失败', '无法访问剪贴板。');
     }
     
     hidePostActions();
@@ -8844,11 +8844,11 @@ function updateContactPickerConfirmButton() {
  */
 async function handleCreateGroup() {
     if (selectedContacts.size < 2) {
-        alert("그룹 채팅을 만들려면 최소 2명의 연락처를 선택해야 합니다.");
+        alert("创建群聊至少需要选择2个联系人。");
         return;
     }
 
-    const groupName = await showCustomPrompt('그룹명 설정', '그룹챗 이름 입력해주세요.', '우리 그룹챗');
+    const groupName = await showCustomPrompt('设置群名', '请输入群聊的名字', '我们的群聊');
     if (!groupName || !groupName.trim()) return;
 
     const newChatId = 'group_' + Date.now();
@@ -9031,10 +9031,10 @@ async function handleAddMembersToGroup() {
 
 // ▼▼▼ 请用这个【最终修正版】替换旧的 createNewMemberInGroup 函数 ▼▼▼
 async function createNewMemberInGroup() {
-    const name = await showCustomPrompt('새 멤버 만들기', '새 멤버 이름 입력하세요.');
+    const name = await showCustomPrompt('创建新成员', '请输入新成员的名字');
     if (!name || !name.trim()) return;
 
-    const persona = await showCustomPrompt('설정 관리', `“${name}”의 설정을 입력하세요.`, '', 'textarea');
+    const persona = await showCustomPrompt('设置人设', `请输入“${name}”的人设`, '', 'textarea');
     if (persona === null) return; // 用户点了取消
 
     const chat = state.chats[state.activeChatId];
@@ -9054,7 +9054,7 @@ async function createNewMemberInGroup() {
     // 【核心修正】...还手动刷新背后“聊天设置”弹窗里的成员头像列表！
     renderGroupMemberSettings(chat.members); 
 
-    alert(`새로운 멤버 “${name}”가 그룹 채팅방에 성공적으로 가입했습니다!`);
+    alert(`新成员“${name}”已成功加入群聊！`);
 }
 // ▲▲▲ 替换结束 ▲▲▲
 
@@ -9880,15 +9880,15 @@ ${contextSummary}
             
             state.chats[chatId] = chat; 
             renderChatList();
-            await showCustomAlert("신청 성공!", `“${chat.name}”에게 친구 신청을 보냈습니다. 채팅 목록으로 돌아가 보십시오.`);
+            await showCustomAlert("申请成功！", `“${chat.name}”已向你发送好友申请。请返回聊天列表查看。`);
 
         } else {
-            await showCustomAlert("AI 의사결정", `“${chat.name}”는 고민 끝에 친구 신청을 당분간 보내지 않기로 결정하고, 숙려 기간을 재설정할 것입니다.`);
+            await showCustomAlert("AI决策", `“${chat.name}”思考后决定暂时不发送好友申请，将重置冷静期。`);
             chat.relationship.status = 'blocked_by_user';
             chat.relationship.blockedTimestamp = Date.now(); 
         }
     } catch (error) {
-        await showCustomAlert("실행 오류", `“${chat.name}”에 대한 친구 신청 시 오류가 발생합니다.：\n\n${error.message}\n\n숙려 기간을 재설정합니다.`);
+        await showCustomAlert("执行出错", `为“${chat.name}”申请好友时发生错误：\n\n${error.message}\n\n将重置冷静期。`);
         chat.relationship.status = 'blocked_by_user';
         chat.relationship.blockedTimestamp = Date.now(); 
     } finally {
@@ -9956,13 +9956,13 @@ async function sendGroupRedPacket() {
     const greeting = document.getElementById('rp-group-greeting').value.trim();
 
     if (isNaN(amount) || amount <= 0) {
-        alert("유효한 총 금액을 입력하십시오!"); return;
+        alert("请输入有效的总金额！"); return;
     }
     if (isNaN(count) || count <= 0) {
-        alert("유효한 개수를 입력하세요!"); return;
+        alert("请输入有效的红包个数！"); return;
     }
     if (amount / count < 0.01) {
-        alert("단일 금액은 0.01위안 이상이어야 합니다!"); return;
+        alert("单个红包金额不能少于0.01元！"); return;
     }
 
     const myNickname = chat.settings.myNickname || '我';
@@ -9998,10 +9998,10 @@ async function sendDirectRedPacket() {
     const greeting = document.getElementById('rp-direct-greeting').value.trim();
 
     if (isNaN(amount) || amount <= 0) {
-        alert("유효한 금액을 입력해 주세요!"); return;
+        alert("请输入有效的金额！"); return;
     }
     if (!receiverName) {
-        alert("수신자를 선택하십시오!"); return;
+        alert("请选择一个接收人！"); return;
     }
     
     const myNickname = chat.settings.myNickname || '我';
@@ -10057,7 +10057,7 @@ async function handlePacketClick(timestamp) {
             renderChatInterface(currentChatId);
             
             // 显示成功提示
-            await showCustomAlert("축하드립니다！", `당신은 ${packet.senderName} 의 빨간 봉투를 받았는데, 금액은 ${claimedAmount.toFixed(2)} 원입니다.`);
+            await showCustomAlert("恭喜！", `你领取了 ${packet.senderName} 的红包，金额为 ${claimedAmount.toFixed(2)} 元。`);
         }
 
         // 无论成功与否，最后都显示详情页
@@ -10080,7 +10080,7 @@ async function handleOpenRedPacket(packet) {
     if (remainingCount <= 0) {
         packet.isFullyClaimed = true;
         await db.chats.put(chat);
-        await showCustomAlert("손이 느려졌다." "돈봉투는 이미 다 받았다.");
+        await showCustomAlert("手慢了", "红包已被领完！");
         return null; // 返回null表示领取失败
     }
     
@@ -10239,7 +10239,7 @@ function addPollOptionInput() {
         if (container.children.length > 2) {
             wrapper.remove();
         } else {
-            alert('투표에는 최소 2개의 옵션이 필요합니다.');
+            alert('投票至少需要2个选项。');
         }
     });
     
@@ -10254,7 +10254,7 @@ async function sendPoll() {
     
     const question = document.getElementById('poll-question-input').value.trim();
     if (!question) {
-        alert('투표 주제를 입력하세요!');
+        alert('请输入投票问题！');
         return;
     }
     
@@ -10263,7 +10263,7 @@ async function sendPoll() {
         .filter(text => text); // 过滤掉空的选项
 
     if (options.length < 2) {
-        alert('적어도 2개의 유효한 투표 옵션을 입력하세요!');
+        alert('请至少输入2个有效的投票选项！');
         return;
     }
 
@@ -10363,12 +10363,12 @@ async function endPoll(timestamp) {
     const poll = chat.history.find(m => m.timestamp === timestamp);
     if (!poll || poll.isClosed) return;
 
-    const confirmed = await showCustomConfirm("투표를 마치다", "이 투표를 끝내는 것이 확실합니까? 끝나면 더 이상 투표를 할 수 없습니다.");
+    const confirmed = await showCustomConfirm("结束投票", "确定要结束这个投票吗？结束后将无法再进行投票。");
     if (confirmed) {
         poll.isClosed = true;
 
         const resultSummary = poll.options.map(opt => `“${opt}”(${poll.votes[opt]?.length || 0}票)`).join('，');
-        const hiddenMessageContent = `[시스템 팁: 사용자가 수동으로 투표를 종료했습니다! 최종 결과는 다음과 같습니다: ${resultSummary}。]`;
+        const hiddenMessageContent = `[系统提示：用户手动结束了投票！最终结果为：${resultSummary}。]`;
         
         const hiddenMessage = {
             role: 'system',
@@ -10412,7 +10412,7 @@ function showPollResults(timestamp) {
         });
     }
 
-    showCustomAlert("투표 결과", resultsHtml);
+    showCustomAlert("投票结果", resultsHtml);
 }
 
 // ▲▲▲ 新函数粘贴结束 ▲▲▲
@@ -10456,7 +10456,7 @@ function renderAiAvatarLibrary() {
         deleteBtn.style.display = 'block'; // 总是显示删除按钮
         deleteBtn.onclick = async (e) => {
             e.stopPropagation();
-            const confirmed = await showCustomConfirm('프로필 사진 삭제', `프로필 라이브러리에서 “${avatar.name}”을 삭제하시겠습니까?`, { confirmButtonClass: 'btn-danger' });
+            const confirmed = await showCustomConfirm('删除头像', `确定要从头像库中删除“${avatar.name}”吗？`, { confirmButtonClass: 'btn-danger' });
             if (confirmed) {
                 chat.settings.aiAvatarLibrary.splice(index, 1);
                 await db.chats.put(chat);
@@ -10472,12 +10472,12 @@ function renderAiAvatarLibrary() {
  * 向当前AI的头像库中添加新头像
  */
 async function addAvatarToLibrary() {
-    const name = await showCustomPrompt("프로필 사진 추가", "프로필 사진에 이름을 붙여주세요 (예: 기쁨, 울음)");
+    const name = await showCustomPrompt("添加头像", "请为这个头像起个名字（例如：开心、哭泣）");
     if (!name || !name.trim()) return;
 
-    const url = await showCustomPrompt("프로필 사진 추가", "프로필 사진의 이미지 URL을 입력하십시오.", "", "url");
+    const url = await showCustomPrompt("添加头像", "请输入头像的图片URL", "", "url");
     if (!url || !url.trim().startsWith('http')) {
-        alert("유효한 이미지 URL을 입력하세요!");
+        alert("请输入有效的图片URL！");
         return;
     }
     
@@ -10592,7 +10592,7 @@ function updateMusicProgressBar() {
 
 exitSelectionMode(); state.activeChatId = null; showScreen('chat-list-screen'); });
             
-            document.getElementById('add-chat-btn').addEventListener('click', async () => { const name = await showCustomPrompt('새 채팅 만들기', 'Ta의 이름을 입력하십시오.'); if (name && name.trim()) { const newChatId = 'chat_' + Date.now(); 
+            document.getElementById('add-chat-btn').addEventListener('click', async () => { const name = await showCustomPrompt('创建新聊天', '请输入Ta的名字'); if (name && name.trim()) { const newChatId = 'chat_' + Date.now(); 
 const newChat = { 
     id: newChatId, 
     name: name.trim(), 
@@ -10715,14 +10715,14 @@ if (state.globalSettings.enableBackgroundActivity) {
 }
 // ▲▲▲ 替换结束 ▲▲▲
 
-alert('API설정이 저장되었습니다!'); });
-            document.getElementById('fetch-models-btn').addEventListener('click', async () => { const url = document.getElementById('proxy-url').value.trim(); const key = document.getElementById('api-key').value.trim(); if (!url || !key) return alert('먼저 프록시 주소와 키를 기입하십시오.'); try { const response = await fetch(`${url}/v1/models`, { headers: { 'Authorization': `Bearer ${key}` } }); if (!response.ok) throw new Error('无法获取模型列表'); const data = await response.json(); const modelSelect = document.getElementById('model-select'); modelSelect.innerHTML = ''; data.data.forEach(model => { const option = document.createElement('option'); option.value = model.id; option.textContent = model.id; if(model.id === state.apiConfig.model) option.selected = true; modelSelect.appendChild(option); }); alert('模型列表已更新'); } catch (error) { alert(`拉取模型失败: ${error.message}`); } });
-            document.getElementById('add-world-book-btn').addEventListener('click', async () => { const name = await showCustomPrompt('월드인포를 만들다', '책 제목을 입력하십시오.'); if (name && name.trim()) { const newBook = { id: 'wb_' + Date.now(), name: name.trim(), content: '' }; await db.worldBooks.add(newBook); state.worldBooks.push(newBook); renderWorldBookScreen(); openWorldBookEditor(newBook.id); } });
-            document.getElementById('save-world-book-btn').addEventListener('click', async () => { if (!editingWorldBookId) return; const book = state.worldBooks.find(wb => wb.id === editingWorldBookId); if (book) { const newName = document.getElementById('world-book-name-input').value.trim(); if (!newName) { alert('책 제목은 비워둘 수 없다!'); return; } book.name = newName; book.content = document.getElementById('world-book-content-input').value; await db.worldBooks.put(book); document.getElementById('world-book-editor-title').textContent = newName; editingWorldBookId = null; renderWorldBookScreen(); showScreen('world-book-screen'); } });
+alert('API设置已保存!'); });
+            document.getElementById('fetch-models-btn').addEventListener('click', async () => { const url = document.getElementById('proxy-url').value.trim(); const key = document.getElementById('api-key').value.trim(); if (!url || !key) return alert('请先填写反代地址和密钥'); try { const response = await fetch(`${url}/v1/models`, { headers: { 'Authorization': `Bearer ${key}` } }); if (!response.ok) throw new Error('无法获取模型列表'); const data = await response.json(); const modelSelect = document.getElementById('model-select'); modelSelect.innerHTML = ''; data.data.forEach(model => { const option = document.createElement('option'); option.value = model.id; option.textContent = model.id; if(model.id === state.apiConfig.model) option.selected = true; modelSelect.appendChild(option); }); alert('模型列表已更新'); } catch (error) { alert(`拉取模型失败: ${error.message}`); } });
+            document.getElementById('add-world-book-btn').addEventListener('click', async () => { const name = await showCustomPrompt('创建世界书', '请输入书名'); if (name && name.trim()) { const newBook = { id: 'wb_' + Date.now(), name: name.trim(), content: '' }; await db.worldBooks.add(newBook); state.worldBooks.push(newBook); renderWorldBookScreen(); openWorldBookEditor(newBook.id); } });
+            document.getElementById('save-world-book-btn').addEventListener('click', async () => { if (!editingWorldBookId) return; const book = state.worldBooks.find(wb => wb.id === editingWorldBookId); if (book) { const newName = document.getElementById('world-book-name-input').value.trim(); if (!newName) { alert('书名不能为空！'); return; } book.name = newName; book.content = document.getElementById('world-book-content-input').value; await db.worldBooks.put(book); document.getElementById('world-book-editor-title').textContent = newName; editingWorldBookId = null; renderWorldBookScreen(); showScreen('world-book-screen'); } });
 
             document.getElementById('chat-messages').addEventListener('click', (e) => { if (isSelectionMode) {
         return;
-            }const aiImage = e.target.closest('.ai-generated-image'); if (aiImage) { const description = aiImage.dataset.description; if (description) showCustomAlert('사진 묘사', description); return; } const voiceMessage = e.target.closest('.voice-message-body'); if (voiceMessage) { const text = voiceMessage.dataset.text; if (text) showCustomAlert('语音内容', text); return; } });
+            }const aiImage = e.target.closest('.ai-generated-image'); if (aiImage) { const description = aiImage.dataset.description; if (description) showCustomAlert('照片描述', description); return; } const voiceMessage = e.target.closest('.voice-message-body'); if (voiceMessage) { const text = voiceMessage.dataset.text; if (text) showCustomAlert('语音内容', text); return; } });
             
             const chatSettingsModal = document.getElementById('chat-settings-modal');
             const worldBookSelectBox = document.querySelector('.custom-multiselect .select-box');
@@ -10832,7 +10832,7 @@ document.getElementById('save-chat-settings-btn').addEventListener('click', asyn
     if (!state.activeChatId) return;
     const chat = state.chats[state.activeChatId];
     const newName = document.getElementById('chat-name-input').value.trim();
-    if (!newName) return alert('비고명/그룹명은 비워둘 수 없습니다!');
+    if (!newName) return alert('备注名/群名不能为空！');
     chat.name = newName;
     const selectedThemeRadio = document.querySelector('input[name="theme-select"]:checked');
     chat.settings.theme = selectedThemeRadio ? selectedThemeRadio.value : 'default';
@@ -10878,14 +10878,14 @@ document.getElementById('save-chat-settings-btn').addEventListener('click', asyn
             const stickerPanel = document.getElementById('sticker-panel');
             document.getElementById('open-sticker-panel-btn').addEventListener('click', () => { renderStickerPanel(); stickerPanel.classList.add('visible'); });
             document.getElementById('close-sticker-panel-btn').addEventListener('click', () => stickerPanel.classList.remove('visible'));
-            document.getElementById('add-sticker-btn').addEventListener('click', async () => { const url = await showCustomPrompt("이모티콘 추가(URL)", "이모티콘의 이미지 URL을 입력하십시오."); if (!url || !url.trim().startsWith('http')) return url && alert("请输入有效的URL (以http开头)"); const name = await showCustomPrompt("命名表情", "请为这个表情命名 (例如：开心、疑惑)"); if (name && name.trim()) { const newSticker = { id: 'sticker_' + Date.now(), url: url.trim(), name: name.trim() }; await db.userStickers.add(newSticker); state.userStickers.push(newSticker); renderStickerPanel(); } else if (name !== null) alert("表情名不能为空！"); });
+            document.getElementById('add-sticker-btn').addEventListener('click', async () => { const url = await showCustomPrompt("添加表情(URL)", "请输入表情包的图片URL"); if (!url || !url.trim().startsWith('http')) return url && alert("请输入有效的URL (以http开头)"); const name = await showCustomPrompt("命名表情", "请为这个表情命名 (例如：开心、疑惑)"); if (name && name.trim()) { const newSticker = { id: 'sticker_' + Date.now(), url: url.trim(), name: name.trim() }; await db.userStickers.add(newSticker); state.userStickers.push(newSticker); renderStickerPanel(); } else if (name !== null) alert("表情名不能为空！"); });
             document.getElementById('upload-sticker-btn').addEventListener('click', () => document.getElementById('sticker-upload-input').click());
             document.getElementById('sticker-upload-input').addEventListener('change', async (event) => { const file = event.target.files[0]; if (!file) return; const reader = new FileReader(); reader.readAsDataURL(file); reader.onload = async () => { const base64Url = reader.result; const name = await showCustomPrompt("命名表情", "请为这个表情命名 (例如：好耶、疑惑)"); if (name && name.trim()) { const newSticker = { id: 'sticker_' + Date.now(), url: base64Url, name: name.trim() }; await db.userStickers.add(newSticker); state.userStickers.push(newSticker); renderStickerPanel(); } else if (name !== null) alert("表情名不能为空！"); }; event.target.value = null; });
 
             document.getElementById('upload-image-btn').addEventListener('click', () => document.getElementById('image-upload-input').click());
             document.getElementById('image-upload-input').addEventListener('change', async (event) => { const file = event.target.files[0]; if (!file || !state.activeChatId) return; const reader = new FileReader(); reader.onload = async (e) => { const base64Url = e.target.result; const chat = state.chats[state.activeChatId]; const msg = { role: 'user', content: [{ type: 'image_url', image_url: { url: base64Url } }], timestamp: Date.now() }; chat.history.push(msg); await db.chats.put(chat); appendMessage(msg, chat); renderChatList(); }; reader.readAsDataURL(file); event.target.value = null; });
-            document.getElementById('voice-message-btn').addEventListener('click', async () => { if (!state.activeChatId) return; const text = await showCustomPrompt("음성 보내기", "하고 싶은 말을 입력하세요:"); if (text && text.trim()) { const chat = state.chats[state.activeChatId]; const msg = { role: 'user', type: 'voice_message', content: text.trim(), timestamp: Date.now() }; chat.history.push(msg); await db.chats.put(chat); appendMessage(msg, chat); renderChatList(); } });
-            document.getElementById('send-photo-btn').addEventListener('click', async () => { if (!state.activeChatId) return; const description = await showCustomPrompt("사진 보내기", "보내실 사진을 텍스트로 설명해 주세요."); if (description && description.trim()) { const chat = state.chats[state.activeChatId]; const msg = { role: 'user', type: 'user_photo', content: description.trim(), timestamp: Date.now() }; chat.history.push(msg); await db.chats.put(chat); appendMessage(msg, chat); renderChatList(); } });
+            document.getElementById('voice-message-btn').addEventListener('click', async () => { if (!state.activeChatId) return; const text = await showCustomPrompt("发送语音", "请输入你想说的内容："); if (text && text.trim()) { const chat = state.chats[state.activeChatId]; const msg = { role: 'user', type: 'voice_message', content: text.trim(), timestamp: Date.now() }; chat.history.push(msg); await db.chats.put(chat); appendMessage(msg, chat); renderChatList(); } });
+            document.getElementById('send-photo-btn').addEventListener('click', async () => { if (!state.activeChatId) return; const description = await showCustomPrompt("发送照片", "请用文字描述您要发送的照片："); if (description && description.trim()) { const chat = state.chats[state.activeChatId]; const msg = { role: 'user', type: 'user_photo', content: description.trim(), timestamp: Date.now() }; chat.history.push(msg); await db.chats.put(chat); appendMessage(msg, chat); renderChatList(); } });
 
 // ▼▼▼ 【全新】外卖请求功能事件绑定 ▼▼▼
 const waimaiModal = document.getElementById('waimai-request-modal');
@@ -10911,7 +10911,7 @@ document.getElementById('waimai-confirm-btn').addEventListener('click', async ()
         return;
     }
     if (isNaN(amount) || amount <= 0) {
-        alert('유효한 대불 금액을 입력하십시오！');
+        alert('请输入有效的代付金额！');
         return;
     }
 
@@ -10956,7 +10956,7 @@ document.getElementById('waimai-confirm-btn').addEventListener('click', async ()
 // ▼▼▼ 【最终加强版】用这块代码替换旧的 selection-delete-btn 事件监听器 ▼▼▼
 document.getElementById('selection-delete-btn').addEventListener('click', async () => {
     if (selectedMessages.size === 0) return;
-    const confirmed = await showCustomConfirm('메시지 삭제', `선택한 ${selectedMessages.size} 메시지를 삭제하시겠습니까? 이것은 AI의 기억을 바꿀 것입니다.`, { confirmButtonClass: 'btn-danger' });
+    const confirmed = await showCustomConfirm('删除消息', `确定要删除选中的 ${selectedMessages.size} 条消息吗？这将改变AI的记忆。`, { confirmButtonClass: 'btn-danger' });
     if (confirmed) {
         const chat = state.chats[state.activeChatId];
         
@@ -10981,7 +10981,7 @@ document.getElementById('selection-delete-btn').addEventListener('click', async 
 
         const forgetInstruction = {
             role: 'system',
-            content: `[시스템 제시：${forgetReason}]`,
+            content: `[系统提示：${forgetReason}]`,
             timestamp: Date.now(),
             isHidden: true 
         };
@@ -11020,16 +11020,17 @@ document.getElementById('member-settings-modal').addEventListener('click', (e) =
             fontUrlInput.addEventListener('input', () => applyCustomFont(fontUrlInput.value.trim(), true));
             document.getElementById('save-font-btn').addEventListener('click', async () => {
                 const newFontUrl = fontUrlInput.value.trim();
-                if (!newFontUrl) { alert("유효한 글꼴 URL을 입력하십시오."); return; }
+                if (!newFontUrl) { alert("请输入有效的字体URL。"); return; }
                 applyCustomFont(newFontUrl, false);
                 state.globalSettings.fontUrl = newFontUrl;
                 await db.globalSettings.put(state.globalSettings);
-                alert('글꼴이 저장되어 적용되었습니다!');
+                alert('字体已保存并应用！');
             });
             document.getElementById('reset-font-btn').addEventListener('click', resetToDefaultFont);
+
             document.querySelectorAll('#chat-list-bottom-nav .nav-item').forEach(item => { item.addEventListener('click', () => switchToChatListView(item.dataset.view)); });
             document.getElementById('qzone-back-btn').addEventListener('click', () => switchToChatListView('messages-view'));
-            document.getElementById('qzone-nickname').addEventListener('click', async () => { const newNickname = await showCustomPrompt("닉네임 수정", "새 닉네임을 입력하세요.", state.qzoneSettings.nickname); if (newNickname && newNickname.trim()) { state.qzoneSettings.nickname = newNickname.trim(); await saveQzoneSettings(); renderQzoneScreen(); } });
+            document.getElementById('qzone-nickname').addEventListener('click', async () => { const newNickname = await showCustomPrompt("修改昵称", "请输入新的昵称", state.qzoneSettings.nickname); if (newNickname && newNickname.trim()) { state.qzoneSettings.nickname = newNickname.trim(); await saveQzoneSettings(); renderQzoneScreen(); } });
             document.getElementById('qzone-avatar-container').addEventListener('click', () => document.getElementById('qzone-avatar-input').click());
             document.getElementById('qzone-banner-container').addEventListener('click', () => document.getElementById('qzone-banner-input').click());
             document.getElementById('qzone-avatar-input').addEventListener('change', async (event) => { const file = event.target.files[0]; if (file) { const dataUrl = await new Promise(res => { const reader = new FileReader(); reader.onload = () => res(reader.result); reader.readAsDataURL(file); }); state.qzoneSettings.avatar = dataUrl; await saveQzoneSettings(); renderQzoneScreen(); } event.target.value = null; });
@@ -11050,7 +11051,7 @@ document.getElementById('create-shuoshuo-btn').addEventListener('click', async (
     modal.querySelector('#text-image-mode-content').style.display = 'none';
     
     // 4. 修改主输入框的提示语，使其更符合“说说”的场景
-    modal.querySelector('#post-public-text').placeholder = '새로운 것을 공유...';
+    modal.querySelector('#post-public-text').placeholder = '分享新鲜事...';
     
     // 5. 准备并显示模态框
     const visibilityGroupsContainer = document.getElementById('post-visibility-groups');
@@ -11064,7 +11065,7 @@ document.getElementById('create-shuoshuo-btn').addEventListener('click', async (
             visibilityGroupsContainer.appendChild(label);
         });
     } else {
-        visibilityGroupsContainer.innerHTML = '<p style="color: var(--text-secondary);">사용 가능한 그룹화가 없습니다.</p>';
+        visibilityGroupsContainer.innerHTML = '<p style="color: var(--text-secondary);">没有可用的分组</p>';
     }
     modal.classList.add('visible');
 });
@@ -11086,7 +11087,7 @@ modal.querySelector('#image-mode-content').classList.add('active');
 modal.querySelector('#text-image-mode-content').classList.remove('active');
     
     // 4. 恢复主输入框的默认提示语
-    modal.querySelector('#post-public-text').placeholder = '새로운 일 나누기.. . (비필수입력 공개문자)';
+    modal.querySelector('#post-public-text').placeholder = '分享新鲜事...（非必填的公开文字）';
 
     // 5. 准备并显示模态框（与“说说”按钮的逻辑相同）
     const visibilityGroupsContainer = document.getElementById('post-visibility-groups');
@@ -11160,8 +11161,8 @@ document.getElementById('photos-grid-page').addEventListener('click', async (e) 
         e.stopPropagation(); // 阻止事件冒泡到图片上
         const photoId = parseInt(deleteBtn.dataset.photoId);
         const confirmed = await showCustomConfirm(
-            '사진 삭제',
-            '이 사진을 삭제하시겠습니까? 이 작업은 복구할 수 없습니다.',
+            '删除照片',
+            '确定要删除这张照片吗？此操作不可恢复。',
             { confirmButtonClass: 'btn-danger' }
         );
 
@@ -11212,12 +11213,12 @@ document.addEventListener('keydown', (e) => {
 
 // --- ↑↑↑ 复制到这里结束 ↑↑↑ ---
          
-document.getElementById('create-album-btn-page').addEventListener('click', async () => { const albumName = await showCustomPrompt("새 앨범 만들기", "앨범 이름을 입력하십시오."); if (albumName && albumName.trim()) { const newAlbum = { name: albumName.trim(), coverUrl: 'https://i.postimg.cc/pT2xKzPz/album-cover-placeholder.png', photoCount: 0, createdAt: Date.now() }; await db.qzoneAlbums.add(newAlbum); await renderAlbumList(); alert(`앨범 "${albumName}" 만들기 성공!`); } else if (albumName !== null) { alert("앨범 이름은 비워둘 수 없습니다!"); } });
+document.getElementById('create-album-btn-page').addEventListener('click', async () => { const albumName = await showCustomPrompt("创建新相册", "请输入相册名称"); if (albumName && albumName.trim()) { const newAlbum = { name: albumName.trim(), coverUrl: 'https://i.postimg.cc/pT2xKzPz/album-cover-placeholder.png', photoCount: 0, createdAt: Date.now() }; await db.qzoneAlbums.add(newAlbum); await renderAlbumList(); alert(`相册 "${albumName}" 创建成功！`); } else if (albumName !== null) { alert("相册名称不能为空！"); } });
 
             document.getElementById('cancel-create-post-btn').addEventListener('click', () => document.getElementById('create-post-modal').classList.remove('visible'));
             document.getElementById('post-upload-local-btn').addEventListener('click', () => document.getElementById('post-local-image-input').click());
             document.getElementById('post-local-image-input').addEventListener('change', (event) => { const file = event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => { document.getElementById('post-image-preview').src = e.target.result; document.getElementById('post-image-preview-container').classList.add('visible'); document.getElementById('post-image-desc-group').style.display = 'block'; }; reader.readAsDataURL(file); } });
-            document.getElementById('post-use-url-btn').addEventListener('click', async () => { const url = await showCustomPrompt("이미지URL 입력", "네트워크 이미지의 링크를 입력하십시오.", "", "url"); if (url) { document.getElementById('post-image-preview').src = url; document.getElementById('post-image-preview-container').classList.add('visible'); document.getElementById('post-image-desc-group').style.display = 'block'; } });
+            document.getElementById('post-use-url-btn').addEventListener('click', async () => { const url = await showCustomPrompt("输入图片URL", "请输入网络图片的链接", "", "url"); if (url) { document.getElementById('post-image-preview').src = url; document.getElementById('post-image-preview-container').classList.add('visible'); document.getElementById('post-image-desc-group').style.display = 'block'; } });
             document.getElementById('post-remove-image-btn').addEventListener('click', () => resetCreatePostModal());
             const imageModeBtn = document.getElementById('switch-to-image-mode');
             const textImageModeBtn = document.getElementById('switch-to-text-image-mode');
@@ -11251,7 +11252,7 @@ document.getElementById('confirm-create-post-btn').addEventListener('click', asy
     if (mode === 'shuoshuo') {
         const content = document.getElementById('post-public-text').value.trim();
         if (!content) {
-            alert('내용을 말해 보세요. 비어 있으면 안 돼요！');
+            alert('说说内容不能为空哦！');
             return;
         }
         newPost = {
@@ -11268,11 +11269,11 @@ document.getElementById('confirm-create-post-btn').addEventListener('click', asy
             const imageUrl = document.getElementById('post-image-preview').src;
             const imageDescription = document.getElementById('post-image-description').value.trim();
             if (!imageUrl || !(imageUrl.startsWith('http') || imageUrl.startsWith('data:'))) {
-                alert('먼저 사진 한 장을 추가한 후에 활동을 게시해 주세요!');
+                alert('请先添加一张图片再发布动态哦！');
                 return;
             }
             if (!imageDescription) {
-                alert('당신의 사진에 간단한 설명을 추가해 주세요(필수, AI를 위한 것)!');
+                alert('请为你的图片添加一个简单的描述（必填，给AI看的）！');
                 return;
             }
             newPost = {
@@ -11285,7 +11286,7 @@ document.getElementById('confirm-create-post-btn').addEventListener('click', asy
         } else { // 文字图模式
             const hiddenText = document.getElementById('post-hidden-text').value.trim();
             if (!hiddenText) {
-                alert('텍스트 그래픽 설명을 입력하십시오!');
+                alert('请输入文字图描述！');
                 return;
             }
             newPost = {
@@ -11299,7 +11300,7 @@ document.getElementById('confirm-create-post-btn').addEventListener('click', asy
 
     // --- 3. 保存到数据库 ---
     const newPostId = await db.qzonePosts.add(newPost);
-    let postSummary = newPost.content || newPost.publicText || newPost.imageDescription || newPost.hiddenContent || "（문자 없는 내용）";
+    let postSummary = newPost.content || newPost.publicText || newPost.imageDescription || newPost.hiddenContent || "（无文字内容）";
     postSummary = postSummary.substring(0, 50) + (postSummary.length > 50 ? '...' : '');
 
     // --- 4. 【核心修正】带有权限检查的通知循环 ---
@@ -11323,7 +11324,7 @@ document.getElementById('confirm-create-post-btn').addEventListener('click', asy
         if (shouldNotify) {
             const historyMessage = {
                 role: 'system',
-                content: `[시스템 알림: 사용자가 방금 동적(ID: ${newPostId})을 게시했으며 내용 요약은 "${postSummary}"입니다. 당신은 이제 이 동향에 대해 논평할 수 있습니다.]`,
+                content: `[系统提示：用户刚刚发布了一条动态(ID: ${newPostId})，内容摘要是：“${postSummary}”。你现在可以对这条动态进行评论了。]`,
                 timestamp: Date.now(),
                 isHidden: true
             };
@@ -11463,7 +11464,7 @@ postsList.addEventListener('click', async (e) => {
         const postIdToDelete = parseInt(container.dataset.postId);
         if (isNaN(postIdToDelete)) return;
 
-        const confirmed = await showCustomConfirm('동적 삭제', '이 역학을 영구적으로 삭제하시겠습니까?', { confirmButtonClass: 'btn-danger' });
+        const confirmed = await showCustomConfirm('删除动态', '确定要永久删除这条动态吗？', { confirmButtonClass: 'btn-danger' });
 
         if (confirmed) {
             container.style.transition = 'all 0.3s ease';
@@ -11506,12 +11507,12 @@ postsList.addEventListener('click', async (e) => {
             const existingFavorite = await db.favorites.where({ type: 'qzone_post', 'content.id': postId }).first();
             if (existingFavorite) {
                 await db.favorites.delete(existingFavorite.id);
-                await showCustomAlert('힌트', '즐겨찾기가 취소되었습니다.');
+                await showCustomAlert('提示', '已取消收藏');
             } else {
                 const postToSave = await db.qzonePosts.get(postId);
                 if (postToSave) {
                     await db.favorites.add({ type: 'qzone_post', content: postToSave, timestamp: Date.now() });
-                    await showCustomAlert('힌트', '소장 성공!');
+                    await showCustomAlert('提示', '收藏成功！');
                 }
             }
         }
@@ -11553,7 +11554,7 @@ postsList.addEventListener('click', async (e) => {
         const postId = parseInt(postContainer.dataset.postId);
         const commentInput = postContainer.querySelector('.comment-input');
         const commentText = commentInput.value.trim();
-        if (!commentText) return alert('댓글 내용이 비어 있으면 안 돼요！');
+        if (!commentText) return alert('评论内容不能为空哦！');
         const post = await db.qzonePosts.get(postId);
         if (!post) return;
         if (!post.comments) post.comments = [];
@@ -11562,7 +11563,7 @@ postsList.addEventListener('click', async (e) => {
         for (const chatId in state.chats) {
             const chat = state.chats[chatId];
             if (!chat.isGroup) {
-                chat.history.push({ role: 'system', content: `[시스템 팁: '${state.qzoneSettings.nickname}' ID가 ${postId}인 동적 상황에서 코멘트를 했습니다.“${commentText}”]`, timestamp: Date.now(), isHidden: true });
+                chat.history.push({ role: 'system', content: `[系统提示：'${state.qzoneSettings.nickname}' 在ID为${postId}的动态下发表了评论：“${commentText}”]`, timestamp: Date.now(), isHidden: true });
                 await db.chats.put(chat);
             }
         }
@@ -11677,9 +11678,9 @@ postsList.addEventListener('click', async (e) => {
                 if (favoritesToAdd.length > 0) {
                     await db.favorites.bulkAdd(favoritesToAdd);
                     allFavoriteItems = await db.favorites.orderBy('timestamp').reverse().toArray(); // 更新全局收藏缓存
-                    await showCustomAlert('수집 성공', `${favoritesToAdd.length} 메시지를 성공적으로 수집했습니다.`);
+                    await showCustomAlert('收藏成功', `已成功收藏 ${favoritesToAdd.length} 条消息。`);
                 } else {
-                    await showCustomAlert('힌트', '선택한 메시지는 모두 이미 소장되어 있습니다.');
+                    await showCustomAlert('提示', '选中的消息均已收藏过。');
                 }
                 
                 exitSelectionMode();
@@ -11698,13 +11699,13 @@ postsList.addEventListener('click', async (e) => {
 
                 if (isFavoritesSelectionMode) {
                     // --- 进入编辑模式 ---
-                    favoritesEditBtn.textContent = '완성';
+                    favoritesEditBtn.textContent = '完成';
                     favoritesActionBar.style.display = 'block'; // 显示删除操作栏
                     mainBottomNav.style.display = 'none'; // ▼ 新增：隐藏主导航栏
                     favoritesList.style.paddingBottom = '80px'; // ▼ 新增：给列表底部增加空间
                 } else {
                     // --- 退出编辑模式 ---
-                    favoritesEditBtn.textContent = '편집';
+                    favoritesEditBtn.textContent = '编辑';
                     favoritesActionBar.style.display = 'none'; // 隐藏删除操作栏
                     mainBottomNav.style.display = 'flex';  // ▼ 新增：恢复主导航栏
                     favoritesList.style.paddingBottom = ''; // ▼ 新增：恢复列表默认padding
@@ -11712,7 +11713,7 @@ postsList.addEventListener('click', async (e) => {
                     // 退出时清空所有选择
                     selectedFavorites.clear();
                     document.querySelectorAll('.favorite-item-card.selected').forEach(card => card.classList.remove('selected'));
-                    document.getElementById('favorites-delete-selected-btn').textContent = `휴지통 비우기 (0)`;
+                    document.getElementById('favorites-delete-selected-btn').textContent = `删除 (0)`;
                 }
             });
 
@@ -11725,7 +11726,7 @@ document.getElementById('favorites-list').addEventListener('click', (e) => {
     // 【新增】处理文字图点击，这段逻辑要放在最前面，保证任何模式下都生效
     if (target.tagName === 'IMG' && target.dataset.hiddenText) {
         const hiddenText = target.dataset.hiddenText;
-        showCustomAlert("이미지 내용", hiddenText.replace(/<br>/g, '\n'));
+        showCustomAlert("图片内容", hiddenText.replace(/<br>/g, '\n'));
         return; // 处理完就退出，不继续执行选择逻辑
     }
     
@@ -11748,7 +11749,7 @@ document.getElementById('favorites-list').addEventListener('click', (e) => {
     }
     
     // 更新底部删除按钮的计数
-    document.getElementById('favorites-delete-selected-btn').textContent = `휴지통 비우기 (${selectedFavorites.size})`;
+    document.getElementById('favorites-delete-selected-btn').textContent = `删除 (${selectedFavorites.size})`;
 });
 
 // ▼▼▼ 将它【完整替换】为下面这段修正后的代码 ▼▼▼
@@ -11765,7 +11766,7 @@ document.getElementById('favorites-delete-selected-btn').addEventListener('click
     if (confirmed) {
         const idsToDelete = [...selectedFavorites];
         await db.favorites.bulkDelete(idsToDelete);
-        await showCustomAlert('삭제 성공', '선택한 컬렉션이 제거되었습니다.');
+        await showCustomAlert('删除成功', '选中的收藏已被移除。');
         
         // 【核心修正1】从前端缓存中也移除被删除的项
         allFavoriteItems = allFavoriteItems.filter(item => !idsToDelete.includes(item.id));
@@ -11998,7 +11999,7 @@ document.getElementById('decline-call-btn').addEventListener('click', async () =
         // 1. 创建一条隐藏消息，通知AI用户拒绝了
         const systemNote = {
             role: 'system',
-            content: `[시스템 알림: 사용자가 통화 초대를 거부했지만, 스스로 시작할 수 있습니다. 각자 가입 여부를 결정하세요.]`,
+            content: `[系统提示：用户拒绝了通话邀请，但你们可以自己开始。请你们各自决策是否加入。]`,
             timestamp: Date.now(),
             isHidden: true
         };
@@ -12010,7 +12011,7 @@ document.getElementById('decline-call-btn').addEventListener('click', async () =
         await triggerAiResponse(); 
         
     } else { // 单聊拒绝逻辑保持不变
-        const declineMessage = { role: 'user', content: '나는 너의 영상 통화 요청을 거절했다.', timestamp: Date.now() };
+        const declineMessage = { role: 'user', content: '我拒绝了你的视频通话请求。', timestamp: Date.now() };
         chat.history.push(declineMessage);
         await db.chats.put(chat);
         
@@ -12107,13 +12108,13 @@ document.getElementById('confirm-create-countdown-btn').addEventListener('click'
     const dateValue = document.getElementById('countdown-date-input').value;
     
     if (!title || !dateValue) {
-        alert('완전한 약속 제목과 날짜를 기입해 주세요!');
+        alert('请填写完整的约定标题和日期！');
         return;
     }
 
     const targetDate = new Date(dateValue);
     if (isNaN(targetDate) || targetDate <= new Date()) {
-        alert('올바른 미래의 날짜를 입력하십시오!');
+        alert('请输入一个有效的、未来的日期！');
         return;
     }
 
@@ -12138,7 +12139,7 @@ document.getElementById('block-chat-btn').addEventListener('click', async () => 
     const chat = state.chats[state.activeChatId];
     const confirmed = await showCustomConfirm(
         '确认拉黑', 
-        `“${chat.name}”를 차단합니까？차단 후에는 Ta를 블랙리스트에서 제거하거나 Ta가 친구를 다시 신청할 때까지 메시지를 보낼 수 없습니다.`,
+        `确定要拉黑“${chat.name}”吗？拉黑后您将无法向其发送消息，直到您将Ta移出黑名单，或等待Ta重新申请好友。`,
         { confirmButtonClass: 'btn-danger' }
     );
 
@@ -12333,7 +12334,7 @@ document.getElementById('playlist-body').addEventListener('click', async (e) => 
     if (target.classList.contains('delete-track-btn')) {
         const index = parseInt(target.dataset.index);
         const track = musicState.playlist[index];
-        const confirmed = await showCustomConfirm('노래 삭제', `재생 목록에서 ${track.name}을 삭제하시겠습니까?`);
+        const confirmed = await showCustomConfirm('删除歌曲', `确定要从播放列表中删除《${track.name}》吗？`);
         if (confirmed) {
             deleteTrack(index);
         }

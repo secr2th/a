@@ -3679,36 +3679,36 @@ input[type="checkbox"] {
                     <!-- 第二行：放3个图标 -->
                     <div class="app-row">
                         <div class="app-icon" onclick="showScreen('api-settings-screen')"><div class="icon-bg"><img src="https://i.postimg.cc/G37vLZYr/IMG-7352.jpg" alt="API 설정"></div><span class="label">API 설정</span></div>
-                        <div class="app-icon" onclick="showScreen('wallpaper-screen')"><div class="icon-bg"><img src="https://i.postimg.cc/1RJrg8kk/IMG-7348.jpg" alt="배경"></div><span class="label">壁纸</span></div>
+                        <div class="app-icon" onclick="showScreen('wallpaper-screen')"><div class="icon-bg"><img src="https://i.postimg.cc/1RJrg8kk/IMG-7348.jpg" alt="배경"></div><span class="label">배경</span></div>
                         <div class="app-icon" onclick="showScreen('font-settings-screen')">
-                            <div class="icon-bg"><img src="https://i.postimg.cc/sDbSS7wN/IMG-7349.jpg" alt="字体"></div>
-                            <span class="label">字体</span>
+                            <div class="icon-bg"><img src="https://i.postimg.cc/sDbSS7wN/IMG-7349.jpg" alt="폰트"></div>
+                            <span class="label">폰트</span>
                         </div>
                     </div>                     </div>
             </div>
 
 
           
-            <div id="world-book-screen" class="screen"><div class="header"><span class="back-btn" onclick="showScreen('home-screen')">‹</span><span>世界书</span><span class="action-btn" id="add-world-book-btn">+</span></div><div id="world-book-list"></div></div>
+            <div id="world-book-screen" class="screen"><div class="header"><span class="back-btn" onclick="showScreen('home-screen')">‹</span><span>월드인포</span><span class="action-btn" id="add-world-book-btn">+</span></div><div id="world-book-list"></div></div>
             <div id="world-book-editor-screen" class="screen">
                 <div class="header">
                     <span class="back-btn" onclick="showScreen('world-book-screen')">‹</span>
-                    <span id="world-book-editor-title">编辑世界书</span>
-                    <span class="save-btn" id="save-world-book-btn">保存</span>
+                    <span id="world-book-editor-title">월드인포 편집</span>
+                    <span class="save-btn" id="save-world-book-btn">저장</span>
                 </div>
                 <div class="form-container">
                     <div class="form-group">
-                        <label for="world-book-name-input">书名</label>
-                        <input type="text" id="world-book-name-input" placeholder="请输入世界书的名称...">
+                        <label for="world-book-name-input">책 제목</label>
+                        <input type="text" id="world-book-name-input" placeholder="월드인포의 이름을 입력하십시오...">
                     </div>
                     <div class="form-group" style="height: 100%;">
-                        <label for="world-book-content-input">内容</label>
-                        <textarea id="world-book-content-input" placeholder="在此处输入详细的世界观设定..."></textarea>
+                        <label for="world-book-content-input">내용</label>
+                        <textarea id="world-book-content-input" placeholder="여기에 상세한 세계관 설정을 입력합니다..."></textarea>
                     </div>
                 </div>
             </div>
 
-            <div id="api-settings-screen" class="screen"><div class="header"><span class="back-btn" onclick="showScreen('home-screen')">‹</span><span>API 设置</span><span style="width: 30px;"></span></div><div class="form-container"><p style="font-size: 14px; color: #666; background-color: #f0f0f0; padding: 10px; border-radius: 8px;">提示: 若要使用“发送图片”功能, 请务必选择支持Vision(视觉)的模型, 如<code style="background-color: #e0e0e0; padding: 2px 4px; border-radius: 4px;">gpt-4o</code>或<code style="background-color: #e0e0e0; padding: 2px 4px; border-radius: 4px;">gpt-4-vision-preview</code>。</p><div class="form-group"><label for="proxy-url">反代地址 (不需要添加/v1噢~)</label><input type="text" id="proxy-url" placeholder="例如: https://api.openai.com"></div><div class="form-group"><label for="api-key">密钥 (API Key)</label><input type="password" id="api-key" placeholder="sk-..."></div><div class="form-group"><label for="model-select">模型</label><select id="model-select"></select></div><button class="form-button" id="fetch-models-btn">拉取模型</button>
+            <div id="api-settings-screen" class="screen"><div class="header"><span class="back-btn" onclick="showScreen('home-screen')">‹</span><span>API 설치</span><span style="width: 30px;"></span></div><div class="form-container"><p style="font-size: 14px; color: #666; background-color: #f0f0f0; padding: 10px; border-radius: 8px;">提示: 若要使用“发送图片”功能, 请务必选择支持Vision(视觉)的模型, 如<code style="background-color: #e0e0e0; padding: 2px 4px; border-radius: 4px;">gpt-4o</code>或<code style="background-color: #e0e0e0; padding: 2px 4px; border-radius: 4px;">gpt-4-vision-preview</code>。</p><div class="form-group"><label for="proxy-url">反代地址 (不需要添加/v1噢~)</label><input type="text" id="proxy-url" placeholder="例如: https://api.openai.com"></div><div class="form-group"><label for="api-key">密钥 (API Key)</label><input type="password" id="api-key" placeholder="sk-..."></div><div class="form-group"><label for="model-select">模型</label><select id="model-select"></select></div><button class="form-button" id="fetch-models-btn">拉取模型</button>
 
 <!-- ▼▼▼ 将这段代码粘贴到 API 设置页面的“保存设置”按钮上方 ▼▼▼ -->
 <hr style="margin:20px 0; opacity:.3">
@@ -4607,11 +4607,11 @@ input[type="checkbox"] {
                     <input type="text" id="rp-direct-greeting" placeholder="恭喜发财，大吉大利！">
                 </div>
                  <p id="rp-direct-total" style="text-align: center; font-size: 24px; font-weight: bold; margin: 10px 0;">¥ 0.00</p>
-                <button id="send-direct-packet-btn" class="form-button">塞钱进红包</button>
+                <button id="send-direct-packet-btn" class="form-button">송금하기</button>
             </div>
         </div>
         <div class="modal-footer" style="justify-content: center;">
-             <button class="cancel" id="cancel-red-packet-btn" style="width: 100%;">取消</button>
+             <button class="cancel" id="cancel-red-packet-btn" style="width: 100%;">취소</button>
         </div>
     </div>
 </div>
@@ -4623,14 +4623,14 @@ input[type="checkbox"] {
         <div class="modal-header" style="background-color: #F96259; color: white; border-bottom: none; padding-bottom: 5px;">
             <div style="text-align: center; width: 100%;">
                 <div id="rp-details-sender" style="font-size: 16px;"></div>
-                <div style="font-size: 13px; opacity: 0.8;">的红包</div>
+                <div style="font-size: 13px; opacity: 0.8;">축의금</div>
             </div>
         </div>
         <div class="modal-body" style="padding: 15px;">
             <p id="rp-details-greeting" style="text-align: center; font-size: 20px; color: #333; margin: 0 0 20px 0;"></p>
             <div id="rp-details-my-amount" style="text-align: center; display: none; margin-bottom: 20px;">
                 <span style="font-size: 40px; font-weight: bold; color: #E44D44;">0.00</span>
-                <span style="font-size: 18px; color: #E44D44;">元</span>
+                <span style="font-size: 18px; color: #E44D44;">¥</span>
             </div>
             <div id="rp-details-summary" style="font-size: 13px; color: #8a8a8a; border-top: 1px solid #e0e0e0; padding-top: 10px;"></div>
             <div id="rp-details-list" style="max-height: 150px; overflow-y: auto; margin-top: 10px;">
@@ -4638,7 +4638,7 @@ input[type="checkbox"] {
             </div>
         </div>
         <div class="modal-footer">
-            <button class="save" id="close-rp-details-btn" style="width: 100%;">关闭</button>
+            <button class="save" id="close-rp-details-btn" style="width: 100%;">닫기</button>
         </div>
     </div>
 </div>
@@ -4647,24 +4647,24 @@ input[type="checkbox"] {
 <div id="create-poll-modal" class="modal">
     <div class="modal-content" style="width: 300px; height: auto;">
         <div class="modal-header">
-            <span>发起投票</span>
+            <span>투표를 개시하다.</span>
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <label for="poll-question-input">投票问题</label>
-                <textarea id="poll-question-input" rows="2" placeholder="例如：今晚我们看什么电影？"></textarea>
+                <label for="poll-question-input">투표 문제</label>
+                <textarea id="poll-question-input" rows="2" placeholder="오늘 밤 우리는 어떤 영화를 보나요?"></textarea>
             </div>
             <div class="form-group">
-                <label>投票选项 (至少2项)</label>
+                <label>투표 옵션 (최소 2개)</label>
                 <div id="poll-options-container" style="display: flex; flex-direction: column; gap: 8px;">
                     <!-- 投票选项将由JS动态生成在这里 -->
                 </div>
-                <button id="add-poll-option-btn" class="form-button form-button-secondary" style="margin-top: 12px;">+ 添加选项</button>
+                <button id="add-poll-option-btn" class="form-button form-button-secondary" style="margin-top: 12px;">+ 옵션 추가</button>
             </div>
         </div>
         <div class="modal-footer">
-            <button class="cancel" id="cancel-create-poll-btn">取消</button>
-            <button class="save" id="confirm-create-poll-btn">发起投票</button>
+            <button class="cancel" id="cancel-create-poll-btn">취소</button>
+            <button class="save" id="confirm-create-poll-btn">투표 개시</button>
         </div>
     </div>
 </div>
@@ -4674,8 +4674,8 @@ input[type="checkbox"] {
 <div id="ai-avatar-library-modal" class="modal">
     <div class="modal-content" style="height: 70%;">
         <div class="modal-header">
-            <span id="ai-avatar-library-title">对方的头像库</span>
-            <button id="add-ai-avatar-btn" class="action-button">添加</button>
+            <span id="ai-avatar-library-title">상대방의 프로필 사진 라이브러리</span>
+            <button id="add-ai-avatar-btn" class="action-button">추가</button>
         </div>
         <div class="modal-body" style="padding: 15px;">
             <div id="ai-avatar-library-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 15px;">
@@ -4683,7 +4683,7 @@ input[type="checkbox"] {
             </div>
         </div>
         <div class="modal-footer">
-            <button class="save" id="close-ai-avatar-library-btn" style="width: 100%;">关闭</button>
+            <button class="save" id="close-ai-avatar-library-btn" style="width: 100%;">닫기</button>
         </div>
     </div>
 </div>

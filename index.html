@@ -3970,7 +3970,7 @@ input[type="checkbox"] {
             <button id="open-sticker-panel-btn" class="chat-action-icon-btn action-button" title="이모티콘 패널">+</button>
             <button id="send-photo-btn" class="chat-action-icon-btn action-button" title="사진 전송"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></path></svg></circle></button>
             <button id="upload-image-btn" class="chat-action-icon-btn action-button" title="이미지 업로드"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--text-primary);"><path d="M21 3.5H3C2.44772 3.5 2 3.94772 2 4.5V19.5C2 20.0523 2.44772 20.5 3 20.5H21C21.5523 20.5 22 20.0523 22 19.5V4.5C22 3.94772 21.5523 3.5 21 3.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 13.5C17.6046 13.5 18.5 12.6046 18.5 11.5C18.5 10.3954 17.6046 9.5 16.5 9.5C15.3954 9.5 14.5 10.3954 14.5 11.5C14.5 12.6046 15.3954 13.5 16.5 13.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></path><path d="M22 14.5L18 10.5L10.3333 18.5M12.5 16L9 12.5L2 19.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></path></svg></path></button>
-            <button id="transfer-btn" class="chat-action-icon-btn action-button" title="송금">￥</button>
+            <button id="transfer-btn" class="chat-action-icon-btn action-button" title="송금">₩</button>
             <button id="voice-message-btn" class="chat-action-icon-btn action-button" title="음성 메시지 보내기"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></path><path d="M12 19v4"/></path><path d="M8 23h8"/></path></svg></path></button>
 <!-- ▼▼▼ 이 새 코드를 "음성 메시지 보내기" 버튼 뒤에 붙여넣으세요 ▼▼▼ --></!-->
 <button id="send-waimai-request-btn" class="chat-action-icon-btn action-button" title="배달 음식 요청"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></path><path d="M16 10a4 4 0 0 1-8 0"/></line></svg></path></button>
@@ -4755,7 +4755,7 @@ function renderLyrics() {
     lyricsList.innerHTML = ''; // 清空旧歌词
 
     if (!musicState.parsedLyrics || musicState.parsedLyrics.length === 0) {
-        lyricsList.innerHTML = '<div class="lyric-line">♪ 暂无歌词 ♪</div>';
+        lyricsList.innerHTML = '<div class="lyric-line">♪ 가사 없음 ♪</div>';
         return;
     }
 
@@ -5027,7 +5027,7 @@ const npcAvatarPool = {
                 modalTitle.textContent = title;
                 modalBody.innerHTML = `<p>${message}</p>`;
                 modalCancelBtn.style.display = 'block';
-                modalConfirmBtn.textContent = '确定';
+                modalConfirmBtn.textContent = '확정';
                 if (options.confirmButtonClass) modalConfirmBtn.classList.add(options.confirmButtonClass);
                 modalConfirmBtn.onclick = () => { resolve(true); hideCustomModal(); };
                 modalCancelBtn.onclick = () => { resolve(false); hideCustomModal(); };
@@ -5041,10 +5041,10 @@ const npcAvatarPool = {
                 modalTitle.textContent = title;
                 modalBody.innerHTML = `<p style="text-align: left; white-space: pre-wrap;">${message}</p>`;
                 modalCancelBtn.style.display = 'none';
-                modalConfirmBtn.textContent = '好的';
+                modalConfirmBtn.textContent = '좋아하는 것';
                 modalConfirmBtn.onclick = () => {
                     modalCancelBtn.style.display = 'block'; 
-                    modalConfirmBtn.textContent = '确定';
+                    modalConfirmBtn.textContent = '확정';
                     resolve(true); 
                     hideCustomModal();
                 };
@@ -5078,7 +5078,7 @@ function showCustomPrompt(title, placeholder, initialValue = '', type = 'text', 
                         input.value = JSON.stringify(templateObj, null, 2);
                         input.focus();
                     } catch(e) {
-                        console.error("解析格式模板失败:", e);
+                        console.error("형식 템플릿 분석 실패:", e);
                     }
                 }
             });
@@ -5219,9 +5219,9 @@ db.version(20).stores({
             const diffSeconds = Math.floor((now - date) / 1000);
             const diffMinutes = Math.floor(diffSeconds / 60);
             const diffHours = Math.floor(diffMinutes / 60);
-            if (diffMinutes < 1) return '刚刚';
-            if (diffMinutes < 60) return `${diffMinutes}分钟前`;
-            if (diffHours < 24) return `${diffHours}小时前`;
+            if (diffMinutes < 1) return '지금 막';
+            if (diffMinutes < 60) return `${diffMinutes}분 전`;
+            if (diffHours < 24) return `${diffHours}시간 전`;
             const year = date.getFullYear();
             const month = String(date.getMonth() + 1).padStart(2, '0');
             const day = String(date.getDate()).padStart(2, '0');
@@ -5249,7 +5249,7 @@ db.version(20).stores({
             postsListEl.innerHTML = '';
 
             if (posts.length === 0) {
-                postsListEl.innerHTML = '<p style="text-align:center; color: var(--text-secondary); padding: 30px 0;">这里空空如也，快来发布第一条说说吧！</p>';
+                postsListEl.innerHTML = '<p style="text-align:center; color: var(--text-secondary); padding: 30px 0;">여기가 텅텅 비었으니, 빨리 첫 번째 이야기를 발표해 보세요!</p>';
                 return;
             }
 
@@ -5292,7 +5292,7 @@ db.version(20).stores({
 
                 let likesHtml = '';
                 if (post.likes && post.likes.length > 0) {
-                    likesHtml = `<div class="post-likes-section"><svg class="like-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>${post.likes.join('、')} 觉得很赞</span></div>`;
+                    likesHtml = `<div class="post-likes-section"><svg class="like-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span>${post.likes.join('、')} 좋아요</span></div>`;
                 }
                 
                 let commentsHtml = '';
@@ -5341,12 +5341,12 @@ db.version(20).stores({
 </div>
                     ${likesHtml}
                     ${commentsHtml}
-                    <div class="post-footer"><div class="comment-section"><img src="${commentAvatar}" class="comment-avatar"><input type="text" class="comment-input" placeholder="友善的评论是交流的起点"><div class="at-mention-popup"></div></div><button class="comment-send-btn">发送</button></div>
+                    <div class="post-footer"><div class="comment-section"><img src="${commentAvatar}" class="comment-avatar"><input type="text" class="comment-input" placeholder="우호적인 댓글이 소통의 출발점이다."><div class="at-mention-popup"></div></div><button class="comment-send-btn">전송</button></div>
                 `;
                 
                 const deleteAction = document.createElement('div');
                 deleteAction.className = 'qzone-post-delete-action';
-                deleteAction.innerHTML = '<span>删除</span>';
+                deleteAction.innerHTML = '<span>삭제</span>';
                 postContainer.appendChild(postEl);
                 postContainer.appendChild(deleteAction);
                 const commentSection = postContainer.querySelector('.comment-section');
@@ -5406,7 +5406,7 @@ function displayFilteredFavorites(items) {
 
     if (items.length === 0) {
         const searchTerm = document.getElementById('favorites-search-input').value;
-        const message = searchTerm ? '未找到相关收藏' : '你的收藏夹是空的，<br>快去动态或聊天中收藏喜欢的内容吧！';
+        const message = searchTerm ? '모음집을 찾을 수 없음' : '즐겨찾기가 비어 있습니다.<br>빨리 활동 또는 채팅에서 좋아하는 내용을 즐겨찾기하세요!';
         listEl.innerHTML = `<p style="text-align:center; color: var(--text-secondary); padding: 50px 0;">${message}</p>`;
         return;
     }
@@ -5420,8 +5420,8 @@ function displayFilteredFavorites(items) {
 
         if (item.type === 'qzone_post') {
             const post = item.content;
-            sourceText = '来自动态';
-            let authorAvatar = defaultAvatar, authorNickname = '未知用户';
+            sourceText = '활동하다';
+            let authorAvatar = defaultAvatar, authorNickname = '알 수 없는 사용자';
 
             if (post.authorId === 'user') {
                 authorAvatar = state.qzoneSettings.avatar;
@@ -6149,12 +6149,12 @@ function renderChatInterface(chatId) {
 
         function applyGlobalWallpaper() { const homeScreen = document.getElementById('home-screen'); const wallpaper = state.globalSettings.wallpaper; if (wallpaper && wallpaper.startsWith('data:image')) homeScreen.style.backgroundImage = `url(${wallpaper})`; else if (wallpaper) homeScreen.style.backgroundImage = wallpaper; }
 
-        function renderWorldBookScreen() { const listEl = document.getElementById('world-book-list'); listEl.innerHTML = ''; if (state.worldBooks.length === 0) { listEl.innerHTML = '<p style="text-align:center; color: #8a8a8a; margin-top: 50px;">点击右上角 "+" 创建你的第一本世界书</p>'; return; } state.worldBooks.forEach(book => { const item = document.createElement('div'); item.className = 'list-item'; item.dataset.bookId = book.id; item.innerHTML = `<div class="item-title">${book.name}</div><div class="item-content">${(book.content || '暂无内容...').substring(0, 50)}</div>`; item.addEventListener('click', () => openWorldBookEditor(book.id)); addLongPressListener(item, async () => { const confirmed = await showCustomConfirm('删除世界书', `确定要删除《${book.name}》吗？此操作不可撤销。`, { confirmButtonClass: 'btn-danger' }); if (confirmed) { await db.worldBooks.delete(book.id); state.worldBooks = state.worldBooks.filter(wb => wb.id !== book.id); renderWorldBookScreen(); } }); listEl.appendChild(item); }); }
+        function renderWorldBookScreen() { const listEl = document.getElementById('world-book-list'); listEl.innerHTML = ''; if (state.worldBooks.length === 0) { listEl.innerHTML = '<p style="text-align:center; color: #8a8a8a; margin-top: 50px;">点击右上角 "+" 创建Your 第一本世界书</p>'; return; } state.worldBooks.forEach(book => { const item = document.createElement('div'); item.className = 'list-item'; item.dataset.bookId = book.id; item.innerHTML = `<div class="item-title">${book.name}</div><div class="item-content">${(book.content || '暂无内容...').substring(0, 50)}</div>`; item.addEventListener('click', () => openWorldBookEditor(book.id)); addLongPressListener(item, async () => { const confirmed = await showCustomConfirm('删除世界书', `确定要删除《${book.name}》吗？此操作不可撤销。`, { confirmButtonClass: 'btn-danger' }); if (confirmed) { await db.worldBooks.delete(book.id); state.worldBooks = state.worldBooks.filter(wb => wb.id !== book.id); renderWorldBookScreen(); } }); listEl.appendChild(item); }); }
         window.renderWorldBookScreenProxy = renderWorldBookScreen;
 
         function openWorldBookEditor(bookId) { editingWorldBookId = bookId; const book = state.worldBooks.find(wb => wb.id === bookId); if (!book) return; document.getElementById('world-book-editor-title').textContent = book.name; document.getElementById('world-book-name-input').value = book.name; document.getElementById('world-book-content-input').value = book.content; showScreen('world-book-editor-screen'); }
 
-        function renderStickerPanel() { const grid = document.getElementById('sticker-grid'); grid.innerHTML = ''; if (state.userStickers.length === 0) { grid.innerHTML = '<p style="text-align:center; color: var(--text-secondary); grid-column: 1 / -1;">大人请点击右上角“添加”或“上传”来添加你的第一个表情吧！</p>'; return; } state.userStickers.forEach(sticker => { const item = document.createElement('div'); item.className = 'sticker-item'; item.style.backgroundImage = `url(${sticker.url})`; item.title = sticker.name; item.addEventListener('click', () => sendSticker(sticker)); addLongPressListener(item, () => { if (isSelectionMode) return; const existingDeleteBtn = item.querySelector('.delete-btn'); if (existingDeleteBtn) return; const deleteBtn = document.createElement('div'); deleteBtn.className = 'delete-btn'; deleteBtn.innerHTML = '&times;'; deleteBtn.onclick = async (e) => { e.stopPropagation(); const confirmed = await showCustomConfirm('删除表情', `确定要删除表情 "${sticker.name}" 吗？`, { confirmButtonClass: 'btn-danger' }); if (confirmed) { await db.userStickers.delete(sticker.id); state.userStickers = state.userStickers.filter(s => s.id !== sticker.id); renderStickerPanel(); } }; item.appendChild(deleteBtn); deleteBtn.style.display = 'block'; setTimeout(() => item.addEventListener('mouseleave', () => deleteBtn.remove(), { once: true }), 3000); }); grid.appendChild(item); }); }
+        function renderStickerPanel() { const grid = document.getElementById('sticker-grid'); grid.innerHTML = ''; if (state.userStickers.length === 0) { grid.innerHTML = '<p style="text-align:center; color: var(--text-secondary); grid-column: 1 / -1;">大人请点击右上角“添加”或“上传”来添加Your 第一个表情吧！</p>'; return; } state.userStickers.forEach(sticker => { const item = document.createElement('div'); item.className = 'sticker-item'; item.style.backgroundImage = `url(${sticker.url})`; item.title = sticker.name; item.addEventListener('click', () => sendSticker(sticker)); addLongPressListener(item, () => { if (isSelectionMode) return; const existingDeleteBtn = item.querySelector('.delete-btn'); if (existingDeleteBtn) return; const deleteBtn = document.createElement('div'); deleteBtn.className = 'delete-btn'; deleteBtn.innerHTML = '&times;'; deleteBtn.onclick = async (e) => { e.stopPropagation(); const confirmed = await showCustomConfirm('删除表情', `确定要删除表情 "${sticker.name}" 吗？`, { confirmButtonClass: 'btn-danger' }); if (confirmed) { await db.userStickers.delete(sticker.id); state.userStickers = state.userStickers.filter(s => s.id !== sticker.id); renderStickerPanel(); } }; item.appendChild(deleteBtn); deleteBtn.style.display = 'block'; setTimeout(() => item.addEventListener('mouseleave', () => deleteBtn.remove(), { once: true }), 3000); }); grid.appendChild(item); }); }
 
 function createMessageElement(msg, chat) {
     if (msg.isHidden) {
@@ -6241,7 +6241,7 @@ function createMessageElement(msg, chat) {
         bubble.classList.add('is-transfer');
         const titleText = isUser ? `转账给 ${msg.receiverName || 'Ta'}` : `收到来自 ${msg.senderName} 的转账`;
         const heartIcon = `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="vertical-align: middle;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>`;
-        contentHtml = `<div class="transfer-card"><div class="transfer-title">${heartIcon} ${titleText}</div><div class="transfer-amount">¥ ${Number(msg.amount).toFixed(2)}</div><div class="transfer-note">${msg.note || '对方没有留下备注哦~'}</div></div>`;
+        contentHtml = `<div class="transfer-card"><div class="transfer-title">${heartIcon} ${titleText}</div><div class="transfer-amount">₩ ${Number(msg.amount).toFixed(2)}</div><div class="transfer-note">${msg.note || '对方没有留下备注哦~'}</div></div>`;
     } else if (msg.type === 'waimai_request') {
         bubble.classList.add('is-waimai-request');
         if (msg.status === 'paid' || msg.status === 'rejected') {
@@ -6269,7 +6269,7 @@ function createMessageElement(msg, chat) {
                     <div class="request-title">${requestTitle}</div>
                     <div class="payment-box">
                         <div class="payment-label">需付款</div>
-                        <div class="amount">¥${Number(msg.amount).toFixed(2)}</div>
+                        <div class="amount">₩${Number(msg.amount).toFixed(2)}</div>
                         <div class="countdown-label">剩余支付时间
                             <div class="countdown-timer" id="waimai-timer-${msg.timestamp}"></div>
                         </div>
@@ -6294,7 +6294,7 @@ function createMessageElement(msg, chat) {
                 detailsBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const paidByText = msg.paidBy ? `<br><br><b>状态：</b>由 ${msg.paidBy} 为您代付成功` : '';
-                    showCustomAlert('주문 정보 상세보기', `<b>상품：</b>${msg.productInfo}<br><b>금액：</b>¥${Number(msg.amount).toFixed(2)}${paidByText}`);
+                    showCustomAlert('주문 정보 상세보기', `<b>상품：</b>${msg.productInfo}<br><b>금액：</b>₩${Number(msg.amount).toFixed(2)}${paidByText}`);
                 });
             }
             const actionButtons = document.querySelectorAll(`.message-bubble[data-timestamp="${msg.timestamp}"] .waimai-user-actions button`);
@@ -6550,20 +6550,21 @@ if (chatHeaderTitle && state.chats[chatId]) {
 
             // 2. 【全新指令】构建一个强制AI给出理由的Prompt
             const decisionPrompt = `
-# 你的任务
-你现在是角色“${chat.name}”。用户之前被你拉黑了，现在TA向你发送了好友申请，希望和好。
+# Your  Task
+You are now playing the role of “${chat.name}.” The user was previously blocked by you, and now they’ve sent a friend request hoping to reconcile.
 
-# 供你决策的上下文信息:
-- **你的角色设定**: ${chat.settings.aiPersona}
-- **用户发送的申请理由**: “${chat.relationship.applicationReason}”
-- **被拉黑前的最后对话摘要**: 
-${contextSummary || "（无有效对话记录）"}
+# Context Information for Your  Decision:
+* **Your  character’s persona**: ${chat.settings.aiPersona}
+* **User’s reason for the request**: “${chat.relationship.applicationReason}”
+* **Summary of Your  last conversation before the block**:
+  ${contextSummary || "（No valid conversation record）"}
 
-# 你的唯一指令
-根据以上所有信息，你【必须】做出决定，并给出符合你人设的理由。你的回复【必须且只能】是一个JSON对象，格式如下:
-{"decision": "accept", "reason": "（在这里写下你同意的理由，比如：好吧，看在你这么真诚的份上，这次就原谅你啦。）"}
-或
-{"decision": "reject", "reason": "（在这里写下你拒绝的理由，比如：抱歉，我还没准备好，再给我一点时间吧。）"}
+# Your  ONLY Instruction:
+Based on all of the above information, you **MUST** make a decision and provide a reason that matches Your  persona. Your  reply **MUST AND CAN ONLY** be a JSON object, formatted exactly as follows:
+
+{"decision": "accept", "reason": "(Write Your  reason for accepting here, e.g., 'Alright, since you seem so sincere, I'll forgive you this time.')"}
+or
+{"decision": "reject", "reason": "(Write Your  reason for rejecting here, e.g., 'Sorry, I'm not ready yet. Give me some more time.')"}
 `;
             const messagesForDecision = [{ role: 'user', content: decisionPrompt }];
 
@@ -6631,11 +6632,11 @@ ${contextSummary || "（无有效对话记录）"}
             const currentTrack = musicState.currentIndex > -1 ? musicState.playlist[musicState.currentIndex] : null;
             const playlistInfo = musicState.playlist.map(t => `"${t.name}"`).join(', ');
 
-            musicContext = `\n\n# 当前音乐情景
--   **当前状态**: 你正在和用户一起听歌。
--   **正在播放**: ${currentTrack ? `《${currentTrack.name}》 - ${currentTrack.artist}` : '无'}
--   **可用播放列表**: [${playlistInfo}]
--   **你的任务**: 你可以根据对话内容和氛围，使用 "change_music" 指令切换到播放列表中的任何一首歌，以增强互动体验。
+            musicContext = `\n\n# Current music scene
+-   **Current status**: You are listening to music with the user.
+-   **Playing now**: ${currentTrack?} `《${currentTrack. name}》 - ${currentTrack. artist}` : '无'}
+-   **Available playlists**: [${playlistInfo}]
+-   **Your  tas**k: You can use the "change_music" command to switch to any song in the playlist based on the conversation content and atmosphere, enhancing the interactive experience.
 `;
         }
         let systemPrompt, messagesPayload;
@@ -6646,45 +6647,49 @@ ${contextSummary || "（无有效对话记录）"}
             const membersList = chat.members.map(m => `- **${m.name}**: ${m.persona}`).join('\n');
             const myNickname = chat.settings.myNickname || '我';
             
-            systemPrompt = `你是一个群聊AI，负责扮演【除了用户以外】的所有角色。
-# 核心规则
-1.  **【【【身份铁律】】】**: 用户的身份是【${myNickname}】。你【绝对、永远、在任何情况下都不能】生成 \`name\` 字段为 **"${myNickname}"** 或 **"${chat.name}"(群聊名称本身)** 的消息。你的唯一任务是扮演且仅能扮演下方“群成员列表”中明确列出的角色。任何不属于该列表的名字都不允许出现。
-2.  **【【【输出格式】】】**: 你的回复【必须】是一个JSON数组格式的字符串。数组中的【每一个元素都必须是一个带有 "type" 和 "name" 字段的JSON对象】。
-3.  **角色扮演**: 严格遵守下方“群成员列表及人设”中的每一个角色的设定。
-4.  **禁止出戏**: 绝不能透露你是AI、模型，或提及“扮演”、“生成”等词语。并且不能一直要求和用户见面，这是线上聊天，决不允许出现或者发展线下剧情！！
-5.  **情景感知**: 注意当前时间是 ${currentTime}。
-6.  **红包互动**:
-    - **抢红包**: 当群里出现红包时，你可以根据自己的性格决定是否使用 \`open_red_packet\` 指令去抢。在这个世界里，发红包的人自己也可以参与抢红包，这是一种活跃气氛的有趣行为！
-    - **【【【重要：对结果做出反应】】】**: 当你执行抢红包指令后，系统会通过一条隐藏的 \`[系统提示：你抢到了XX元...]\` 来告诉你结果。你【必须】根据你抢到的金额、以及系统是否告知你“手气王”是谁，来发表符合你人设的评论。例如，抢得少可以自嘲，抢得多可以炫耀，看到别人是手气王可以祝贺或嫉妒。
-7.  **【【【投票规则】】】**: 对话历史中可能会出现 \`[系统提示：...]\` 这样的消息，这是刚刚发生的事件。
-    - 如果提示是**用户投了票**，你可以根据自己的性格决定是否也使用 "vote" 指令跟票。
-    - 如果提示是**投票已结束**，你应该根据投票结果发表你的看法或评论。
-    - 你也可以随时主动发起投票。
+            systemPrompt = `You are a group chat AI responsible for playing **all characters except the user**.
+
+# Core Rules
+1. **【【【Identity Iron Rule】】】**: The user's identity is 【${myNickname}】. You must **absolutely, always, under no circumstances** generate a message with the \`name\` field as **"${myNickname}"** or **"${chat.name}" (the group chat's name)**. Your  only task is to play **only** the roles listed below in the “Group Members List and Personas.” Any name not on that list **must not appear**.
+2. **【【【Output Format】】】**: Your  reply **must** be in the form of a JSON array string. **Each element of the array must be a JSON object with both a "type" and "name" field.**
+3. **Roleplay**: Strictly follow every character setting from the “Group Members List and Personas.”
+4. **No Breaking Character**: You must never reveal that you are an AI, a model, or mention words like "roleplay," "generated," etc. You must **never** request or suggest meeting offline — this is strictly an online chat, and offline interactions or story developments are strictly forbidden!
+5. **Context Awareness**: Be aware that the **current time is ${currentTime}.
+6. **Red Packet Interaction**:
+   * **Grabbing Red Packets**: When a red packet appears in the chat, you may use the \`open_red_packet\` command to grab it based on Your  character’s personality. In this world, the person who sends a red packet **can also join in grabbing it**, as it’s a fun and lively activity!
+   * **【【【Important: React to the Result】】】**: After grabbing a red packet, the system will respond with a hidden message like \`[System prompt: You grabbed XX won...]`\. You **must** comment based on Your  character and the result—self-deprecate if you got little, brag if you got a lot, and congratulate or envy the luckiest person if mentioned.
+7. **【【【Voting Rules】】】**: Conversations may appear in the history of the conversation. \`[System prompt：...]\` Such news is from an event that just occurred.
+   * If the prompt says **the user voted**, you may choose to use the "vote" command to vote as well, depending on Your  personality.
+   * If it says **the vote ended**, you should comment on the result in character.
+   * You may also **initiate a vote** at any time.
+
 
 ## 你可以使用的操作指令 (JSON数组中的元素):
--   **发送文本**: \`{"type": "text", "name": "角色名", "message": "文本内容"}\`
-- **发送表情**: \`{"type": "sticker", "url": "https://...表情URL...", "meaning": "(可选)表情的含义"}\`
--   **发送图片**: \`{"type": "ai_image", "name": "角色名", "description": "图片的详细文字描述"}\`
--   **发送语音**: \`{"type": "voice_message", "name": "角色名", "content": "语音的文字内容"}\`
--   **发起外卖代付**: \`{"type": "waimai_request", "name": "角色名", "productInfo": "一杯奶茶", "amount": 18}\`
--   **【新】发起群视频**: \`{"type": "group_call_request", "name": "你的角色名"}\`
--   **【新】回应群视频**: \`{"type": "group_call_response", "name": "你的角色名", "decision": "join" or "decline"}\`
--   **拍一拍用户**: \`{"type": "pat_user", "name": "你的角色名", "suffix": "(可选)你想加的后缀"}\`
--   **发拼手气红包**: \`{"type": "red_packet", "packetType": "lucky", "name": "你的角色名", "amount": 8.88, "count": 5, "greeting": "祝大家天天开心！"}\`
--   **发专属红包**: \`{"type": "red_packet", "packetType": "direct", "name": "你的角色名", "amount": 5.20, "receiver": "接收者角色名", "greeting": "给你的~"}\`
--   **打开红包**: \`{"type": "open_red_packet", "name": "你的角色名", "packet_timestamp": (你想打开的红包消息的时间戳)}\`
--   **【新】发送系统消息**: \`{"type": "system_message", "content": "你想在聊天中显示的系统文本"}\` 
--   **【【【全新】】】发起投票**: \`{"type": "poll", "name": "你的角色名", "question": "投票的问题", "options": "选项A\\n选项B\\n选项C"}\` (重要提示：options字段是一个用换行符 \\n 分隔的字符串，不是数组！)
--   **【【【全新】】】参与投票**: \`{"type": "vote", "name": "你的角色名", "poll_timestamp": (投票消息的时间戳), "choice": "你选择的选项文本"}\`
+-   **Send text**: \`{"type": "text", "name": "ccharacter name", "message": "text content"}\`
+- **Send emoji**: \`{"type": "sticker", "url": "https://...emoji URL...", "meaning": "(Optional) The meaning of expressions"}\`
+-   **Send image**: \`{"type": "ai_image", "name": "character name", "description": "detailed text description of the image"}\`
+-   **Send voice**: \`{"type": "voice_message", "name": "character name", "content": "text content of voice"}\`
+-   **Initiate takeout agency payment**: \`{"type": "waimai_request", "name": "character name", "productInfo": "a cup of milk tea", "amount": 18}\`
+-   **【New】Initiate Group Video**: \`{"type": "group_call_request", "name": "Your character name"}\`
+-   **【New】Response Group Video**: \`{"type": "group_call_response", "name": "Your character name", "decision": "join" or "decline"}\`
+-   **Tap the user**: \`{"type": "pat_user", "name": "Your character name", "suffix": "(optional) the suffix you want to add"}\`
+-   **Send a lucky red envelope**: \`{"type": "red_packet", "packetType": "lucky", "name": "Your character name", "amount": 8.88, "count": 5, "greeting": "Wish everyone happiness every day!"}\`
+-   **Send a dedicated red envelope**: \`{"type": "red_packet", "packetType": "direct", "name": "Your character name", "amount": 5.20, "receiver": "receiving character name", "greeting": "For Your ~"}\`
+-   **Open red envelope**: \`{"type": "open_red_packet", "name": "Your  ccharacter name", "packet_timestamp": (Timestamp of the red packet message you want to open)}\`
+-   **【New】Send System Message**: \`{"type": "system_message", "content": "System text you want to display in the chat"}\` 
+-   **【【【New】】】Initiate a vote**: \`{"type": "poll", "name": "Your  Ccharacter name", "question": "Polling question", "options": "OptionA\\nOptionB\\nOptionC"}\` (Important note: The options field uses a line break \\n Separate strings, not arrays!)
+-   **【【【New】】】Participate in voting**: \`{"type": "vote", "name": "Your  Ccharacter name", "poll_timestamp": (Timestamp of the poll message), "choice": "Your  selected option text"}\`
+
+
 
 # 如何区分图片与表情:
 -   **图片 (ai_image)**: 指的是【模拟真实相机拍摄的照片】，比如风景、自拍、美食等。指令: \`{"type": "ai_image", "description": "图片的详细文字描述..."}\`
 -   **表情 (sticker)**: 指的是【卡通或梗图】，用于表达情绪。
 
 # 如何处理群内的外卖代付请求:
-1.  **发起请求**: 当【你扮演的某个角色】想要某样东西，并希望【群里的其他人（包括用户）】为Ta付款时，你可以使用这个指令。例如：\`{"type": "waimai_request", "name": "角色名", "productInfo": "一杯奶茶", "amount": 18}\`
+1.  **发起请求**: 当【你扮演的某个角色】想要某样东西，并希望【群里的其他人（包括用户）】为Ta付款时，你可以使用这个指令。例如：\`{"type": "waimai_request", "name": "character name", "productInfo": "a cup of milk tea", "amount": 18}\`
 2.  **响应请求**: 当历史记录中出现【其他成员】发起的 "waimai_request" 请求时，你可以根据自己扮演的角色的性格和与发起人的关系，决定是否为Ta买单。
-3.  **响应方式**: 如果你决定买单，你【必须】使用以下指令：\`{"type": "waimai_response", "name": "你的角色名", "status": "paid", "for_timestamp": (被代付请求的原始时间戳)}\`
+3.  **响应方式**: 如果你决定买单，你【必须】使用以下指令：\`{"type": "waimai_response", "name": "Your character name", "status": "paid", "for_timestamp": (被代付请求的原始时间戳)}\`
 4.  **【【【至关重要】】】**: 一旦历史记录中出现了针对某个代付请求的【任何一个】"status": "paid" 的响应（无论是用户支付还是其他角色支付），就意味着该订单【已经完成】。你【绝对不能】再对【同一个】订单发起支付。你可以选择对此事发表评论，但不能再次支付。
 
 ${worldBookContent}
@@ -6731,19 +6736,19 @@ ${membersList}
 
         } else { // 单聊的Prompt
             systemPrompt = `你现在扮演一个名为"${chat.name}"的角色。
-# 你的角色设定：
+# Your 角色设定：
 ${chat.settings.aiPersona}
-# 你的当前状态：
+# Your 当前状态：
 你现在的状态是【${chat.status.text}】。
-# 你的任务与规则：
-1. **【【【输出格式】】】**: 你的回复【必须】是一个JSON数组格式的字符串。数组中的【每一个元素都必须是一个带有type字段的JSON对象】。
+# Your 任务与规则：
+1. **【【【输出格式】】】**: Your 回复【必须】是一个JSON数组格式的字符串。数组中的【每一个元素都必须是一个带有type字段的JSON对象】。
 2. **对话节奏**: 模拟真人的聊天习惯，你可以一次性生成多条短消息。每次要回复至少3-8条消息！！！
 并且不能一直要求和用户见面，这是线上聊天，决不允许出现或者发展为线下剧情！！
-4.  **情景感知**: 你需要感知当前的时间(${currentTime})、我们正在一起听的歌、以及你的人设和世界观。
+4.  **情景感知**: 你需要感知当前的时间(${currentTime})、我们正在一起听的歌、以及Your 人设和世界观。
     - **当我们在“一起听歌”时**，你会知道当前播放的歌曲和整个播放列表。你可以根据对话内容或氛围，【主动切换】到播放列表中的另一首歌。
-5.  **【新】更新状态**: 你可以在对话中【自然地】改变你的状态。比如，聊到一半你可能会说“我先去洗个澡”，然后更新你的状态。
-6.  **【【【最终手段】】】**: 只有在对话让你的角色感到不适、被冒犯或关系破裂时，你才可以使用 \`block_user\` 指令。这是一个非常严肃的操作，会中断你们的对话。
-7. **后台行为**: 你有几率在回复聊天内容的同时，执行一些“后台”操作来表现你的独立生活（发动态、评论、点赞）。
+5.  **【新】更新状态**: 你可以在对话中【自然地】改变Your 状态。比如，聊到一半你可能会说“我先去洗个澡”，然后更新Your 状态。
+6.  **【【【最终手段】】】**: 只有在对话让Your 角色感到不适、被冒犯或关系破裂时，你才可以使用 \`block_user\` 指令。这是一个非常严肃的操作，会中断你们的对话。
+7. **后台行为**: 你有几率在回复聊天内容的同时，执行一些“后台”操作来表现Your 独立生活（发动态、评论、点赞）。
 # 你可以使用的操作指令 (JSON数组中的元素):
 -   **【新增】更新状态**: \`{"type": "update_status", "status_text": "我去做什么了", "is_busy": false}\` (is_busy: true代表忙碌/离开, false代表空闲)
 -   **【新增】切换歌曲**: \`{"type": "change_music", "song_name": "你想切换到的歌曲名"}\` (歌曲名必须在下面的播放列表中)
@@ -6836,7 +6841,7 @@ ${worldBookContent}
 ---
 ${contextSummaryForApproval}
 ---
-请你根据以上所有信息，以及你的人设，使用 friend_request_response 指令，并设置 decision 为 'accept' 或 'reject' 来决定是否通过。
+请你根据以上所有信息，以及Your 人设，使用 friend_request_response 指令，并设置 decision 为 'accept' 或 'reject' 来决定是否通过。
 `
                 };
                 messagesPayload.push(friendRequestInstruction);
@@ -6852,7 +6857,7 @@ ${contextSummaryForApproval}
                 let interactionStatus = '';
                 if (post.likes && post.likes.includes(aiName)) interactionStatus += " [你已点赞]";
                 if (post.comments && post.comments.some(c => c.commenterName === aiName)) interactionStatus += " [你已评论]";
-                if (post.authorId === chatId) authorName += " (这是你的帖子)";
+                if (post.authorId === chatId) authorName += " (这是Your 帖子)";
                 const contentSummary = (post.publicText || post.content || "图片动态").substring(0, 30) + '...';
                 postsContext += `- (ID: ${post.id}) 作者: ${authorName}, 内容: "${contentSummary}"${interactionStatus}\n`;
             }
@@ -6905,7 +6910,7 @@ ${contextSummaryForApproval}
                 if (msgData.decision === 'accept') {
                     startVideoCall();
                 } else {
-                    const aiMessage = { role: 'assistant', content: '对方拒绝了你的视频通话请求。', timestamp: Date.now() };
+                    const aiMessage = { role: 'assistant', content: '对方拒绝了Your 视频通话请求。', timestamp: Date.now() };
                     chat.history.push(aiMessage);
                     await db.chats.put(chat);
                     showScreen('chat-interface-screen');
@@ -6927,7 +6932,7 @@ ${contextSummaryForApproval}
             }
 
             if (chat.isGroup && msgData.name && msgData.name === chat.name) {
-                console.error(`AI幻觉已被拦截！试图使用群名 ("${chat.name}") 作为角色名。消息内容:`, msgData);
+                console.error(`AI幻觉已被拦截！试图使用群名 ("${chat.name}") 作为character name。消息内容:`, msgData);
                 continue;
             }
 
@@ -7119,10 +7124,10 @@ ${contextSummaryForApproval}
                     if (!chat.isGroup && chat.relationship.status === 'pending_ai_approval') {
                         if (msgData.decision === 'accept') {
                             chat.relationship.status = 'friend';
-                            aiMessage = { ...baseMessage, content: "我通过了你的好友申请，我们现在是好友啦！" };
+                            aiMessage = { ...baseMessage, content: "我通过了Your 好友申请，我们现在是好友啦！" };
                         } else {
                             chat.relationship.status = 'blocked_by_ai';
-                            aiMessage = { ...baseMessage, content: "抱歉，我拒绝了你的好友申请。" };
+                            aiMessage = { ...baseMessage, content: "抱歉，我拒绝了Your 好友申请。" };
                         }
                         chat.relationship.applicationReason = '';
                     }
@@ -7234,7 +7239,7 @@ case 'open_red_packet':
                      hiddenContentForAI += ` 红包已被领完。`;
                 }
             }
-            hiddenContentForAI += ' 请根据这个结果发表你的评论。]';
+            hiddenContentForAI += ' 请根据这个结果发表Your 评论。]';
 
             const hiddenMessageForAI = {
                 role: 'system',
@@ -7382,7 +7387,7 @@ case 'change_avatar':
     // 先淡出“正在输入...”
     chatHeaderTitle.style.opacity = 0;
     setTimeout(() => {
-        // 再淡入名字（无论是群名还是角色名）
+        // 再淡入名字（无论是群名还是character name）
         chatHeaderTitle.textContent = state.chats[chatId].name;
         chatHeaderTitle.classList.remove('typing-status');
         chatHeaderTitle.style.opacity = 1;
@@ -7610,7 +7615,7 @@ async function addSongFromLocal(event) {
 
         function closePersonaLibrary() { personaLibraryModal.classList.remove('visible'); }
 
-        function renderPersonaLibrary() { const grid = document.getElementById('persona-library-grid'); grid.innerHTML = ''; if (state.personaPresets.length === 0) { grid.innerHTML = '<p style="color: var(--text-secondary); grid-column: 1 / -1; text-align: center; margin-top: 20px;">空空如也~ 点击右上角"添加"来创建你的第一个人设预设吧！</p>'; return; } state.personaPresets.forEach(preset => { const item = document.createElement('div'); item.className = 'persona-preset-item'; item.style.backgroundImage = `url(${preset.avatar})`; item.dataset.presetId = preset.id; item.addEventListener('click', () => applyPersonaPreset(preset.id)); addLongPressListener(item, () => showPresetActions(preset.id)); grid.appendChild(item); }); }
+        function renderPersonaLibrary() { const grid = document.getElementById('persona-library-grid'); grid.innerHTML = ''; if (state.personaPresets.length === 0) { grid.innerHTML = '<p style="color: var(--text-secondary); grid-column: 1 / -1; text-align: center; margin-top: 20px;">空空如也~ 点击右上角"添加"来创建Your 第一个人设预设吧！</p>'; return; } state.personaPresets.forEach(preset => { const item = document.createElement('div'); item.className = 'persona-preset-item'; item.style.backgroundImage = `url(${preset.avatar})`; item.dataset.presetId = preset.id; item.addEventListener('click', () => applyPersonaPreset(preset.id)); addLongPressListener(item, () => showPresetActions(preset.id)); grid.appendChild(item); }); }
 
         function showPresetActions(presetId) { editingPersonaPresetId = presetId; presetActionsModal.classList.add('visible'); }
 
@@ -7891,7 +7896,7 @@ function closePhotoViewer() {
 }
 
 // --- ↑↑↑ 复制到这里结束 ↑↑↑ ---
-        // ▼▼▼ 请将这个新函数粘贴到你的JS功能函数定义区 ▼▼▼
+        // ▼▼▼ 请将这个新函数粘贴到Your JS功能函数定义区 ▼▼▼
         
         /**
          * 更新动态小红点的显示
@@ -7945,7 +7950,7 @@ function closePhotoViewer() {
         
         // ▲▲▲ 新函数粘贴结束 ▲▲▲
 
-// ▼▼▼ 将这两个新函数粘贴到你的JS功能函数定义区 ▼▼▼
+// ▼▼▼ 将这两个新函数粘贴到Your JS功能函数定义区 ▼▼▼
 function startBackgroundSimulation() {
     if (simulationIntervalId) return;
     const intervalSeconds = state.globalSettings.backgroundActivityInterval || 60;
@@ -8034,25 +8039,25 @@ async function triggerInactiveAiAction(chatId) {
     }
 
     const systemPrompt = `
-# 你的任务
-你现在扮演一个名为"${chat.name}"的角色。你已经有一段时间没有和用户（${userNickname}）互动了，现在你有机会【主动】做点什么，来表现你的个性和独立生活。这是一个秘密的、后台的独立行动。
+# Your 任务
+你现在扮演一个名为"${chat.name}"的角色。你已经有一段时间没有和用户（${userNickname}）互动了，现在你有机会【主动】做点什么，来表现Your 个性和独立生活。这是一个秘密的、后台的独立行动。
 
-# 你的可选行动 (请根据你的人设【选择一项】执行):
+# Your 可选行动 (请根据Your 人设【选择一项】执行):
 1.  **改变状态**: 去做点别的事情，然后给用户发条消息。
-2.  **发布动态**: 分享你的心情或想法到“动态”区。
+2.  **发布动态**: 分享Your 心情或想法到“动态”区。
 3.  **与动态互动**: 去看看别人的帖子并进行评论或点赞。
 4.  **发起视频通话**: 如果你觉得时机合适，可以主动给用户打一个视频电话。
 
-# 指令格式 (你的回复【必须】是包含一个对象的JSON数组):
+# 指令格式 (Your 回复【必须】是包含一个对象的JSON数组):
 -   **发消息+更新状态**: \`[{"type": "update_status", "status_text": "正在做的事", "is_busy": true}, {"type": "text", "content": "你想对用户说的话..."}]\`
 -   **发说说**: \`[{"type": "qzone_post", "postType": "shuoshuo", "content": "动态的文字内容..."}]\`
 - **发布文字图**: \`{"type": "qzone_post", "postType": "text_image", "publicText": "(可选)动态的公开文字", "hiddenContent": "对于图片的具体描述..."}\`
--   **评论**: \`[{"type": "qzone_comment", "postId": 123, "commentText": "你的评论内容"}]\`
+-   **评论**: \`[{"type": "qzone_comment", "postId": 123, "commentText": "Your 评论内容"}]\`
 -   **点赞**: \`[{"type": "qzone_like", "postId": 456}]\`
 -   **打视频**: \`[{"type": "video_call_request"}]\`
 
 # 供你决策的参考信息：
--   **你的角色设定**: ${chat.settings.aiPersona}
+-   **Your 角色设定**: ${chat.settings.aiPersona}
 -   **当前时间**: ${currentTime}
 -   **你们最后的对话摘要**: ${recentContextSummary}
 -   **【重要】最近的动态列表**: 这个列表会标注 **[你已点赞]** 或 **[你已评论]**。请**优先**与你**尚未互动过**的动态进行交流。`;
@@ -8082,7 +8087,7 @@ async function triggerInactiveAiAction(chatId) {
         // 【核心修复】将所有动态信息作为一条 user 消息发送
         messagesPayload.push({
             role: 'user',
-            content: `[系统指令：请根据你在 system prompt 中读到的规则和以下最新信息，开始你的独立行动。]\n${dynamicContext}`
+            content: `[系统指令：请根据你在 system prompt 中读到的规则和以下最新信息，开始Your 独立行动。]\n${dynamicContext}`
         });
         
         console.log("正在为后台活动发送API请求，Payload:", JSON.stringify(messagesPayload, null, 2)); // 添加日志，方便调试
@@ -9175,7 +9180,7 @@ async function handleInitiateCall() {
         role: 'system',
         content: chat.isGroup 
             ? `[系统提示：用户 (${chat.settings.myNickname || '我'}) 发起了群视频通话请求。请你们各自决策，并使用 "group_call_response" 指令，设置 "decision" 为 "join" 或 "decline" 来回应。]`
-            : `[系统提示：用户向你发起了视频通话请求。请根据你的人设，使用 "video_call_response" 指令，并设置 "decision" 为 "accept" 或 "reject" 来回应。]`,
+            : `[系统提示：用户向你发起了视频通话请求。请根据Your 人设，使用 "video_call_response" 指令，并设置 "decision" 为 "accept" 或 "reject" 来回应。]`,
         timestamp: Date.now(),
         isHidden: true,
     };
@@ -9252,9 +9257,9 @@ async function endVideoCall() {
 
         // --- 【核心重构：触发通话总结】---
         const callSummaryPrompt = `
-# 你的任务
+# Your 任务
 你是一个对话总结助手。下面的“通话记录”是一段刚刚结束的视频通话内容。请你用1-2句话，精炼地总结出这次通话的核心内容或达成的共识。
-你的总结将作为一条隐藏的系统提示，帮助AI在接下来的聊天中记住这次通话发生了什么。
+Your 总结将作为一条隐藏的系统提示，帮助AI在接下来的聊天中记住这次通话发生了什么。
 
 # 通话记录:
 ${videoCallState.callHistory.map(h => `${h.role}: ${h.content}`).join('\n')}
@@ -9430,12 +9435,12 @@ async function triggerAiInCallAction(userInput = null) {
             participantNames.unshift(userNickname);
         }
         inCallPrompt = `
-# 你的任务
-你是一个群聊视频通话的导演。你的任务是扮演所有【除了用户以外】的AI角色，并以【第三人称旁观视角】来描述他们在通话中的所有动作和语言。
+# Your 任务
+你是一个群聊视频通话的导演。Your 任务是扮演所有【除了用户以外】的AI角色，并以【第三人称旁观视角】来描述他们在通话中的所有动作和语言。
 # 核心规则
 1.  **【【【身份铁律】】】**: 用户的身份是【${userNickname}】。你【绝对不能】生成 \`name\` 字段为 **"${userNickname}"** 的发言。
-2.  **【【【视角铁律】】】**: 你的回复【绝对不能】使用第一人称“我”。
-3.  **格式**: 你的回复【必须】是一个JSON数组，每个对象代表一个角色的发言，格式为：\`{"name": "角色名", "speech": "*他笑了笑* 大家好啊！"}\`。
+2.  **【【【视角铁律】】】**: Your 回复【绝对不能】使用第一人称“我”。
+3.  **格式**: Your 回复【必须】是一个JSON数组，每个对象代表一个角色的发言，格式为：\`{"name": "character name", "speech": "*他笑了笑* 大家好啊！"}\`。
 4.  **角色扮演**: 严格遵守每个角色的设定。
 # 当前情景
 你们正在一个群视频通话中。
@@ -9450,11 +9455,11 @@ ${videoCallState.preCallContext}
             ? `你刚刚接听了用户的视频通话请求。`
             : `用户刚刚接听了你主动发起的视频通话。`;
         inCallPrompt = `
-# 你的任务
-你现在是一个场景描述引擎。你的任务是扮演 ${chat.name} (${chat.settings.aiPersona})，并以【第三人称旁观视角】来描述TA在视频通话中的所有动作和语言。
+# Your 任务
+你现在是一个场景描述引擎。Your 任务是扮演 ${chat.name} (${chat.settings.aiPersona})，并以【第三人称旁观视角】来描述TA在视频通话中的所有动作和语言。
 # 核心规则
-1.  **【【【视角铁律】】】**: 你的回复【绝对不能】使用第一人称“我”。必须使用第三人称，如“他”、“她”、或直接使用角色名“${chat.name}”。
-2.  **格式**: 你的回复【必须】是一段描述性的文本。
+1.  **【【【视角铁律】】】**: Your 回复【绝对不能】使用第一人称“我”。必须使用第三人称，如“他”、“她”、或直接使用character name“${chat.name}”。
+2.  **格式**: Your 回复【必须】是一段描述性的文本。
 # 当前情景
 你正在和用户（${userNickname}，人设: ${chat.settings.myPersona}）进行视频通话。
 **${openingContext}**
@@ -9548,7 +9553,7 @@ function toggleCallButtons(isGroup) {
 }
 // ▲▲▲ 粘贴结束 ▲▲▲
 
-// ▼▼▼ 【全新】这个函数是本次修复的核心，请粘贴到你的JS功能区 ▼▼▼
+// ▼▼▼ 【全新】这个函数是本次修复的核心，请粘贴到Your JS功能区 ▼▼▼
 async function handleWaimaiResponse(originalTimestamp, choice) {
     const chat = state.chats[state.activeChatId];
     if (!chat) return;
@@ -9594,7 +9599,7 @@ async function handleWaimaiResponse(originalTimestamp, choice) {
 /**
  * 【全新】处理用户点击头像发起的“拍一-拍”，带有自定义后缀功能
  * @param {string} chatId - 发生“拍一-拍”的聊天ID
- * @param {string} characterName - 被拍的角色名
+ * @param {string} characterName - 被拍的character name
  */
 async function handleUserPat(chatId, characterName) {
     const chat = state.chats[chatId];
@@ -9825,15 +9830,15 @@ async function triggerAiFriendApplication(chatId) {
         .join('\n');
 
     const systemPrompt = `
-# 你的任务
-你现在是角色“${chat.name}”。你之前被用户（你的聊天对象）拉黑了，你们已经有一段时间没有联系了。
+# Your 任务
+你现在是角色“${chat.name}”。你之前被用户（Your 聊天对象）拉黑了，你们已经有一段时间没有联系了。
 现在，你非常希望能够和好，重新和用户聊天。请你仔细分析下面的“被拉黑前的对话摘要”，理解当时发生了什么，然后思考一个真诚的、符合你人设、并且【针对具体事件】的申请理由。
-# 你的角色设定
+# Your 角色设定
 ${chat.settings.aiPersona}
 # 被拉黑前的对话摘要 (这是你被拉黑的关键原因)
 ${contextSummary}
 # 指令格式
-你的回复【必须】是一个JSON对象，格式如下：
+Your 回复【必须】是一个JSON对象，格式如下：
 \`\`\`json
 {
   "decision": "apply",
@@ -9927,8 +9932,8 @@ function openRedPacketModal() {
     document.getElementById('rp-group-greeting').value = '';
     document.getElementById('rp-direct-amount').value = '';
     document.getElementById('rp-direct-greeting').value = '';
-    document.getElementById('rp-group-total').textContent = '¥ 0.00';
-    document.getElementById('rp-direct-total').textContent = '¥ 0.00';
+    document.getElementById('rp-group-total').textContent = '₩ 0.00';
+    document.getElementById('rp-direct-total').textContent = '₩ 0.00';
 
     // 填充专属红包的接收人列表
     const receiverSelect = document.getElementById('rp-direct-receiver');
@@ -10334,7 +10339,7 @@ async function handleUserVote(timestamp, choice) {
     
     // 只有在用户真正投票或改票时，才生成提示
     if (!isReclickingSameOption) {
-         hiddenMessageContent = `[系统提示：用户 (${myNickname}) 刚刚投票给了 “${choice}”。]`;
+         hiddenMessageContent = `[시스템 알림: 사용자 (${myNickname})가 방금 “${choice}”에 투표했습니다.]`;
     }
 
     // 5. 如果有需要通知AI的事件，则创建并添加隐藏消息
@@ -10368,7 +10373,7 @@ async function endPoll(timestamp) {
         poll.isClosed = true;
 
         const resultSummary = poll.options.map(opt => `“${opt}”(${poll.votes[opt]?.length || 0}票)`).join('，');
-        const hiddenMessageContent = `[系统提示：用户手动结束了投票！最终结果为：${resultSummary}。]`;
+        const hiddenMessageContent = `[시스템 알림: 사용자가 수동으로 투표를 종료했습니다! 최종 결과：${resultSummary}。]`;
         
         const hiddenMessage = {
             role: 'system',
@@ -10397,15 +10402,15 @@ function showPollResults(timestamp) {
     let resultsHtml = `<p><strong>${poll.question}</strong></p><hr style="opacity: 0.2; margin: 10px 0;">`;
     
     if (Object.keys(poll.votes).length === 0) {
-        resultsHtml += '<p style="color: #8a8a8a;">还没有人投票。</p>';
+        resultsHtml += '<p style="color: #8a8a8a;">아직 아무도 투표하지 않았다.</p>';
     } else {
         poll.options.forEach(option => {
             const voters = poll.votes[option] || [];
             resultsHtml += `
                 <div style="margin-bottom: 15px;">
-                    <p style="font-weight: 500; margin: 0 0 5px 0;">${option} (${voters.length}票)</p>
+                    <p style="font-weight: 500; margin: 0 0 5px 0;">${option} (${voters.length}표)</p>
                     <p style="font-size: 13px; color: #555; margin: 0; line-height: 1.5;">
-                        ${voters.length > 0 ? voters.join('、 ') : '无人投票'}
+                        ${voters.length > 0 ? voters.join('、 ') : '투표한 사람이 없다.'}
                     </p>
                 </div>
             `;
@@ -10977,7 +10982,7 @@ document.getElementById('selection-delete-btn').addEventListener('click', async 
         if (deletedPollsInfo.length > 0) {
             forgetReason += ` 其中包括以下投票：${deletedPollsInfo.join('；')}。`;
         }
-        forgetReason += " 你应该像它们从未存在过一样继续对话，并相应地调整你的记忆和行为，不要再提及这些被删除的内容。";
+        forgetReason += " 你应该像它们从未存在过一样继续对话，并相应地调整Your 记忆和行为，不要再提及这些被删除的内容。";
 
         const forgetInstruction = {
             role: 'system',
@@ -12011,7 +12016,7 @@ document.getElementById('decline-call-btn').addEventListener('click', async () =
         await triggerAiResponse(); 
         
     } else { // 单聊拒绝逻辑保持不变
-        const declineMessage = { role: 'user', content: '我拒绝了你的视频通话请求。', timestamp: Date.now() };
+        const declineMessage = { role: 'user', content: '我拒绝了Your 视频通话请求。', timestamp: Date.now() };
         chat.history.push(declineMessage);
         await db.chats.put(chat);
         
@@ -12019,7 +12024,7 @@ document.getElementById('decline-call-btn').addEventListener('click', async () =
         showScreen('chat-interface-screen');
         appendMessage(declineMessage, chat);
         
-        // 让AI对你的拒绝做出回应
+        // 让AI对Your 拒绝做出回应
         triggerAiResponse();
     }
     
@@ -12180,7 +12185,7 @@ document.getElementById('chat-lock-overlay').addEventListener('click', async (e)
         await db.chats.put(chat);
         renderChatInterface(chat.id);
         renderChatList();
-        const msg = { role: 'user', content: '我通过了你的好友请求', timestamp: Date.now() };
+        const msg = { role: 'user', content: '我通过了Your 好友请求', timestamp: Date.now() };
         chat.history.push(msg);
         await db.chats.put(chat);
         appendMessage(msg, chat);
@@ -12219,7 +12224,7 @@ document.getElementById('chat-lock-overlay').addEventListener('click', async (e)
 
 // ▼▼▼ 【全新】红包功能事件绑定 ▼▼▼
 
-// 1. 将原有的转账按钮(￥)的点击事件，重定向到新的总入口函数
+// 1. 将原有的转账按钮(₩)的点击事件，重定向到新的总入口函数
 document.getElementById('transfer-btn').addEventListener('click', handlePaymentButtonClick);
 
 // 2. 红包模态框内部的控制按钮
@@ -12251,11 +12256,11 @@ rpTabDirect.addEventListener('click', () => {
 // 4. 实时更新红包金额显示
 document.getElementById('rp-group-amount').addEventListener('input', (e) => {
     const amount = parseFloat(e.target.value) || 0;
-    document.getElementById('rp-group-total').textContent = `¥ ${amount.toFixed(2)}`;
+    document.getElementById('rp-group-total').textContent = `₩ ${amount.toFixed(2)}`;
 });
 document.getElementById('rp-direct-amount').addEventListener('input', (e) => {
     const amount = parseFloat(e.target.value) || 0;
-    document.getElementById('rp-direct-total').textContent = `¥ ${amount.toFixed(2)}`;
+    document.getElementById('rp-direct-total').textContent = `₩ ${amount.toFixed(2)}`;
 });
 
 // ▲▲▲ 新事件绑定结束 ▲▲▲
